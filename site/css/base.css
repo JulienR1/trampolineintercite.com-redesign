@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+}
+
+header {
+  height: 80px;
+}
+
+main {
+  min-height: calc(100% - 155px);
+}
+
+footer {
+  height: 75px;
+}
+/*# sourceMappingURL=base.css.map */

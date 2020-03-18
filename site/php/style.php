@@ -1,6 +1,7 @@
 <?php
     $currentPage = $_SERVER['REQUEST_URI'];
 
+    printLink("base.css");
     if($currentPage == "/" || strpos($currentPage, "index")){
         // index.php
         printLink("header_style.css");

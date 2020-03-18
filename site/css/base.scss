@@ -1,0 +1,22 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+}
+
+header {
+  height: $header_height;
+}
+
+main {
+  min-height: calc(100% - #{$header_height + $footer_height});
+}
+
+footer {
+  height: $footer_height;
+}
