@@ -2,6 +2,8 @@
 @import "fonts";
 @import "variables";
 
+$hover_animation_time : 0.2s;
+
 header{
     position: relative;
     box-shadow: 0px 6px 6px 0px $shadow_color;
@@ -26,10 +28,12 @@ header nav #main_list li{
     position: relative;    
     display: inline-block;
     vertical-align: middle;
+    text-align: center;
     line-height: $header_height;
     height: 100%;
-    max-width: 100%;
+    min-width: 100%;
     margin: 0 auto;
+    transition: background-color ease $hover_animation_time;
 }
 
 header .dropdown:before{
@@ -37,31 +41,68 @@ header .dropdown:before{
     position: absolute;
     height: 2px;
     background-color: $text_color;
-    left: 10%; right: 10%;
+    left: 25%; right: 25%;
     bottom: 30%;
+    transition: left ease $hover_animation_time, right ease $hover_animation_time;
+}
+
+header .dropdown:hover{
+    background-color: $hot_red;
+}
+
+header .dropdown:hover:before{
+    background-color: $text_color_contrast;
+    left: 20%;
+    right: 20%;
+}
+
+header .dropdown:hover a{
+    color: $text_color_contrast;
 }
 
 header nav #main_list .dropdown ul {
-    display: none;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
     flex-direction: column;
     width: max-content;
-    background: pink;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: left;
+    box-shadow: 0px 6px 6px 0px $shadow_color;
+    border-left: $hot_red solid 4px;
+    transform: translateY(-10px);
+    transition: transform ease $hover_animation_time, opacity ease $hover_animation_time, visibility 0s ease $hover_animation_time, background-color ease $hover_animation_time;
 }
 
 header nav #main_list .dropdown:hover ul{
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+    background-color: $text_color_contrast;    
+    transform: translateY(0);    
 }
 
 header nav #main_list .dropdown li{
     line-height: initial;
-    padding: 0 10%;
-    text-align: center;
+    min-width: 76%;
+    padding: 5px 12%;
 }
 
-header a{
+header nav #main_list .dropdown li:hover{
+    background: $hot_red;
+}
+
+header nav #main_list .dropdown li a{
+    text-align: left;
+    font-size: 16px;
+    color: $text_color;
+}
+
+header nav #main_list .dropdown li:hover a{
+    color: $text_color_contrast;
+}
+
+header .dropdown a {
     display: block;
     position: relative;
     color: $text_color;
@@ -69,6 +110,7 @@ header a{
     font-family: "Orkney-regular", Arial, Helvetica, sans-serif;
     font-size: 18px;
     max-height: 100%;
+    transition: color ease $hover_animation_time;
 }
 
 header #main_list .dropdown a{
@@ -76,13 +118,21 @@ header #main_list .dropdown a{
 }
 
 header #logo{
-    top: 15%;
+    display: block;
+    height: 100%;
+    position: relative;
+    transition: transform ease 0.5s;
 }
 
-img{
-    display: block;
+header #logo:hover{
+    transform: scale(0.925);
+}
+
+header #logo img{
     position: relative;
+    display: block;
     max-width: 60%;
     max-height: 60%;
-    margin: 0 auto;
+    margin: auto;
+    top: 20%;
 }
