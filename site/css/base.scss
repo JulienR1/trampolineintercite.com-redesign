@@ -7,6 +7,8 @@
 
 body, html {
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 header {
@@ -19,4 +21,16 @@ main {
 
 footer {
   height: $footer_height;
+}
+
+@media only screen and (max-width: 550px){
+  .hide-on-cell{
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 551px){
+  .hide-on-pc{
+    display: none !important;
+  }
 }

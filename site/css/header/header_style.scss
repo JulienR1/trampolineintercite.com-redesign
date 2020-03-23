@@ -1,6 +1,6 @@
-@import "colors";
-@import "fonts";
-@import "variables";
+@import "../colors";
+@import "../fonts";
+@import "../variables";
 
 $hover_animation_time : 0.2s;
 
@@ -33,10 +33,9 @@ header nav #main_list li{
     height: 100%;
     min-width: 100%;
     margin: 0 auto;
-    transition: background-color ease $hover_animation_time;
 }
 
-header .dropdown:before{
+header .dropdown > a:before{
     content: "";
     position: absolute;
     height: 2px;
@@ -46,28 +45,30 @@ header .dropdown:before{
     transition: left ease $hover_animation_time, right ease $hover_animation_time;
 }
 
-header .dropdown:hover{
-    background-color: $hot_red;
-}
-
-header .dropdown:hover:before{
+header .dropdown:hover > a:before{
     background-color: $text_color_contrast;
     left: 20%;
     right: 20%;
 }
 
-header .dropdown:hover a{
+header .dropdown > a{
+    transition: background-color ease $hover_animation_time;
+}
+
+header .dropdown:hover > a{
     color: $text_color_contrast;
+    background-color: $hot_red;
 }
 
 header nav #main_list .dropdown ul {
-    display: flex;
-    opacity: 0;
-    visibility: hidden;
+    display: flex;    
     position: absolute;
     flex-direction: column;
-    width: max-content;
+    width: 200px;
+
     text-align: left;
+    opacity: 0;
+    visibility: hidden;
     box-shadow: 0px 6px 6px 0px $shadow_color;
     border-left: $hot_red solid 4px;
     transform: translateY(-10px);

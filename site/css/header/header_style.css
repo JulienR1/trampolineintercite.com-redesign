@@ -55,11 +55,9 @@ header nav #main_list li {
   height: 100%;
   min-width: 100%;
   margin: 0 auto;
-  -webkit-transition: background-color ease 0.2s;
-  transition: background-color ease 0.2s;
 }
 
-header .dropdown:before {
+header .dropdown > a:before {
   content: "";
   position: absolute;
   height: 2px;
@@ -71,35 +69,35 @@ header .dropdown:before {
   transition: left ease 0.2s, right ease 0.2s;
 }
 
-header .dropdown:hover {
-  background-color: #f7002a;
-}
-
-header .dropdown:hover:before {
+header .dropdown:hover > a:before {
   background-color: #fff;
   left: 20%;
   right: 20%;
 }
 
-header .dropdown:hover a {
+header .dropdown > a {
+  -webkit-transition: background-color ease 0.2s;
+  transition: background-color ease 0.2s;
+}
+
+header .dropdown:hover > a {
   color: #fff;
+  background-color: #f7002a;
 }
 
 header nav #main_list .dropdown ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  opacity: 0;
-  visibility: hidden;
   position: absolute;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  width: 200px;
   text-align: left;
+  opacity: 0;
+  visibility: hidden;
   -webkit-box-shadow: 0px 6px 6px 0px rgba(28, 28, 28, 0.3);
           box-shadow: 0px 6px 6px 0px rgba(28, 28, 28, 0.3);
   border-left: #f7002a solid 4px;

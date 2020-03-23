@@ -1,0 +1,177 @@
+@media only screen and (max-width: 550px) {
+  header {
+    position: initial;
+    height: 60px;
+  }
+  header nav {
+    position: initial;
+    max-width: 100%;
+  }
+  header nav div {
+    height: 100%;
+  }
+  header nav div a {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+  }
+  header nav div #hamburger {
+    position: absolute;
+    right: 15px;
+    top: 16px;
+    width: 35px;
+    height: 28px;
+    cursor: pointer;
+  }
+  header nav div #hamburger_button,
+  header nav div #hamburger_button::before,
+  header nav div #hamburger_button::after {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 6px;
+    border-radius: 10px;
+    background-color: #1C1C1C;
+    -webkit-transform: translateY(11px);
+            transform: translateY(11px);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  header nav div #hamburger_button::before {
+    -webkit-transform: translateY(-11px);
+            transform: translateY(-11px);
+  }
+  header nav div #hamburger_button::after {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+  header nav div #hamburger[isMenuActive] #hamburger_button {
+    background: none;
+  }
+  header nav div #hamburger[isMenuActive] #hamburger_button::before {
+    max-width: 20px;
+    -webkit-transform: translateX(10px) translateY(-6px) rotate(45deg);
+            transform: translateX(10px) translateY(-6px) rotate(45deg);
+  }
+  header nav div #hamburger[isMenuActive] #hamburger_button::after {
+    max-width: 20px;
+    -webkit-transform: translateX(10px) rotate(-45deg);
+            transform: translateX(10px) rotate(-45deg);
+  }
+  header nav div #logo img {
+    max-width: 100%;
+    margin: 0;
+  }
+  header nav #main_list {
+    -ms-grid-columns: none;
+        grid-template-columns: none;
+    display: initial;
+    height: calc(100% - 60px);
+    width: 60%;
+    right: 0;
+    position: fixed;
+    -webkit-box-shadow: -8px 3px 6px -2px rgba(28, 28, 28, 0.3);
+            box-shadow: -8px 3px 6px -2px rgba(28, 28, 28, 0.3);
+    background: #fff;
+    -webkit-transform: translateX(105%);
+            transform: translateX(105%);
+    -webkit-transition: -webkit-transform ease 0.25s;
+    transition: -webkit-transform ease 0.25s;
+    transition: transform ease 0.25s;
+    transition: transform ease 0.25s, -webkit-transform ease 0.25s;
+  }
+  header nav #main_list[isMenuActive] {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  header nav #main_list .dropdown {
+    display: block;
+    line-height: 50px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    max-height: 60px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    -webkit-transition: max-height ease-out;
+    transition: max-height ease-out;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+  }
+  header nav #main_list .dropdown[isActive] {
+    max-height: 300px;
+    -webkit-transition: max-height ease-in;
+    transition: max-height ease-in;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+  }
+  header nav #main_list .dropdown a {
+    height: 60px;
+    font-size: 15px;
+  }
+  header nav #main_list .dropdown button {
+    position: absolute;
+    display: block;
+    top: 13px;
+    right: 15%;
+    width: 30px;
+    height: 20px;
+    background: none;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform ease 0.2s;
+    transition: -webkit-transform ease 0.2s;
+    transition: transform ease 0.2s;
+    transition: transform ease 0.2s, -webkit-transform ease 0.2s;
+  }
+  header nav #main_list .dropdown[isActive] button {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  header nav #main_list .dropdown:hover button i {
+    color: #fff;
+  }
+  header nav #main_list .dropdown button i {
+    font-size: 19px;
+  }
+  header nav #main_list .dropdown ul, header nav #main_list .dropdown:hover ul {
+    display: block;
+    position: relative;
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition: opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s, -webkit-transform ease 0.3s;
+    transition: opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s, -webkit-transform ease 0.3s;
+    transition: transform ease 0.3s, opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s;
+    transition: transform ease 0.3s, opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s, -webkit-transform ease 0.3s;
+  }
+  header nav #main_list .isActive ul, header nav #main_list .dropdown[isActive]:hover ul {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+    z-index: initial;
+  }
+  header nav #main_list .dropdown li {
+    display: block;
+  }
+  header nav #main_list .dropdown li:hover, header nav #main_list .dropdown li:focus {
+    background-color: #f7002a;
+  }
+  header nav #main_list .dropdown li a {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+/*# sourceMappingURL=header_style_cell.css.map */
