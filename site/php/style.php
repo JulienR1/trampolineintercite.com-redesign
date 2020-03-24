@@ -5,9 +5,12 @@
     echo '<link rel="icon" href="/Assets/img/icons/Logo.ico">';
 
     printLink("base.css");
+    printLink("header/header_style.css");
+    printLink("header/header_style_cell.css");
+    printLink("footer/footer_style.css");
+
     if(LinkContains("index") || $GLOBALS["currentPage"] == "/"){
-        printLink("header/header_style.css");
-        printLink("header/header_style_cell.css");
+        /* Add link to other css files relative to this current page */
     }
 
     function printLink($fileName){

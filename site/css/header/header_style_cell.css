@@ -116,7 +116,7 @@
     font-size: 15px;
   }
   header nav #main_list .dropdown[isActive] > a {
-    background-color: #f7002a;
+    background-color: #D42644;
   }
   header nav #main_list .dropdown button {
     position: absolute;
@@ -171,7 +171,7 @@
     display: block;
   }
   header nav #main_list .dropdown li:hover, header nav #main_list .dropdown li:focus {
-    background-color: #f7002a;
+    background-color: #D42644;
   }
   header nav #main_list .dropdown li a {
     height: -webkit-fit-content;

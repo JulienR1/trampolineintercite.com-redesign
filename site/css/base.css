@@ -14,11 +14,11 @@ header {
 }
 
 main {
-  min-height: calc(100% - 155px);
+  min-height: calc(100% - 80px);
 }
 
 footer {
-  height: 75px;
+  height: 452px;
 }
 
 @media only screen and (max-width: 550px) {

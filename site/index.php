@@ -16,7 +16,7 @@
     
     </main>
 
-    <?php include "footer.php"; 
+    <?php include "footer.php";
           include "php/scripts.php"?>    
 </body>
 </html>

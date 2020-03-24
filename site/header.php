@@ -23,7 +23,7 @@
                 <button class="hide-on-pc" onclick="toggleHeaderMenu(event, 1)"><i class="fas fa-chevron-down"></i></button>
                 <ul>
                     <li><a href="#">Récréatif</a></li>
-                    <li><a href="#">Fête d\'enfants</a></li>
+                    <li><a href="#">Fêtes d\'enfants</a></li>
                     <li><a href="#">Compétitif</a></li>
                     <li><a href="#">Comment s\'inscrire</a></li>
                 </ul>
