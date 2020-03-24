@@ -114,11 +114,16 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
         max-height: 300px;
         transition: max-height ease-in;
         transition-duration: $sideMenu_openTime;
+       /* background-color: $hot_red;*/
     }
 
     header nav #main_list .dropdown a{
         height: $sidebarMenu_height;
         font-size: 15px;
+    }
+
+    header nav #main_list .dropdown[isActive] > a{
+        background-color: $hot_red;
     }
 
     header nav #main_list .dropdown button{
@@ -140,7 +145,7 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
         transform: rotate(180deg);
     }
 
-    header nav #main_list .dropdown:hover button i{
+    header nav #main_list .dropdown:hover button i, header nav #main_list .dropdown[isActive] button i{
         color: $text_color_contrast;
     }
 
@@ -151,6 +156,7 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
     header nav #main_list .dropdown ul, header nav #main_list .dropdown:hover ul{
         display: block;
         position: relative;
+        width: 100%;
 
         transform: translateY(-15%);
         visibility: hidden;
@@ -160,7 +166,7 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
         transition: transform ease $sideMenu_openTime, opacity ease $sideMenu_openTime, visibility 0s ease $sideMenu_openTime, background-color ease $sideMenu_openTime;
     }
 
-    header nav #main_list .isActive ul, header nav #main_list .dropdown[isActive]:hover ul{
+    header nav #main_list .dropdown[isActive] ul, header nav #main_list .dropdown[isActive]:hover ul{
         transform: translateY(0);
         opacity: 1;
         visibility: visible;

@@ -69,7 +69,7 @@ header .dropdown > a:before {
   transition: left ease 0.2s, right ease 0.2s;
 }
 
-header .dropdown:hover > a:before {
+header .dropdown:hover > a:before, header .dropdown[isActive] > a:before {
   background-color: #fff;
   left: 20%;
   right: 20%;
@@ -80,7 +80,7 @@ header .dropdown > a {
   transition: background-color ease 0.2s;
 }
 
-header .dropdown:hover > a {
+header .dropdown:hover > a, header .dropdown[isActive] > a {
   color: #fff;
   background-color: #f7002a;
 }

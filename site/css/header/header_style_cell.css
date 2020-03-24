@@ -109,10 +109,14 @@
     transition: max-height ease-in;
     -webkit-transition-duration: 0.3s;
             transition-duration: 0.3s;
+    /* background-color: $hot_red;*/
   }
   header nav #main_list .dropdown a {
     height: 60px;
     font-size: 15px;
+  }
+  header nav #main_list .dropdown[isActive] > a {
+    background-color: #f7002a;
   }
   header nav #main_list .dropdown button {
     position: absolute;
@@ -134,7 +138,7 @@
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
   }
-  header nav #main_list .dropdown:hover button i {
+  header nav #main_list .dropdown:hover button i, header nav #main_list .dropdown[isActive] button i {
     color: #fff;
   }
   header nav #main_list .dropdown button i {
@@ -143,6 +147,7 @@
   header nav #main_list .dropdown ul, header nav #main_list .dropdown:hover ul {
     display: block;
     position: relative;
+    width: 100%;
     -webkit-transform: translateY(-15%);
             transform: translateY(-15%);
     visibility: hidden;
@@ -153,7 +158,7 @@
     transition: transform ease 0.3s, opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s;
     transition: transform ease 0.3s, opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s, -webkit-transform ease 0.3s;
   }
-  header nav #main_list .isActive ul, header nav #main_list .dropdown[isActive]:hover ul {
+  header nav #main_list .dropdown[isActive] ul, header nav #main_list .dropdown[isActive]:hover ul {
     -webkit-transform: translateY(0);
             transform: translateY(0);
     opacity: 1;
