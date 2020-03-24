@@ -1,3 +1,1 @@
-<?php
-    echo'<script src="/js/header.js"></script>';
-?>
+<script src="/js/header.js"></script>
