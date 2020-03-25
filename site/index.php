@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <?php include "header.php"; ?>
+    <?php include "php/nav/header.php"; ?>
 
     <main>
     
     </main>
 
-    <?php include "footer.php";
+    <?php include "php/nav/footer.php";
           include "php/scripts.php"?>    
 </body>
 </html>

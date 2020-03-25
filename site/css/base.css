@@ -13,6 +13,10 @@ header {
   height: 80px;
 }
 
+header .footer-only, footer .header-only {
+  display: none !important;
+}
+
 main {
   min-height: calc(100% - 80px);
 }

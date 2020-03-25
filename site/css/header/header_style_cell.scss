@@ -159,7 +159,8 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
 
         transform: translateY(-15%);
         visibility: hidden;
-        opacity: 0; 
+        opacity: 0;
+        box-shadow: none;
 
         transition: transform ease $sideMenu_openTime, opacity ease $sideMenu_openTime, visibility 0s ease $sideMenu_openTime, background-color ease $sideMenu_openTime;
     }

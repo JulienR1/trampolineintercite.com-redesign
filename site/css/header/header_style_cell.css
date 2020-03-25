@@ -151,6 +151,8 @@
             transform: translateY(-15%);
     visibility: hidden;
     opacity: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     -webkit-transition: opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s, -webkit-transform ease 0.3s;
     transition: opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s, -webkit-transform ease 0.3s;
     transition: transform ease 0.3s, opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s;
