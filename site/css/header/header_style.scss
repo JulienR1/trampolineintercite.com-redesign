@@ -5,9 +5,12 @@
 $hover_animation_time : 0.2s;
 
 header{
-    position: relative;
+    top: 0;
+    width: 100%;
+    position: sticky;
     box-shadow: 0px 6px 6px 0px $shadow_color;
     background-color: #fff;
+    z-index: 1;
 }
 
 header nav{

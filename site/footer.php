@@ -40,7 +40,7 @@
         </div>
     </div>
     <div id="copyright-section">
-        <p>&copy; 2019 - 2020</p>
+        <p>&copy; 2019 - <?php echo date("Y"); ?></p>
         <p> | </p>
         <p>Conception <a href="http://jrousseau.ca/">Julien Rousseau</a></p>
     </div>

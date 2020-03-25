@@ -11,7 +11,6 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
 @media only screen and (max-width: 550px){
     
     header{
-        position: initial;
         height: $header_height;    
     }
 
@@ -85,7 +84,8 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
         grid-template-columns: none;
         display: initial;
         height: calc(100% - #{$header_height});
-        width: 60%;        
+        width: 60%;
+        top: $header_height;
         right: 0;
         position: fixed;
         box-shadow: -8px 3px 6px -2px $shadow_color;
@@ -114,7 +114,6 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
         max-height: 300px;
         transition: max-height ease-in;
         transition-duration: $sideMenu_openTime;
-       /* background-color: $hot_red;*/
     }
 
     header nav #main_list .dropdown a{
@@ -161,7 +160,6 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
         transform: translateY(-15%);
         visibility: hidden;
         opacity: 0; 
-        z-index: -1;
 
         transition: transform ease $sideMenu_openTime, opacity ease $sideMenu_openTime, visibility 0s ease $sideMenu_openTime, background-color ease $sideMenu_openTime;
     }
@@ -171,7 +169,6 @@ $hamburger_offset : ($hamburger_height - 3 * $hamburger_bar_height) / 2;
         opacity: 1;
         visibility: visible;
         transition-delay: 0s;
-        z-index: initial;
     }    
 
     header nav #main_list .dropdown li{

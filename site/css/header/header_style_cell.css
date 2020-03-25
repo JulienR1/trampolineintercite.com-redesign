@@ -1,6 +1,5 @@
 @media only screen and (max-width: 550px) {
   header {
-    position: initial;
     height: 60px;
   }
   header nav {
@@ -73,6 +72,7 @@
     display: initial;
     height: calc(100% - 60px);
     width: 60%;
+    top: 60px;
     right: 0;
     position: fixed;
     -webkit-box-shadow: -8px 3px 6px -2px rgba(28, 28, 28, 0.3);
@@ -109,7 +109,6 @@
     transition: max-height ease-in;
     -webkit-transition-duration: 0.3s;
             transition-duration: 0.3s;
-    /* background-color: $hot_red;*/
   }
   header nav #main_list .dropdown a {
     height: 60px;
@@ -152,7 +151,6 @@
             transform: translateY(-15%);
     visibility: hidden;
     opacity: 0;
-    z-index: -1;
     -webkit-transition: opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s, -webkit-transform ease 0.3s;
     transition: opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s, -webkit-transform ease 0.3s;
     transition: transform ease 0.3s, opacity ease 0.3s, visibility 0s ease 0.3s, background-color ease 0.3s;
@@ -165,7 +163,6 @@
     visibility: visible;
     -webkit-transition-delay: 0s;
             transition-delay: 0s;
-    z-index: initial;
   }
   header nav #main_list .dropdown li {
     display: block;
