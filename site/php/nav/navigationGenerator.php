@@ -11,7 +11,9 @@ function createNavigation(){
     echo '<ul id="main_list">';
     foreach($nav as $principalMenu){   
         generateList($principalMenu, $currentMenuIndex);
-        $currentMenuIndex++;    
+        if($principalMenu["subMenus"] != NULL){
+            $currentMenuIndex++;    
+        }
     }
     echo '</ul>';
 }
@@ -37,7 +39,9 @@ function generateSubList($mainList, $currentIndex){
     echo "<ul>";
     foreach($mainList["subMenus"] as $subMenu){
         generateList($subMenu, $subIndex);
-        $subMenu++;
+        if($subMenu["subMenus"] != NULL){
+            $subMenu++;
+        }
     }
     echo "</ul>";
 }

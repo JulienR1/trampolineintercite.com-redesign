@@ -17,6 +17,6 @@
     </main>
 
     <?php include "php/nav/footer.php";
-          include "php/scripts.php"?>    
+          include "php/scripts.php"?>
 </body>
 </html>

@@ -11,7 +11,7 @@
     printLink("footer/footer_style_cell.css");
 
     if(LinkContains("index") || $GLOBALS["currentPage"] == "/"){
-        /* Add link to other css files relative to this current page */
+        printLink("index/index_header.css");
     }
 
     function printLink($fileName){
