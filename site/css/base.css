@@ -19,6 +19,7 @@ header .footer-only, footer .header-only {
 
 main {
   min-height: calc(100% - 80px);
+  position: relative;
 }
 
 footer {

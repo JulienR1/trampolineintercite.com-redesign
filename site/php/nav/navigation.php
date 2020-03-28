@@ -31,6 +31,23 @@
         }
     }
 
+    //  --------------------------------------------------
+    //  Definition de la navigation dans les pages du site
+    //  --------------------------------------------------
+    class SideNavigation{
+        function get(){
+            $currentPage = Pages::GetCurrentPage();
+            if($currentPage == Pages::INDEX){
+                return array(
+                    "main_page",
+                    "activities",
+                    "news"
+                );
+            }
+            return NULL;
+        }
+    }
+
     function getLogoImage(){
         return '<img src="/Assets/img/logo.png">';
     }

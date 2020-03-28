@@ -1,5 +1,5 @@
 <?php
-    $GLOBALS["currentPage"] = $_SERVER['REQUEST_URI'];
+    require "php/nav/pages.php";
 
     echo '<script src="https://kit.fontawesome.com/df8eedba6f.js" crossorigin="anonymous"></script>';
     echo '<link rel="icon" href="/Assets/img/icons/Logo.ico">';
@@ -10,16 +10,15 @@
     printLink("footer/footer_style.css");
     printLink("footer/footer_style_cell.css");
 
-    if(LinkContains("index") || $GLOBALS["currentPage"] == "/"){
+    $currentPage = Pages::GetCurrentPage();
+    if($currentPage == Pages::INDEX){
         printLink("index/index_header.css");
+        printLink("index/index_style.css");
+        printLink("sidenav/sidenav_style.css");
     }
 
     function printLink($fileName){
         echo '<link rel="stylesheet" href="/css/'.$fileName.'">';
         echo "\n";
-    }
-
-    function LinkContains($str){
-        return strpos($GLOBALS["currentPage"], $str);
     }
 ?>
