@@ -16,13 +16,25 @@
           include "php/nav/sidenav.php"?>
 
     <main>
-        <section id="main_page" style="height: 1000px; background-color: blue;"></section>
-        <section id="activities" style="height: 1000px; background-color: red;"></section>
-        <section id="news" style="height: 1000px; background-color: yellow;"></section>
+        <div id="main-container">
+            <section id="main_page">
+                <div id="msg-box">
+                    <div id="msg-container">
+                        <div id="msg-background-line"></div>
+                        <div id="msg">
+                            <h3>Message de la semaine, du mois ou du moment<br>Il y a des informations à passer</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities"></section>
+
+        <section id="news"></section>
     </main>
 
     <?php include "php/nav/footer.php";
           include "php/scripts.php"?>
-
 </body>
 </html>

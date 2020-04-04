@@ -5,24 +5,26 @@
 
     $header_height : 120px;
 
-    header{
+    header[atScreenTop]{
         height: $header_height;    
         box-shadow: none;
+        background: transparent;
     }
 
-    header nav {
+    header[atScreenTop] nav {
         width: 700px;
     }
     
-    header nav .dropdown > a{
+    header[atScreenTop] nav .dropdown > a{
         line-height: $header_height;
         vertical-align: middle;
+        color: #fff;
     }
     
-    header nav .dropdown > a:before{
+    header[atScreenTop] nav .dropdown > a:before{
         bottom: 35%;
     }
-
+ 
 }
 
 @media only screen and (max-width: 700px){
