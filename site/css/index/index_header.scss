@@ -1,6 +1,14 @@
 @import "../variables";
 @import "../colors";
 
+header{
+    transition: background-color 0.2s ease, height 0.2s ease;
+}
+
+header nav{
+    transition: width 0.2s ease;
+}
+
 @media only screen and (min-width: 701px){
 
     $header_height : 120px;
@@ -9,6 +17,7 @@
         height: $header_height;    
         box-shadow: none;
         background: transparent;
+        transition: height 0s;
     }
 
     header[atScreenTop] nav {
@@ -35,6 +44,7 @@
 
     header nav{
         width: 500px;
+        transition: width 0.2s ease;
     }
 
     header nav div #hamburger{

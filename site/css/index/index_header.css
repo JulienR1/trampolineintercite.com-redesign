@@ -1,9 +1,21 @@
+header {
+  -webkit-transition: background-color 0.2s ease, height 0.2s ease;
+  transition: background-color 0.2s ease, height 0.2s ease;
+}
+
+header nav {
+  -webkit-transition: width 0.2s ease;
+  transition: width 0.2s ease;
+}
+
 @media only screen and (min-width: 701px) {
   header[atScreenTop] {
     height: 120px;
     -webkit-box-shadow: none;
             box-shadow: none;
     background: transparent;
+    -webkit-transition: height 0s;
+    transition: height 0s;
   }
   header[atScreenTop] nav {
     width: 700px;
@@ -24,6 +36,8 @@
   }
   header nav {
     width: 500px;
+    -webkit-transition: width 0.2s ease;
+    transition: width 0.2s ease;
   }
   header nav div #hamburger {
     top: 36px;
