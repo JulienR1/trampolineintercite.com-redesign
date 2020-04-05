@@ -102,4 +102,22 @@ header {
 #main_page #msg-container #msg h3 a u {
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 800px) {
+  #main_page #msg-container {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  #main_page #msg-box #msg-container .msg-background-line {
+    display: none;
+  }
+  #main_page #msg-box #msg-container #msg {
+    width: 80%;
+  }
+  #main_page #msg-box #msg-container #msg h3 {
+    font-size: 15px;
+  }
+}
 /*# sourceMappingURL=index_style.css.map */
