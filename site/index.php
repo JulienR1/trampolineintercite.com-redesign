@@ -18,6 +18,7 @@
     <main>
         <div id="main-container">
             <section id="main_page">
+                <div id="background-img"></div>
                 <div id="msg-box">
                     <div id="msg-container">
                         <div class="msg-background-line start"></div>

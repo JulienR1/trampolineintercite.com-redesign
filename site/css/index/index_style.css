@@ -34,9 +34,21 @@ header {
 #main_page {
   height: 100%;
   position: absolute;
+  overflow: hidden;
+}
+
+#main_page #background-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-image: url("/Assets/img/background.jpg");
   background-position: center;
-  background-color: #fff;
+  background-size: cover;
+  background-color: #000;
+  -webkit-filter: blur(5px) opacity(0.9) grayscale(100%);
+          filter: blur(5px) opacity(0.9) grayscale(100%);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 #main_page #msg-box {
