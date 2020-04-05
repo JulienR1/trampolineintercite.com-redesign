@@ -1,3 +1,28 @@
+@font-face {
+  font-family: Matisse;
+  src: url("/Assets/Fonts/MATISSE.TTF");
+}
+
+@font-face {
+  font-family: Orkney-regular;
+  src: url("/Assets/Fonts/Orkney/Orkney Regular.woff2") format("woff2"), url("/Assets/Fonts/Orkney/Orkney Regular.woff") format("woff"), url("/Assets/Fonts/Orkney/Orkney Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Orkney-bold;
+  src: url("/Assets/Fonts/Orkney/Orkney Bold.woff2") format("woff2"), url("/Assets/Fonts/Orkney/Orkney Bold.woff") format("woff"), url("/Assets/Fonts/Orkney/Orkney Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Orkney-light;
+  src: url("/Assets/Fonts/Orkney/Orkney Light.woff2") format("woff2"), url("/Assets/Fonts/Orkney/Orkney Light.woff") format("woff"), url("/Assets/Fonts/Orkney/Orkney Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Orkney-medium;
+  src: url("/Assets/Fonts/Orkney/Orkney Medium.woff2") format("woff2"), url("/Assets/Fonts/Orkney/Orkney Medium.woff") format("woff"), url("/Assets/Fonts/Orkney/Orkney Medium.ttf") format("truetype");
+}
+
 main {
   min-height: 100%;
 }
@@ -15,17 +40,66 @@ header {
 }
 
 #main_page #msg-box {
+  position: relative;
+  top: 25%;
   width: 100%;
-  height: 75px;
+  min-height: 75px;
 }
 
 #main_page #msg-container {
+  position: relative;
   width: 60%;
+  height: 100%;
   margin: 0 auto;
 }
 
-#main_page #msg-container #msg-background-line {
-  height: 3px;
+#main_page #msg-container .msg-background-line {
+  position: absolute;
+  top: 50%;
+  width: 20%;
+  height: 2px;
   background-color: #fff;
+}
+
+#main_page #msg-container .start {
+  left: 0;
+}
+
+#main_page #msg-container .end {
+  right: 0;
+}
+
+#main_page #msg-container #msg {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(60% - 30px);
+  height: 100%;
+  margin: 0 auto;
+  padding: 8px 15px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 6px 6px 0px rgba(28, 28, 28, 0.3);
+          box-shadow: 0px 6px 6px 0px rgba(28, 28, 28, 0.3);
+}
+
+#main_page #msg-container #msg h3 {
+  width: 100%;
+  font-family: "Orkney-light", Arial, Helvetica, sans-serif;
+  color: #1C1C1C;
+  font-size: 18px;
+  text-align: center;
+}
+
+#main_page #msg-container #msg h3 a {
+  text-decoration: none;
+  color: #1C1C1C;
+}
+
+#main_page #msg-container #msg h3 a u {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=index_style.css.map */

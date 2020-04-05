@@ -14,8 +14,8 @@ header nav {
     -webkit-box-shadow: none;
             box-shadow: none;
     background: transparent;
-    -webkit-transition: height 0s;
-    transition: height 0s;
+    -webkit-transition: background-color 0.2s ease, height 0.1s 0.1s;
+    transition: background-color 0.2s ease, height 0.1s 0.1s;
   }
   header[atScreenTop] nav {
     width: 700px;

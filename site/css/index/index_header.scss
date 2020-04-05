@@ -17,7 +17,7 @@ header nav{
         height: $header_height;    
         box-shadow: none;
         background: transparent;
-        transition: height 0s;
+        transition: background-color 0.2s ease, height 0.1s 0.1s;
     }
 
     header[atScreenTop] nav {

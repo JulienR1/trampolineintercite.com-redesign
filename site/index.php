@@ -20,10 +20,13 @@
             <section id="main_page">
                 <div id="msg-box">
                     <div id="msg-container">
-                        <div id="msg-background-line"></div>
+                        <div class="msg-background-line start"></div>
                         <div id="msg">
-                            <h3>Message de la semaine, du mois ou du moment<br>Il y a des informations à passer</h3>
+                            <h3>
+                                <?php include "php/index/messageGenerator.php"; ?>
+                            </h3>
                         </div>
+                        <div class="msg-background-line end"></div>
                     </div>
                 </div>
             </div>
