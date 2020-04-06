@@ -31,14 +31,9 @@ header {
   position: absolute;
 }
 
-#main_page, #activities {
-  height: 100%;
-  position: absolute;
+main section {
+  position: relative;
   overflow: hidden;
-}
-
-#activities {
-  top: 100%;
 }
 
 #main_page #background-img {
