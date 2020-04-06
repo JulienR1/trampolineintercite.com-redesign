@@ -86,8 +86,8 @@
     }
 
     function GetLink($line){
-        if(strpos($line,"time:") !== false){
-            return str_replace("time: ", "", $line);
+        if(strpos($line,"link:") !== false){
+            return str_replace("link: ", "", $line);
         }
         return "#";
     }
