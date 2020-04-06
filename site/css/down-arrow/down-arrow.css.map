@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,WAAW,CAAA;EACP,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,IAAI;EACZ,IAAI,EAAE,gBAAgB;EACtB,SAAS,EAAE,IAAI;EACf,KAAK,ECPK,OAAO;EDQjB,UAAU,EAAE,uBAAuB;CACtC;;AAED,AAAA,WAAW,AAAA,MAAM,CAAA;EACb,MAAM,EAAE,IAAI;CACf",
+    "sources": [
+        "down-arrow.scss",
+        "../_colors.scss"
+    ],
+    "names": [],
+    "file": "down-arrow.css"
+}

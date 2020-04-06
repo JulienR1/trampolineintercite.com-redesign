@@ -15,6 +15,7 @@
         printLink("index/index_header.css");
         printLink("index/index_style.css");
         printLink("sidenav/sidenav_style.css");
+        printLink("down-arrow/down-arrow.css");
     }
 
     function printLink($fileName){

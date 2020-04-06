@@ -1,0 +1,14 @@
+.down-arrow {
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 17px);
+  font-size: 40px;
+  color: #1C1C1C;
+  -webkit-transition: bottom 0.2s ease-in-out;
+  transition: bottom 0.2s ease-in-out;
+}
+
+.down-arrow:hover {
+  bottom: 20px;
+}
+/*# sourceMappingURL=down-arrow.css.map */
