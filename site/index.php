@@ -16,7 +16,7 @@
           include "php/nav/sidenav.php"?>
 
     <main>
-        <div id="main-container">
+      <!--  <div id="main-container">-->
             <section id="main_page">
                 <div id="background-img"></div>
 
@@ -44,12 +44,14 @@
                 </div>
 
                 <a class="down-arrow" href="activities" onclick="OnQuickNavSelection(event)"><i class="fas fa-chevron-down"></i></a>
-            </div>            
-        </section>
+            </section>
 
-        <section id="activities"></section>
+            <section id="activities">
 
-        <section id="news"></section>
+            </section>
+
+            <section id="news"></section>
+      <!--  <div>-->
     </main>
 
     <?php include "php/nav/footer.php";
