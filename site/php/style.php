@@ -9,6 +9,7 @@
     printLink("header/header_style_cell.css");
     printLink("footer/footer_style.css");
     printLink("footer/footer_style_cell.css");
+    printLink("top-arrow/toparrow.css");
 
     $currentPage = Pages::GetCurrentPage();
     if($currentPage == Pages::INDEX){

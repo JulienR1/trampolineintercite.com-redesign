@@ -1,5 +1,6 @@
-<?php
-    echo '<script src="/js/header.js"></script>';
+<?php    
+    printScript("header.js");
+    printScript("toparrow.js");
 
     $currentPage = Pages::GetCurrentPage();
     if($currentPage == Pages::INDEX){

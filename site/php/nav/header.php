@@ -9,7 +9,7 @@
 
         <?php
             if (!function_exists("createNavigation")){require "php/nav/navigationGenerator.php";}
-            createNavigation(); 
+            createNavigation();
         ?>
     </nav>
 </header>

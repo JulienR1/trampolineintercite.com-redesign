@@ -13,10 +13,10 @@
 
 <body>
     <?php include "php/nav/header.php"; 
-          include "php/nav/sidenav.php"?>
+          include "php/nav/sidenav.php";?>
 
     <main>
-        <section id="main_page">
+        <section id="main_page" class="full-height">
             <div id="background-img"></div>
 
             <div id="msg-box">
@@ -45,7 +45,7 @@
             <a class="down-arrow" href="activities" onclick="OnQuickNavSelection(event)"><i class="fas fa-chevron-down"></i></a>
         </section>
 
-        <section id="activities">
+        <section id="activities" class="full-height">
 
         </section>
 
@@ -53,6 +53,7 @@
     </main>
 
     <?php include "php/nav/footer.php";
-          include "php/scripts.php"?>
+          include "php/nav/arrows/toparrow.php";
+          include "php/scripts.php"?>          
 </body>
 </html>
