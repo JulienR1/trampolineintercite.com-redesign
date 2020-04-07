@@ -1,7 +1,7 @@
 navigationElements = new Array();
 anchors = new Array();
 
-headerHeight = 0;
+header = null;
 
 InitializeSideNav();
 InitiliazeAnchorElements();
@@ -26,12 +26,12 @@ function InitiliazeAnchorElements() {
 function OnScroll() {
     index = 0;
 
-    if (headerHeight == 0)
-        headerHeight = document.querySelector("header").offsetHeight;
+    if (header == null)
+        header = document.querySelector("header");
 
     navigationElements.forEach((navElement) => {
         if (navElement != null) {
-            if (navElement.getBoundingClientRect().bottom > headerHeight) { return; }
+            if (navElement.getBoundingClientRect().bottom > header.offsetHeight) { return; }
             index++;
         }
     });
@@ -58,8 +58,16 @@ function ScrollToElement(targetId) {
         return;
 
     hash = "#" + targetId;
+    scrollTarget = $(hash).position().top;
+
+    if (header == null)
+        header = document.querySelectorAll("header");
+    if ($(header).css("position") == "absolute")
+        if (scrollTarget != 0)
+            scrollTarget -= header.offsetHeight - (header.hasAttribute("atscreentop") ? 40 : 0); // TODO: REMOVE HARDCODED VALUE
+
     $("html,body").stop().animate({
-        scrollTop: $(hash).position().top
+        scrollTop: scrollTarget
     }, 1000, function () {
         if (window.location.pathname == "/")
             window.location.pathname = "/index.php";
