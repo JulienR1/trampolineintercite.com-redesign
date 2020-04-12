@@ -9,7 +9,7 @@ document.body.addEventListener('scroll', function () {
 function ScrollToTop() {
     $("html,body").stop().animate({
         scrollTop: 0
-    }, 750, function () {
+    }, 500, function () {
         window.location.hash = "";
     });
 }

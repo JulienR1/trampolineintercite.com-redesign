@@ -46,7 +46,7 @@
         </section>
 
         <section id="activities" class="full-height">
-
+            <?php include "php/activities/activityGenerator.php"; ?>
         </section>
 
         <section id="news"></section>

@@ -62,9 +62,8 @@ function ScrollToElement(targetId) {
 
     if (header == null)
         header = document.querySelectorAll("header");
-    if ($(header).css("position") == "absolute")
-        if (scrollTarget != 0)
-            scrollTarget -= header.offsetHeight - (header.hasAttribute("atscreentop") ? 40 : 0); // TODO: REMOVE HARDCODED VALUE
+    if (scrollTarget != 0)
+        scrollTarget -= header.offsetHeight - (header.hasAttribute("atscreentop") ? 40 : 0); // TODO: REMOVE HARDCODED VALUE
 
     $("html,body").stop().animate({
         scrollTop: scrollTarget

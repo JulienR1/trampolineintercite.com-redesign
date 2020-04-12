@@ -1,0 +1,130 @@
+#activities .activity-showcase {
+  position: relative;
+  min-height: 350px;
+  width: 70%;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  overflow: hidden;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+#activities .activity-showcase img {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: gray;
+}
+
+#activities .activity-showcase:hover img {
+  -webkit-filter: contrast(0.5);
+          filter: contrast(0.5);
+}
+
+#activities .activity-showcase .info-tab, #activities .activity-showcase .interaction-tab {
+  width: 80%;
+  margin: 40px auto;
+  z-index: 1;
+}
+
+#activities .activity-showcase .info-tab h2 {
+  font-family: "Orkney-bold", Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  padding-bottom: 5px;
+  text-shadow: 2px 2px 6px #fff;
+  -webkit-transition: text-shadow 0.2s ease-in-out, color 0.2s ease;
+  transition: text-shadow 0.2s ease-in-out, color 0.2s ease;
+}
+
+#activities .activity-showcase:hover .info-tab h2 {
+  text-shadow: none;
+  color: #fff;
+}
+
+#activities .activity-showcase .info-tab .desc {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease, visibility 0s ease 0.2s, -webkit-transform 0.2s ease;
+  transition: opacity 0.2s ease, visibility 0s ease 0.2s, -webkit-transform 0.2s ease;
+  transition: opacity 0.2s ease, visibility 0s ease 0.2s, transform 0.2s ease;
+  transition: opacity 0.2s ease, visibility 0s ease 0.2s, transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+
+#activities .activity-showcase:hover .info-tab .desc {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+#activities .activity-showcase .info-tab p {
+  font-family: "Orkney-light", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+#activities .activity-showcase .interaction-tab {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+  top: 40%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out 0.1s, visibility 0s ease-in-out 0.3s;
+  transition: opacity 0.2s ease-in-out 0.1s, visibility 0s ease-in-out 0.3s;
+}
+
+#activities .activity-showcase:hover .interaction-tab {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+
+#activities .activity-showcase .interaction-tab a {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0 0 auto;
+  font-family: "Orkney-medium", Arial, Helvetica, sans-serif;
+  font-size: 21px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+
+#activities .activity-showcase:hover .interaction-tab a {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+#activities .activity-showcase .interaction-tab a i {
+  font-size: 25px;
+  margin: 0 5px;
+  color: #fff;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+}
+
+#activities .activity-showcase .interaction-tab a:hover i {
+  -webkit-transform: translateX(-5px);
+          transform: translateX(-5px);
+}
+
+#activities .activity-showcase .interaction-tab hr {
+  height: 3px;
+  background: #fff;
+  border: none;
+}
+/*# sourceMappingURL=activities_style.css.map */

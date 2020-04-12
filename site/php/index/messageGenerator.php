@@ -22,7 +22,7 @@
 
     function InterpreteFile($dirName, $fileName){
         if($fileName != "." && $fileName != ".."){
-            $file = fopen($dirName."/".$fileName,"r");                    
+            $file = fopen($dirName."/".$fileName,"r");
             if($file){       
                 return PrintMessage($file);
             }
