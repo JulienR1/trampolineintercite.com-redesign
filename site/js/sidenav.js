@@ -47,7 +47,7 @@ function UpdateSidenavUI(index) {
 
 function OnQuickNavSelection(event) {
     event.preventDefault();
-    linkElement = event.toElement.getAttribute("href");
+    linkElement = event.currentTarget.getAttribute("href");
     if (linkElement == null)
         linkElement = event.path[1].getAttribute("href");
     ScrollToElement(linkElement);
