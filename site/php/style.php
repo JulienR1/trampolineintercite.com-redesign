@@ -18,6 +18,8 @@
         printLink("activities/activities_style.css");
         printLink("sidenav/sidenav_style.css");
         printLink("down-arrow/down-arrow.css");
+    } else if($currentPage == Pages::ACTIVITES_DETAILS){
+        printLink("sidenav/sidenav_style.css");
     }
 
     function printLink($fileName){

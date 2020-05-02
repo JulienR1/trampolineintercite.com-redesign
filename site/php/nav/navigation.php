@@ -19,9 +19,9 @@
                     createMenu("Annonces","#")
                 )),
                 createMenuWithTags("Activités","#","dropdown",NULL,array(
-                    createMenu("Récréatif","#"),
-                    createMenu("Fêtes d'enfants","#"),
-                    createMenu("Compétitif","#"),
+                    createMenu("Récréatif","/activites-details.php#recreatif"),
+                    createMenu("Fêtes d'enfants","/activites-details.php#prive"),
+                    createMenu("Compétitif","/activites-details.php#competitif"),
                     createMenu("Comment s'inscrire","#")
                 )),
                 createMenuWithTags(getLogoImage(),"/","hide-on-cell header-only","logo",NULL),
@@ -42,6 +42,13 @@
                     "main_page",
                     "activities",
                     "news"
+                );
+            }
+            if($currentPage == Pages::ACTIVITES_DETAILS){
+                return array(
+                    "recreatif",
+                    "competitif",
+                    "prive"
                 );
             }
             return NULL;
