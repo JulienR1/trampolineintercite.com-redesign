@@ -6,6 +6,8 @@
 
     <title>Trampoline intercité | Nos cours</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <?php include "/php/style.php"; ?>
 </head>
 <body> 
@@ -19,12 +21,14 @@
                 <hr>
             </div>
 
+            <p id="affiliation">Noter qu'une affiliation de ----$ est obligatoire pour tous</p>
+
             <div class="activity">
                 <div class="img-container">
                     <img src="#">
                 </div>
                 <div class="data-container">
-                    <h3>INITITAION 3-5 ANS</h3>
+                    <h3>Initiation 3-5 ans</h3>
                     <div class="desc">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate asperiores ab dolorem pariatur dolores sequi?</p>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, non!</p>                        
@@ -44,8 +48,8 @@
                         </div>
                     </div>
                     <div class="button-container">
-                        <a href="#" class="activity-button">S'inscrire</a>
-                        <a href="#" class="activity-button">Horaire</a>
+                        <a href="#" onclick="RepositionLayout()" class="activity-button"><span>S'inscrire</span></a>
+                        <a href="#" class="activity-button"><span>Plages horaire</span></a>
                     </div>
                 </div>
             </div>

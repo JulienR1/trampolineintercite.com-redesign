@@ -20,10 +20,10 @@
         printLink("down-arrow/down-arrow.css");
     } else if($currentPage == Pages::ACTIVITES_DETAILS){
         printLink("sidenav/sidenav_style.css");
+        printLink("activities/details/activity-details.css");
     }
 
     function printLink($fileName){
         echo '<link rel="stylesheet" href="/css/'.$fileName.'">';
-        echo "\n";
     }
 ?>

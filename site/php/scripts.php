@@ -8,7 +8,7 @@
         printScript("index/index_header_format.js");
         printScript("index/index_height_format.js");
     }else if($currentPage == Pages::ACTIVITES_DETAILS){
-        printScript("sidenav.js");
+        printScript("sidenav.js");       
     }
 
     function printScript($script){
