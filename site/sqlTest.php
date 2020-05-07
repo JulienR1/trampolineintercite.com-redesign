@@ -9,8 +9,11 @@
     <?php
         require_once 'php/sqlManager.php';
         $data = executeQuery("SELECT * FROM test_table");
-        while($row = $data->fetch_assoc())
-            echo $row["ID"]."<br>";
+        if($data != NULL){
+            while($row = $data->fetch_assoc()){
+                echo $row["ID"]."<br>";
+            }
+        }
     ?>
 </body>
 </html>
