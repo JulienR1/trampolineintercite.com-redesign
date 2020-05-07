@@ -1,17 +1,11 @@
 <?php
-
-    // CREDENTIALS
-    $databaseHost = "localhost";
-    $username = "root";
-    $password = "";    
-    $database = "test";
-
     $connection = NULL;
 
     function connect(){
-        global $databaseHost, $username, $password, $database, $connection;
-        $connection = new mysqli($databaseHost, $username, $password, $database);
+        global $connection;
+        $connection = new mysqli("localhost", "root", "Julien_SqlDEV", "trampolineintercite");
         if($connection->connect_error){
+            echo "Failed to connect to database";
             $connection = NULL;
         }
     }
@@ -21,7 +15,7 @@
         connect();
         if($connection === NULL)
             return NULL;
-            
+
         $result = $connection->query($sql);
         if($result->num_rows === 0)
             $result = NULL;
