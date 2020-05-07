@@ -25,6 +25,18 @@
         return $result;
     }
 
+    function executeQueryToArray($sql){
+        $data = executeQuery($sql);
+        if($data == NULL)
+            return $data;
+
+        $dataArray = array();
+        while($row = $data->fetch_assoc()){
+            array_push($dataArray, $row);
+        }
+        return $dataArray;
+    }
+
     function disconnect(){
         global $connection;
         $connection->close();
