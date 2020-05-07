@@ -8,7 +8,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <?php include "/php/style.php"; ?>
+    <?php include "php/style.php"; ?>
 </head>
 <body> 
     <?php include "php/nav/header.php"; 
