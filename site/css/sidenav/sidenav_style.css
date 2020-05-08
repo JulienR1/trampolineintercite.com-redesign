@@ -17,7 +17,7 @@ aside .sidenav-bar {
   position: absolute;
   background-color: #000;
   border-radius: 10%;
-  width: 3px;
+  width: 2px;
 }
 
 aside .sidenav-bar:nth-of-type(1) {
@@ -37,14 +37,14 @@ aside nav {
   width: fit-content;
   -webkit-transform: translateX(-7px);
           transform: translateX(-7px);
-  padding: 30px 0;
+  padding: 20px 0;
   background: transparent;
 }
 
 aside nav .quick-nav {
   width: 12px;
   height: 12px;
-  border: 3px solid #000;
+  border: 2px solid #000;
   border-radius: 100%;
   background-color: #000;
   margin: 15px 0;
