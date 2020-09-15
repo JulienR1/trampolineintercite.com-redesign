@@ -1,6 +1,0 @@
-start: 2020-01-01
-end: 2020-04-30
-link: #
-
-Ce message est un pour tester.
-Il prend le dessus sur celui par défaut.

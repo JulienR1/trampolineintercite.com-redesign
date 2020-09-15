@@ -1,1 +1,0 @@
-<a id="top-arrow" onclick="ScrollToTop()"><i class="fas fa-chevron-up"></i></a>
