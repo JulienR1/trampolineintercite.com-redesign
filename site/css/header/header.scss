@@ -2,8 +2,13 @@
 @import "../variables";
 
 $header_height_cell: 70px;
+$header_height_desktop: 90px;
+$header_height_desktop_docked: 60px;
 $logo_size: 40px;
 $nav_button_size: 30px;
+
+$link_horizontal_padding_desktop: 20px;
+$link_vertical_padding_desktop: 10px;
 
 header {
   width: 100%;
@@ -11,7 +16,7 @@ header {
 
   > div {
     width: 100%;
-    min-height: 100%;
+    min-height: $header_height_cell;
     position: relative;
   }
 
@@ -145,11 +150,144 @@ header {
         font-size: 1.1em;
         padding: 2px 7px;
         transition: transform $shortDelay ease;
+        cursor: pointer;
 
         &[toggled] {
           transform: rotate(180deg);
         }
       }
     }
+  }
+}
+
+@media screen and (min-width: $smallScreen) {
+  header nav > ul {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: $mediumScreen) {
+  header {
+    min-height: $header_height_desktop;
+
+    & > div {
+      min-height: $header_height_desktop;
+    }
+
+    nav {
+      visibility: visible;
+      opacity: 1;
+      max-height: none;
+      height: $header_height_desktop;
+
+      & > ul {
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0;
+        width: 80%;
+        transition: all $mediumDelay ease;
+
+        & > li {
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+
+        li {
+          padding: 0;
+
+          &:hover {
+            background: $hotRed;
+
+            & > a {
+              color: #fff;
+            }
+          }
+
+          a {
+            font-weight: 600;
+            padding: $link_vertical_padding_desktop $link_horizontal_padding_desktop;
+          }
+
+          i {
+            display: none;
+          }
+
+          ul {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100%;
+            padding: 0;
+            transition: all $shortMediumDelay ease;
+            border-left: solid 3px $hotRed;
+
+            li {
+              padding: 0;
+              text-align: left;
+
+              a {
+                display: block;
+                font-weight: 600;
+                padding: calc(#{$link_vertical_padding_desktop / 1.25}) 20px;
+              }
+            }
+          }
+
+          &:hover {
+            ul {
+              visibility: visible;
+              opacity: 1;
+              max-height: 200px;
+            }
+          }
+        }
+
+        .nav-logo {
+          display: flex;
+
+          a {
+            display: block;
+            position: relative;
+            width: calc(#{$logo_size} + 2 * #{$link_horizontal_padding_desktop});
+            height: calc(#{$logo_size} + 2 * #{$link_vertical_padding_desktop});
+
+            img {
+              display: block;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: $logo_size;
+              height: $logo_size;
+            }
+          }
+
+          &:hover {
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $largeScreen) {
+  header nav > ul {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: $largerScreen) {
+  header nav > ul {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: $veryLargeScreen) {
+  header nav > ul {
+    width: 40%;
   }
 }

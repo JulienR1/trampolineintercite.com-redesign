@@ -31,9 +31,9 @@ class Navigation
         return $html;
     }
 
-    public static function getNavArrayHtml($arr)
+    public static function getNavArrayHtml($arr, $subMenu = false)
     {
-        $arrHtml = "<ul>";
+        $arrHtml = "<ul" . ($subMenu ? ' class="bg-shadow-desktop"' : "") . ">";
         foreach ($arr as $pageNav) {
             $arrHtml .= $pageNav->getHtml();
         }

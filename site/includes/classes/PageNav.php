@@ -21,7 +21,7 @@ class PageNav
         $pageHtml .= '<a href="' . $this->link . '">' . $this->name . '</a>';
         if ($this->children != null) {
             $pageHtml .= '<i class="fas fa-caret-down desktop-hide"></i>';
-            $pageHtml .= Navigation::getNavArrayHtml($this->children);
+            $pageHtml .= Navigation::getNavArrayHtml($this->children, true);
         }
         $pageHtml .= "</li>";
         return $pageHtml;
