@@ -1,1 +1,158 @@
-/* No CSS *//*# sourceMappingURL=header.css.map */
+header {
+  width: 100%;
+  min-height: 70px;
+}
+
+header > div {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+header .desktop-hide {
+  height: 100%;
+  position: relative;
+}
+
+header .desktop-hide #nav-button {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+header .desktop-hide #nav-button .line {
+  width: 100%;
+  height: calc(30px / 6);
+  background-color: #303030;
+  border-radius: 10px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header .desktop-hide #nav-button[toggled] .line:first-child {
+  -webkit-transform: translateY(165%) rotate(-45deg);
+          transform: translateY(165%) rotate(-45deg);
+}
+
+header .desktop-hide #nav-button[toggled] .line:last-child {
+  -webkit-transform: translateY(-165%) rotate(45deg);
+          transform: translateY(-165%) rotate(45deg);
+}
+
+header .desktop-hide #nav-button[toggled] .line:nth-child(2) {
+  visibility: hidden;
+  opacity: 0;
+}
+
+header .desktop-hide #logo {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 40px;
+  height: 100%;
+  padding: calc((70px - 40px) / 2) 0;
+}
+
+header .desktop-hide #logo img {
+  width: 40px;
+  height: 40px;
+}
+
+header nav {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+  width: 100%;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header nav[open] {
+  top: 100%;
+  visibility: visible;
+  opacity: 1;
+  max-height: 380px;
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+header nav > ul {
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: 20px;
+}
+
+header nav > ul > li {
+  padding: 10px 0;
+}
+
+header nav > ul > li ul {
+  padding: 5px 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow-y: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header nav > ul > li ul[open] {
+  visibility: visible;
+  max-height: 300px;
+}
+
+header nav > ul > li ul li {
+  padding: 3px 0;
+}
+
+header nav > ul > li ul li a {
+  font-weight: 300;
+  font-size: 0.975em;
+}
+
+header nav > ul .nav-logo {
+  display: none;
+}
+
+header nav > ul a {
+  text-decoration: none;
+  color: #303030;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+header nav > ul i {
+  font-size: 1.1em;
+  padding: 2px 7px;
+  -webkit-transition: -webkit-transform 0.15s ease;
+  transition: -webkit-transform 0.15s ease;
+  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, -webkit-transform 0.15s ease;
+}
+
+header nav > ul i[toggled] {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+/*# sourceMappingURL=header.css.map */

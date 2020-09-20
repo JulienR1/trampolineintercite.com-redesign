@@ -17,9 +17,10 @@ class PageNav
 
     public function getHtml()
     {
-        $pageHtml = "<li " . ($this->classes != null ? $this->classes : "") . ">";
+        $pageHtml = "<li " . ($this->classes != null ? 'class="' . $this->classes . '"' : "") . ">";
         $pageHtml .= '<a href="' . $this->link . '">' . $this->name . '</a>';
         if ($this->children != null) {
+            $pageHtml .= '<i class="fas fa-caret-down desktop-hide"></i>';
             $pageHtml .= Navigation::getNavArrayHtml($this->children);
         }
         $pageHtml .= "</li>";

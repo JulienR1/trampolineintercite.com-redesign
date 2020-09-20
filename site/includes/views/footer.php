@@ -4,6 +4,8 @@
 
 </footer>
 
+<script src="js/header/header.js"></script>
+
 </body>
 
 </html>

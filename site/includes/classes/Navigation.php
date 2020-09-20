@@ -17,7 +17,7 @@ class Navigation
                 new PageNav("Compétitif", "#"),
                 new PageNav("Comment s'inscrire", "#"),
             )),
-            new PageNav(self::logoImage(), "/", "header-only"),
+            new PageNav(self::logoImage(), "/", "header-only nav-logo"),
             new PageNav("Horaire", "#"),
             new PageNav("Contact", "#"),
         );

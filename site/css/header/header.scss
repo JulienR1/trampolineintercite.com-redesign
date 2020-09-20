@@ -1,2 +1,155 @@
 @import "../colors";
 @import "../variables";
+
+$header_height_cell: 70px;
+$logo_size: 40px;
+$nav_button_size: 30px;
+
+header {
+  width: 100%;
+  min-height: $header_height_cell;
+
+  > div {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+  }
+
+  .desktop-hide {
+    height: 100%;
+    position: relative;
+
+    #nav-button {
+      position: absolute;
+      width: $nav_button_size;
+      height: $nav_button_size;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      .line {
+        width: 100%;
+        height: calc(#{$nav_button_size} / 6);
+        background-color: $black;
+        border-radius: 10px;
+        transition: all $mediumDelay ease-in-out;
+      }
+
+      &[toggled] {
+        & .line {
+          &:first-child {
+            transform: translateY(165%) rotate(-45deg);
+          }
+
+          &:last-child {
+            transform: translateY(-165%) rotate(45deg);
+          }
+
+          &:nth-child(2) {
+            visibility: hidden;
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    #logo {
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      width: $logo_size;
+      height: 100%;
+      padding: calc((#{$header_height_cell} - #{$logo_size}) / 2) 0;
+
+      img {
+        width: $logo_size;
+        height: $logo_size;
+      }
+    }
+  }
+
+  nav {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: all $mediumDelay ease-in-out;
+
+    &[open] {
+      top: 100%;
+      visibility: visible;
+      opacity: 1;
+      max-height: 380px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    & > ul {
+      width: 60%;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0;
+      padding-bottom: 20px;
+
+      & > li {
+        padding: 10px 0;
+
+        ul {
+          padding: 5px 0;
+          visibility: hidden;
+          max-height: 0;
+          overflow-y: hidden;
+          transition: all $mediumDelay ease-in-out;
+
+          &[open] {
+            visibility: visible;
+            max-height: 300px;
+          }
+
+          li {
+            padding: 3px 0;
+            a {
+              font: {
+                weight: 300;
+                size: 0.975em;
+              }
+            }
+          }
+        }
+      }
+
+      .nav-logo {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: $black;
+        font: {
+          family: "Lato", Arial, Helvetica, sans-serif;
+          weight: 400;
+          size: 1.1em;
+        }
+      }
+
+      i {
+        font-size: 1.1em;
+        padding: 2px 7px;
+        transition: transform $shortDelay ease;
+
+        &[toggled] {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
