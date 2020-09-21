@@ -1,9 +1,6 @@
 @import "../colors";
 @import "../variables";
 
-$header_height_cell: 70px;
-$header_height_desktop: 90px;
-$header_height_desktop_docked: 60px;
 $logo_size: 40px;
 $nav_button_size: 30px;
 
@@ -20,7 +17,7 @@ header {
     position: relative;
   }
 
-  .desktop-hide {
+  #header-container {
     height: 100%;
     position: relative;
 

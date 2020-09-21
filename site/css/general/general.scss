@@ -13,29 +13,31 @@ body {
   height: 100%;
 }
 
+main {
+  min-height: calc(100% - #{$header_height_cell});
+}
+
 .bg-shadow-cell,
 .bg-shadow {
   box-shadow: $shadow;
   background: #fff;
 }
 
-.footer-only {
+main .footer-only,
+header .footer-only {
   display: none;
 }
 
-footer .footer-only {
-  display: block;
-}
-
-.header-only {
+main .header-only,
+footer .header-only {
   display: none;
-}
-
-header .header-only {
-  display: block;
 }
 
 @media screen and (min-width: $mediumScreen) {
+  main {
+    min-height: calc(100% - #{$header_height_desktop});
+  }
+
   .desktop-hide {
     display: none;
   }

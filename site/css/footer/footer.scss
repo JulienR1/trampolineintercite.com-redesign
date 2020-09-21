@@ -1,3 +1,97 @@
+@import "../variables";
+@import "../colors";
+
 footer {
-  display: none;
+  width: 100%;
+  background-color: $hotRed;
+
+  nav {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    & > ul {
+      a {
+        font: {
+          family: "Lato", Arial, Helvetica, sans-serif;
+          weight: 600;
+          size: 16px;
+        }
+        color: #fff;
+        text-decoration: none;
+      }
+
+      & > li {
+        padding: 6px 0;
+
+        ul {
+          & > li {
+            padding: 1px 0;
+          }
+          a {
+            font-weight: 300;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  #copy {
+    width: 100%;
+    background-color: $darkRed;
+    padding: 8px 0;
+    font: {
+      size: 14px;
+      family: "Lato", Arial, Helvetica, sans-serif;
+      weight: 400;
+    }
+    color: #fff;
+    opacity: 0.5;
+    text-align: center;
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+@media screen and (max-width: $smallestScreen) {
+  .small-screen-br {
+    display: block;
+    height: 0;
+    font-size: 0;
+  }
+}
+
+@media screen and (min-width: $mediumScreen) {
+  footer {
+    nav {
+      width: 550px;
+
+      > ul {
+        display: flex;
+        justify-content: space-around;
+
+        .bg-shadow,
+        .bg-shadow-desktop {
+          background: none;
+          box-shadow: none;
+        }
+
+        > li > ul {
+          padding: 5px 0;
+          > li {
+            padding: 2px 0;
+          }
+        }
+      }
+    }
+  }
 }

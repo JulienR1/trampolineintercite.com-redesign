@@ -9,12 +9,12 @@ header > div {
   position: relative;
 }
 
-header .desktop-hide {
+header #header-container {
   height: 100%;
   position: relative;
 }
 
-header .desktop-hide #nav-button {
+header #header-container #nav-button {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -35,7 +35,7 @@ header .desktop-hide #nav-button {
           justify-content: space-evenly;
 }
 
-header .desktop-hide #nav-button .line {
+header #header-container #nav-button .line {
   width: 100%;
   height: calc(30px / 6);
   background-color: #303030;
@@ -44,22 +44,22 @@ header .desktop-hide #nav-button .line {
   transition: all 0.5s ease-in-out;
 }
 
-header .desktop-hide #nav-button[toggled] .line:first-child {
+header #header-container #nav-button[toggled] .line:first-child {
   -webkit-transform: translateY(165%) rotate(-45deg);
           transform: translateY(165%) rotate(-45deg);
 }
 
-header .desktop-hide #nav-button[toggled] .line:last-child {
+header #header-container #nav-button[toggled] .line:last-child {
   -webkit-transform: translateY(-165%) rotate(45deg);
           transform: translateY(-165%) rotate(45deg);
 }
 
-header .desktop-hide #nav-button[toggled] .line:nth-child(2) {
+header #header-container #nav-button[toggled] .line:nth-child(2) {
   visibility: hidden;
   opacity: 0;
 }
 
-header .desktop-hide #logo {
+header #header-container #logo {
   display: block;
   margin: 0 auto;
   position: relative;
@@ -68,7 +68,7 @@ header .desktop-hide #logo {
   padding: calc((70px - 40px) / 2) 0;
 }
 
-header .desktop-hide #logo img {
+header #header-container #logo img {
   width: 40px;
   height: 40px;
 }

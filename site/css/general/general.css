@@ -9,6 +9,10 @@ body {
   height: 100%;
 }
 
+main {
+  min-height: calc(100% - 70px);
+}
+
 .bg-shadow-cell,
 .bg-shadow {
   -webkit-box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.26);
@@ -16,23 +20,20 @@ body {
   background: #fff;
 }
 
-.footer-only {
+main .footer-only,
+header .footer-only {
   display: none;
 }
 
-footer .footer-only {
-  display: block;
-}
-
-.header-only {
+main .header-only,
+footer .header-only {
   display: none;
-}
-
-header .header-only {
-  display: block;
 }
 
 @media screen and (min-width: 800px) {
+  main {
+    min-height: calc(100% - 90px);
+  }
   .desktop-hide {
     display: none;
   }

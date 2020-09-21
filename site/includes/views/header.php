@@ -19,7 +19,7 @@
 
     <header>
         <div class="bg-shadow desktop-hide-scroll">
-            <div class="desktop-hide">
+            <div class="desktop-hide" id="header-container">
                 <a href="/" id="logo"><img src="/assets/img/logo.png" alt="Logo"></a>
                 <div id="nav-button">
                     <div class="line"></div>
@@ -31,3 +31,5 @@
             <?php echo Navigation::includeNav(); ?>
         </div>
     </header>
+
+    <main>
