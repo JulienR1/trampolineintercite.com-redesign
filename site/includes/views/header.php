@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/df8eedba6f.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/general/general.css?v=1">
+    <link rel="stylesheet" href="css/general/fonts.css?v=1">
     <link rel="stylesheet" href="css/header/header.css?v=1">
     <link rel="stylesheet" href="css/footer/footer.css?v=1">
 </head>
