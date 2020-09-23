@@ -7,6 +7,8 @@
 
     <title><?php echo static::$info->title; ?></title>
 
+    <script src="js/header/ieKiller.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/df8eedba6f.js" crossorigin="anonymous"></script>
 

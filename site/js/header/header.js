@@ -1,6 +1,10 @@
 const TOGGLED_ATTR = "toggled";
 const OPEN_ATTR = "open";
 
+const STICKY_LIMIT = 0;
+
+var header = document.querySelector("header");
+
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("nav-button").addEventListener("click", toggleMenu);
   document.querySelectorAll("header ul i").forEach((arrow) => {
@@ -18,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.stopPropagation();
   });
   document.body.addEventListener("click", closeHeader);
+  window.addEventListener("scroll", updateSticky);
 });
 
 function toggleMenu() {
@@ -41,4 +46,12 @@ function closeHeader() {
   closeToggleMenus();
   document.getElementById("nav-button").removeAttribute(TOGGLED_ATTR);
   document.querySelector("header nav").removeAttribute(OPEN_ATTR);
+}
+
+function updateSticky(e) {
+  if (window.scrollY > STICKY_LIMIT) {
+    header.setAttribute("sticky", "");
+  } else {
+    header.removeAttribute("sticky");
+  }
 }

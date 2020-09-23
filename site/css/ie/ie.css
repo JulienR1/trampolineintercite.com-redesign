@@ -1,0 +1,58 @@
+html,
+body {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+}
+
+main > img {
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+main div {
+  width: 800px;
+  padding: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main p,
+main a {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+main a {
+  display: block;
+  font-weight: 400;
+  text-decoration: none;
+  color: #fff;
+  background: #d42644;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 5px 20px;
+}
+
+main ul {
+  width: 100%;
+  list-style-type: none;
+  padding: 30px 0;
+}
+
+main ul li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+main ul li img {
+  max-width: 80px;
+  max-height: 80px;
+}
+/*# sourceMappingURL=ie.css.map */

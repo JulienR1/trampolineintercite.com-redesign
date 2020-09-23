@@ -1,6 +1,9 @@
 header {
   width: 100%;
   min-height: 70px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 header > div {
@@ -165,15 +168,19 @@ header nav > ul i[toggled] {
 
 @media screen and (min-width: 800px) {
   header {
-    min-height: 90px;
+    min-height: 55px;
+  }
+  header[sticky] nav {
+    max-height: 55px;
+    height: 55px;
   }
   header > div {
-    min-height: 90px;
+    min-height: 55px;
   }
   header nav {
     visibility: visible;
     opacity: 1;
-    max-height: none;
+    max-height: 90px;
     height: 90px;
   }
   header nav > ul {

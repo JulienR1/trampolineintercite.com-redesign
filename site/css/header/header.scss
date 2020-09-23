@@ -10,6 +10,8 @@ $link_vertical_padding_desktop: 10px;
 header {
   width: 100%;
   min-height: $header_height_cell;
+  position: sticky;
+  top: 0;
 
   > div {
     width: 100%;
@@ -165,16 +167,21 @@ header {
 
 @media screen and (min-width: $mediumScreen) {
   header {
-    min-height: $header_height_desktop;
+    min-height: $header_height_desktop_docked;
+
+    &[sticky] nav {
+      max-height: $header_height_desktop_docked;
+      height: $header_height_desktop_docked;
+    }
 
     & > div {
-      min-height: $header_height_desktop;
+      min-height: $header_height_desktop_docked;
     }
 
     nav {
       visibility: visible;
       opacity: 1;
-      max-height: none;
+      max-height: $header_height_desktop;
       height: $header_height_desktop;
 
       & > ul {
