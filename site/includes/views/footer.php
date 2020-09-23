@@ -2,7 +2,7 @@
 
 <footer>
     <section id="quick-links">
-        <a href="#">S'inscrire en ligne</a>
+        <a href='href="https://app.sportnroll.com/#/registration/21ef84af-f7c1-4f3e-a182-729a8ca963f8"'>S'inscrire en ligne</a>
         <a href="#">Soutenir le club</a>
         <a href="#">Notre plan de relance</a>
     </section>
@@ -17,8 +17,7 @@
     </section>
 
     <p id="copy">
-        &copy Trampoline Intercité 2020<?php echo (date("Y") > 2020) ? '-' . date("Y") : ""; ?> <span
-            class="small-screen-br">|</span> Conception <a href="https://jrousseau.ca/">Julien Rousseau</a>
+        &copy Trampoline Intercité 2020<?php echo (date("Y") > 2020) ? '-' . date("Y") : ""; ?> <span class="small-screen-br">|</span> Conception <a href="https://jrousseau.ca/">Julien Rousseau</a>
     </p>
 </footer>
 

@@ -19,7 +19,7 @@ class Navigation
             )),
             new PageNav(self::logoImage(), "/", "header-only nav-logo"),
             new PageNav("Horaire", "#"),
-            new PageNav("Contact", "#"),
+            new PageNav("Contact", "/contact"),
         );
     }
 

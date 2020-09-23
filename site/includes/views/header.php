@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="css/general/fonts.css?v=1">
     <link rel="stylesheet" href="css/header/header.css?v=1">
     <link rel="stylesheet" href="css/footer/footer.css?v=1">
+
+    <?php
+foreach (static::$info->cssFiles as $file) {
+    echo '<link rel="stylesheet" href="css/' . $file . '">';
+}
+?>
 </head>
 
 <body>
