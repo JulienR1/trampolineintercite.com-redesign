@@ -8,6 +8,8 @@ class Route
         self::$validRoutes[] = $route;
 
         if ($_GET["url"] == $route) {
+            session_start();
+            $_SESSION["currentPage"] = $route;
             $callback->__invoke();
         }
     }

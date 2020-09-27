@@ -4,6 +4,7 @@ header {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 3;
 }
 
 header > div {
@@ -256,7 +257,7 @@ header nav > ul i[toggled] {
   header nav > ul .nav-logo a {
     display: block;
     position: relative;
-    width: calc(40px + 2 * 20px);
+    width: calc( 40px + 2 * 20px);
     height: calc(40px + 2 * 10px);
   }
   header nav > ul .nav-logo a img {

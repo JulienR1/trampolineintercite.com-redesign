@@ -1,31 +1,32 @@
-<h1>Nous joindre</h1>
+<h1 class="lato normal">Nous joindre</h1>
+<hr>
 
 <section>
-    <div id="map"></div>
+    <div id="map"><p class="lato thin">Impossible de charger la carte</p></div>
     <div id="infos">
-        <h2>Église Ste-Cécile</h2>
+        <h2 class="lato normal">Église Ste-Cécile</h2>
         <div id="address">
-            <p>550 rue Des Commissaires</p>
-            <p>Trois-Rivières, Québec</p>
-            <p>G9A 0C3</p>
+            <p class="lato light">550 rue Des Commissaires</p>
+            <p class="lato light">Trois-Rivières, Québec</p>
+            <p class="lato light">G9A 0C3</p>
         </div>
         <div id="contact">
             <div>
                 <i class="fas fa-phone"></i>
-                <span>(819) 840-2950</span>
+                <span class="lato light">(819) 840-2950</span>
             </div>
             <div>
                 <i class="fas fa-envelope"></i>
-                <span>coordo.trampoline.intercite@gmail.com</span>
+                <span class="lato light">coordo.trampoline.intercite@gmail.com</span>
             </div>
         </div>
-    </div>
-    <hr>
-    <p>Bien noter, l'entrée est située sur la rue St-Paul</p>
+        <hr>
+    <p class="lato light">Bien noter, l'entrée est située sur la rue St-Paul.</p>
+    </div>    
 </section>
 
-<section>
-    <h2>Questions ou commentaires..</h2>
+<section id="mail">
+    <h2 class="lato normal">Questions ou commentaires..</h2>
     <?php include "includes/forms/sendmail.php";?>
 </section>
 

@@ -12,6 +12,7 @@ header {
   min-height: $header_height_cell;
   position: sticky;
   top: 0;
+  z-index: 3;
 
   > div {
     width: 100%;
@@ -212,7 +213,8 @@ header {
 
           a {
             font-weight: 600;
-            padding: $link_vertical_padding_desktop $link_horizontal_padding_desktop;
+            padding: $link_vertical_padding_desktop
+              $link_horizontal_padding_desktop;
           }
 
           i {
