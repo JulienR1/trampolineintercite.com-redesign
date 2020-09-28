@@ -221,6 +221,13 @@ header nav > ul i[toggled] {
   header nav > ul li a {
     font-weight: 600;
     padding: 10px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
   }
   header nav > ul li i {
     display: none;

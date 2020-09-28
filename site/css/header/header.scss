@@ -215,6 +215,9 @@ header {
             font-weight: 600;
             padding: $link_vertical_padding_desktop
               $link_horizontal_padding_desktop;
+            display: flex;
+            align-items: center;
+            height: 100%;
           }
 
           i {
@@ -257,7 +260,9 @@ header {
           a {
             display: block;
             position: relative;
-            width: calc(#{$logo_size} + 2 * #{$link_horizontal_padding_desktop});
+            width: calc(
+              #{$logo_size} + 2 * #{$link_horizontal_padding_desktop}
+            );
             height: calc(#{$logo_size} + 2 * #{$link_vertical_padding_desktop});
 
             img {
