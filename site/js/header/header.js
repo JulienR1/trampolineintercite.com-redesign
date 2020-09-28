@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
       e.stopPropagation();
     });
   });
-  document.querySelector("header nav").addEventListener("click", closeToggleMenus);
+  document
+    .querySelector("header nav")
+    .addEventListener("click", closeToggleMenus);
   document.querySelector("header").addEventListener("click", (e) => {
     e.stopPropagation();
   });
