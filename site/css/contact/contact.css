@@ -102,7 +102,7 @@ main form textarea {
 
 main form input[invalid],
 main form textarea[invalid] {
-  border-left: #d42644 5px solid;
+  border: #f71f44 3px solid;
 }
 
 main form textarea {
@@ -111,7 +111,7 @@ main form textarea {
 
 main form button {
   display: block;
-  background: #d42644;
+  background: #f71f44;
   border: none;
   padding: 7px 25px;
   border-radius: 17px;

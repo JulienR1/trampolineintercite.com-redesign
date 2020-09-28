@@ -98,7 +98,7 @@ main {
 
     input[invalid],
     textarea[invalid] {
-      border-left: $hotRed 5px solid;
+      border: $hotRed 3px solid;
     }
 
     textarea {

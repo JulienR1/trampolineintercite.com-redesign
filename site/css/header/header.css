@@ -213,7 +213,7 @@ header nav > ul i[toggled] {
     padding: 0;
   }
   header nav > ul li:hover {
-    background: #d42644;
+    background: #f71f44;
   }
   header nav > ul li:hover > a {
     color: #fff;
@@ -240,7 +240,7 @@ header nav > ul i[toggled] {
     padding: 0;
     -webkit-transition: all 0.35s ease;
     transition: all 0.35s ease;
-    border-left: solid 3px #d42644;
+    border-left: solid 3px #f71f44;
   }
   header nav > ul li ul li {
     padding: 0;
