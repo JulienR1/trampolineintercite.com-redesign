@@ -139,13 +139,19 @@ main form button:hover {
   }
   main section:nth-of-type(1) #map {
     width: 60%;
+    height: 350px;
   }
   main section:nth-of-type(1) #infos {
     margin: 30px;
     text-align: left;
   }
+  main section:nth-of-type(1) #infos #contact span,
+  main section:nth-of-type(1) #infos p {
+    font-size: 16px;
+  }
   main section:nth-of-type(1) #infos h2 {
     text-align: left;
+    font-size: 22px;
   }
   main form > div {
     display: -webkit-box;
