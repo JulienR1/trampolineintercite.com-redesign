@@ -8,6 +8,10 @@ Route::set("contact", function () {
     Contact::CreateView("contact");
 });
 
+Route::set("registration-help", function(){
+    RegisterHelp::CreateView("registerHelp");
+});
+
 Route::set("ie", function () {
     IE::CreateView("ie");
 });

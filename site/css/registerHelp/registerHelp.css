@@ -1,0 +1,73 @@
+main h3 {
+  text-align: center;
+  font-size: 22px;
+  padding-top: 20px;
+}
+
+main hr {
+  width: 30%;
+  margin: 20px auto;
+  border: 1px solid #000;
+  background: #000;
+}
+
+main video {
+  width: 100%;
+}
+
+main video:focus {
+  outline: none;
+}
+
+main section {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 90%;
+}
+
+main section h4 {
+  font-size: 18px;
+  text-align: center;
+}
+
+main section ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+main section ul li {
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+main section ul li b {
+  font-weight: 700;
+}
+
+main section ul li p {
+  display: block;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+main section > p {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 800px) {
+  main video {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    padding: 30px 0;
+  }
+  main section > p {
+    margin: 30px 0;
+  }
+}
+/*# sourceMappingURL=registerHelp.css.map */

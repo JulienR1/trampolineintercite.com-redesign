@@ -15,7 +15,7 @@ class Navigation
                 new PageNav("Récréatif", "#"),
                 new PageNav("Fête d'enfants", "#"),
                 new PageNav("Compétitif", "#"),
-                new PageNav("Comment s'inscrire", "#"),
+                new PageNav("Comment s'inscrire", "/registration-help"),
             )),
             new PageNav(self::logoImage(), "/", "header-only nav-logo"),
             new PageNav("Horaire", "#"),
