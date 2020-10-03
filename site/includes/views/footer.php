@@ -11,9 +11,7 @@
 
     <section id="partners">
         <p class="lato medium">Nos partenaires</p>
-        <ul>
-            <li><img src="/assets/img/tr_logo.png" alt="Ville de Trois-Rivières"></li>
-        </ul>
+        <?php echo static::GetPartnersHtml(); ?>
     </section>
 
     <p id="copy">
