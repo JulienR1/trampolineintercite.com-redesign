@@ -2,36 +2,55 @@
 
 class DatabaseHandler
 {
-    public static $dbName;
+    public static $dbName = "trampolineintercite";
     public static $server = "localhost";
     public static $user = "root";
     public static $password = "Julien_SqlDEV";
 
     private static function connect()
     {
-        $conn = new mysqli($server, $user, $password, $dbName);
+        $conn = new mysqli(self::$server, self::$user, self::$password, self::$dbName);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
         return $conn;
     }
 
-    public static function query($query, $types = "", ...$params)
+    public static function query($sql, $types = "", ...$params)
     {
-        $stmt = connect()->prepare($query);
         if ($params != null) {
-            $stmt->bind_param($types, $params);
+            return self::queryStmt($sql, $types, $params);
+        } else {
+            return self::queryNoStmt($sql);
         }
+    }
+
+    private static function queryStmt($sql, $types, ...$params){
+        $conn = self::connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param($types, $params);
         $stmt->execute();
 
         $data = null;
-        if (explode(" ", $query)[0] == "SELECT") {
+        if (explode(" ", $sql)[0] == "SELECT") {
             $data = $stmt->fetchAll();
+            $stmt->close();
         }
-
-        $stmt->close();
         $conn->close();
+        return $data;
+    }
 
+    private static function queryNoStmt($sql){
+        $conn = self::connect();
+        $dataTable = $conn->query($sql);
+       
+        $data = "";
+        if($dataTable->num_rows > 0){
+            if (explode(" ", $sql)[0] == "SELECT") {
+                $data = $dataTable->fetch_all();
+            }
+        }
+        $conn->close();
         return $data;
     }
 }

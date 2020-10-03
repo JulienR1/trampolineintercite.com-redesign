@@ -1,6 +1,6 @@
 <?php
 
-class Controller extends DatabaseHandler
+class Controller
 {
     public static $info;
 

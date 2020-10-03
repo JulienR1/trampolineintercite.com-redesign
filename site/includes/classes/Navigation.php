@@ -9,7 +9,7 @@ class Navigation
             new PageNav("À propos", "#", null, array(
                 new PageNav("Actualités", "#"),
                 new PageNav("Règlements", "#"),
-                new PageNav("Annonces", "#"),
+                new PageNav("Annonces", "/messages"),
             )),
             new PageNav("Activités", "#", null, array(
                 new PageNav("Récréatif", "#"),

@@ -4,12 +4,16 @@ Route::set("index.php", function () {
     Home::CreateView("home");
 });
 
-Route::set("contact", function () {
-    Contact::CreateView("contact");
+Route::set("messages", function(){
+    Messages::CreateView("messages");
 });
 
 Route::set("registration-help", function(){
     RegisterHelp::CreateView("registerHelp");
+});
+
+Route::set("contact", function () {
+    Contact::CreateView("contact");
 });
 
 Route::set("ie", function () {
