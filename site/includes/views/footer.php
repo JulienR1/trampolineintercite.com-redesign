@@ -19,8 +19,8 @@
     </p>
 </footer>
 
-<script src="js/body/bodyResize.js"></script>
-<script src="js/header/header.js"></script>
+<script src="/js/body/bodyResize.js"></script>
+<script src="/js/header/header.js"></script>
 
 </body>
 

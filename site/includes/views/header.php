@@ -7,27 +7,26 @@
 
     <title><?php echo static::$info->title; ?></title>
 
-    <script src="js/header/ieKiller.js"></script>
+    <script src="/js/header/ieKiller.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/df8eedba6f.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/general/general.css?v=1">
-    <link rel="stylesheet" href="css/general/fonts.css?v=1">
-    <link rel="stylesheet" href="css/header/header.css?v=1">
-    <link rel="stylesheet" href="css/footer/footer.css?v=1">
+    <link rel="stylesheet" href="/css/general/general.css?v=1">
+    <link rel="stylesheet" href="/css/general/fonts.css?v=1">
+    <link rel="stylesheet" href="/css/header/header.css?v=1">
+    <link rel="stylesheet" href="/css/footer/footer.css?v=1">
 
-    <link rel="icon" type="image/png" href="assets/img/Logo.png">
+    <link rel="icon" type="image/png" href="/assets/img/Logo.png">
 
     <?php
 foreach (static::$info->cssFiles as $file) {
-    echo '<link rel="stylesheet" href="css/' . $file . '">';
+    echo '<link rel="stylesheet" href="/css/' . $file . '">';
 }
 ?>
 </head>
 
 <body>
-
     <header>
         <div class="bg-shadow desktop-hide-scroll">
             <div class="desktop-hide" id="header-container">
