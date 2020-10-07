@@ -7,7 +7,7 @@ class Navigation
         return array(
             new PageNav("Accueil", "/", "footer-only"),
             new PageNav("À propos", "#", null, array(
-                new PageNav("Actualités", "#"),
+                new PageNav("Actualités", "/news"),
                 new PageNav("Règlements", "#"),
                 new PageNav("Annonces", "/messages"),
             )),

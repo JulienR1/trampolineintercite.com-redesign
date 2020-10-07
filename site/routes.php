@@ -4,6 +4,10 @@ Route::set("index.php", function () {
     Home::CreateView("home");
 });
 
+Route::set("news", function(){
+    News::CreateView("news");
+});
+
 Route::set("messages", function(){
     Messages::CreateView("messages");
 });
