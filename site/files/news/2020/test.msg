@@ -1,0 +1,1 @@
+Texte pour actualite de test

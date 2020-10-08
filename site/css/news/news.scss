@@ -1,0 +1,146 @@
+@import "../variables";
+
+main {
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    padding: 20px 0;
+  }
+
+  hr {
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid #000;
+    background: #000;
+  }
+
+  section {
+    padding-top: 30px;
+    margin: 0 15px;
+
+    h2 {
+      position: relative;
+      text-align: center;
+      font-size: 16px;
+      padding: 4px 0;
+    }
+
+    > div {
+      display: flex;
+      position: relative;
+      min-height: 30px;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+
+      > p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14px;
+        opacity: 0.6;
+        text-align: center;
+      }
+
+      article {
+        width: 150px;
+        margin: 20px 10px;
+        transition: transform $shortDelay ease-in-out;
+
+        a {
+          display: block;
+          position: relative;
+          width: 100%;
+          cursor: pointer;
+          text-decoration: none;
+
+          img {
+            max-width: 100%;
+            max-height: auto;
+          }
+
+          .infos {
+            width: 100%;
+            padding: 3px 7px;
+
+            p {
+              font-size: 16px;
+              padding-bottom: 8px;
+            }
+
+            .date {
+              font-size: 10px;
+              padding: 0;
+            }
+          }
+        }
+
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+    }
+
+    &:last-of-type {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: $mediumScreen) {
+  main {
+    h1 {
+      font-size: 24px;
+    }
+
+    section {
+      width: 80%;
+      margin: 0 auto;
+
+      h2 {
+        font-size: 18px;
+      }
+
+      hr {
+        width: 40%;
+      }
+
+      div > article {
+        width: 175px;
+
+        a .infos {
+          p {
+            font-size: 18px;
+          }
+
+          .date {
+            font-size: 12px;
+          }
+        }
+      }
+
+      div > p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $largeScreen) {
+  main {
+    h1 {
+      font-size: 26px;
+    }
+
+    hr {
+      width: 30%;
+    }
+
+    section {
+      width: 70%;
+      div > article {
+        width: 200px;
+      }
+    }
+  }
+}

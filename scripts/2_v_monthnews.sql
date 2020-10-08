@@ -1,0 +1,5 @@
+CREATE VIEW `monthnews` AS
+SELECT *
+FROM news
+WHERE MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = YEAR(CURDATE())
+ORDER BY date

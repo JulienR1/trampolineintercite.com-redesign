@@ -1,8 +1,8 @@
 <?php
 
-class News extends Controller{
-
-    private static $monthNews = array();
+class News extends Controller
+{
+    public static $monthNews = array();
     private static $seasonNews = array();
     private static $allNews = array();
 
@@ -10,8 +10,11 @@ class News extends Controller{
 
     public static function CreateView($viewName)
     {
-        self::$seasonStart = "2020-10-11";
-        self::$seasonEnd = "2021-10-10";
+        $model = new mNews();
+        self::GetSeasonDates($model);
+        self::$monthNews = $model->GetMonthNews();
+        self::$seasonNews = $model->GetSeasonNews();
+        self::$allNews = $model->GetAllNews();
 
         self::CreateInfo();
         parent::CreateView($viewName);
@@ -24,36 +27,56 @@ class News extends Controller{
         parent::$info->setCss("news/news.css?v=1");
     }
 
-    public static function GetMonthNews(){
+    private static function GetSeasonDates($model)
+    {
+        $dates = $model->GetSeasonBoundaries()[0];
+        self::$seasonStart = $dates[0];
+        self::$seasonEnd = $dates[1];
+    }
+
+    public static function GetMonthNews()
+    {
         return self::GetNews(self::$monthNews);
     }
 
-    public static function GetSeasonNews(){
+    public static function GetSeasonNews()
+    {
         return self::GetNews(self::$seasonNews);
     }
 
-    public static function GetAllNews(){
+    public static function GetAllNews()
+    {
         return self::GetNews(self::$allNews);
     }
 
-    private static function GetNews($news){
-        if($news != null){
+    private static function GetNews($news)
+    {
+        if ($news != null) {
             $html = "";
-            foreach($news as $singleNews){
-                $html .= GetNewsHtml($news);
+            foreach ($news as $singleNews) {
+                $html .= self::GetNewsHtml($singleNews);
             }
             return $html;
-        }else{
+        } else {
             return self::GetNoNewsHtml();
         }
     }
 
-    private static function GetNewsHtml($singleNews){
-        return "";
+    private static function GetNewsHtml($singleNews)
+    {
+        $html = "<article>";
+        $html .= '<a href="/news/' . $singleNews[3] . '" class="bg-shadow">';
+        $html .= '<img src="/assets/news/' . $singleNews[4] . '" alt="">';
+        $html .= '<div class="infos">';
+        $html .= '<p class="date lato light">' . $singleNews[5] . '</p>';
+        $html .= '<p class="lato medium">' . $singleNews[1] . '</p>';
+        $html .= "</div></a></article>";
+        return $html;
     }
 
-    private static function GetNoNewsHtml(){
-        return "NO NEWS BB!";
+    private static function GetNoNewsHtml()
+    {
+        return '<p class="lato thin">Aucune nouvelle à afficher pour l\'instant</p>';
     }
 
 }

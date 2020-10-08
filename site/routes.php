@@ -4,15 +4,15 @@ Route::set("index.php", function () {
     Home::CreateView("home");
 });
 
-Route::set("news", function(){
+Route::set("news", function () {
     News::CreateView("news");
 });
 
-Route::set("messages", function(){
+Route::set("messages", function () {
     Messages::CreateView("messages");
 });
 
-Route::set("registration-help", function(){
+Route::set("registration-help", function () {
     RegisterHelp::CreateView("registerHelp");
 });
 

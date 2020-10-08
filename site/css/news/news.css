@@ -1,1 +1,138 @@
-/* No CSS *//*# sourceMappingURL=news.css.map */
+main h1 {
+  text-align: center;
+  font-size: 22px;
+  padding: 20px 0;
+}
+
+main hr {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  background: #000;
+}
+
+main section {
+  padding-top: 30px;
+  margin: 0 15px;
+}
+
+main section h2 {
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  padding: 4px 0;
+}
+
+main section > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  min-height: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+main section > div > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 14px;
+  opacity: 0.6;
+  text-align: center;
+}
+
+main section > div article {
+  width: 150px;
+  margin: 20px 10px;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+}
+
+main section > div article a {
+  display: block;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+main section > div article a img {
+  max-width: 100%;
+  max-height: auto;
+}
+
+main section > div article a .infos {
+  width: 100%;
+  padding: 3px 7px;
+}
+
+main section > div article a .infos p {
+  font-size: 16px;
+  padding-bottom: 8px;
+}
+
+main section > div article a .infos .date {
+  font-size: 10px;
+  padding: 0;
+}
+
+main section > div article:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+main section:last-of-type {
+  padding-bottom: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  main h1 {
+    font-size: 24px;
+  }
+  main section {
+    width: 80%;
+    margin: 0 auto;
+  }
+  main section h2 {
+    font-size: 18px;
+  }
+  main section hr {
+    width: 40%;
+  }
+  main section div > article {
+    width: 175px;
+  }
+  main section div > article a .infos p {
+    font-size: 18px;
+  }
+  main section div > article a .infos .date {
+    font-size: 12px;
+  }
+  main section div > p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  main h1 {
+    font-size: 26px;
+  }
+  main hr {
+    width: 30%;
+  }
+  main section {
+    width: 70%;
+  }
+  main section div > article {
+    width: 200px;
+  }
+}
+/*# sourceMappingURL=news.css.map */
