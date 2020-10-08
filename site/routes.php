@@ -5,7 +5,11 @@ Route::set("index.php", function () {
 });
 
 Route::set("news", function () {
-    News::CreateView("news");
+    if ($_GET["subpage"]) {
+        SingleNews::CreateView($_GET["subpage"]);
+    } else {
+        News::CreateView("news");
+    }
 });
 
 Route::set("messages", function () {
