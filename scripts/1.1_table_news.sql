@@ -10,7 +10,7 @@ CREATE TABLE `news`
  `pageLink` VARCHAR
 (40) NOT NULL,
   `date` DATE NOT NULL,
-  `resultId` INT NOT NULL,
+  `resultId` INT,
   PRIMARY KEY
 (`id`),
   FOREIGN KEY
