@@ -1,0 +1,88 @@
+@import "../variables";
+
+main {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+
+  h1 {
+    text-align: center;
+    padding: 30px 0 20px 0;
+    font-size: 22px;
+  }
+
+  hr {
+    width: 40%;
+    margin: 0 auto;
+    border: 1px solid #000;
+    background: #000;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .left {
+      justify-self: flex-start;
+    }
+
+    .right {
+      justify-self: flex-end;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 220px;
+    padding: 20px 0;
+  }
+
+  p {
+    width: 90%;
+    text-align: justify;
+    font-size: 16px;
+    margin: 8px auto;
+  }
+
+  b {
+    font-weight: 900;
+  }
+}
+
+@media screen and (min-width: $mediumScreen) {
+  main {
+    .wrapper {
+      flex-direction: row;
+    }
+
+    img {
+      float: right;
+      margin: 20px;
+    }
+
+    p:first-of-type {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media screen and (min-width: $largeScreen) {
+  main {
+    h1 {
+      font-size: 24px;
+    }
+
+    img {
+      max-width: 400px;
+    }
+
+    p:first-of-type {
+      margin-top: 40px;
+    }
+
+    p {
+      font-size: 17px;
+    }
+  }
+}

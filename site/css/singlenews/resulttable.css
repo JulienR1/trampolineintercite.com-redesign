@@ -1,0 +1,53 @@
+main h4 {
+  text-align: center;
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+main .table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+main table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+main table tr {
+  text-align: center;
+}
+
+main table th {
+  font-size: 14px;
+  padding: 5px 20px;
+  border: 1px solid black;
+}
+
+main table td {
+  border: solid 1px black;
+  font-size: 15px;
+  padding: 3px 7px;
+}
+
+main table td[colspan] {
+  background: #f71f44;
+  color: #fff !important;
+  letter-spacing: 1px;
+}
+
+main table td:empty {
+  background-color: #303030;
+  opacity: 0.25;
+}
+
+main table a {
+  text-decoration: none;
+  padding: 0 1px;
+}
+
+main table a:hover {
+  font-weight: 700;
+  padding: 0;
+}
+/*# sourceMappingURL=resulttable.css.map */

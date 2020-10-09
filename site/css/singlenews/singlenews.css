@@ -1,1 +1,86 @@
-/* No CSS *//*# sourceMappingURL=singlenews.css.map */
+main {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+main h1 {
+  text-align: center;
+  padding: 30px 0 20px 0;
+  font-size: 22px;
+}
+
+main hr {
+  width: 40%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  background: #000;
+}
+
+main .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+main .wrapper .left {
+  justify-self: flex-start;
+}
+
+main .wrapper .right {
+  justify-self: flex-end;
+}
+
+main img {
+  display: block;
+  margin: 0 auto;
+  max-width: 220px;
+  padding: 20px 0;
+}
+
+main p {
+  width: 90%;
+  text-align: justify;
+  font-size: 16px;
+  margin: 8px auto;
+}
+
+main b {
+  font-weight: 900;
+}
+
+@media screen and (min-width: 800px) {
+  main .wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  main img {
+    float: right;
+    margin: 20px;
+  }
+  main p:first-of-type {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  main h1 {
+    font-size: 24px;
+  }
+  main img {
+    max-width: 400px;
+  }
+  main p:first-of-type {
+    margin-top: 40px;
+  }
+  main p {
+    font-size: 17px;
+  }
+}
+/*# sourceMappingURL=singlenews.css.map */

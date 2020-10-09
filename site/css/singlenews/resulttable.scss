@@ -1,0 +1,57 @@
+@import "../variables";
+@import "../colors";
+
+main {
+  h4 {
+    text-align: center;
+    font-size: 14px;
+    padding: 4px 0;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 30px;
+  }
+
+  table {
+    margin: 0 auto;
+    border-collapse: collapse;
+
+    tr {
+      text-align: center;
+    }
+
+    th {
+      font-size: 14px;
+      padding: 5px 20px;
+      border: 1px solid black;
+    }
+
+    td {
+      border: solid 1px black;
+      font-size: 15px;
+      padding: 3px 7px;
+
+      &[colspan] {
+        background: $hotRed;
+        color: #fff !important;
+        letter-spacing: 1px;
+      }
+
+      &:empty {
+        background-color: $black;
+        opacity: 0.25;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      padding: 0 1px;
+
+      &:hover {
+        font-weight: 700;
+        padding: 0;
+      }
+    }
+  }
+}
