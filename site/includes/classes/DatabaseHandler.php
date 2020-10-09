@@ -25,27 +25,31 @@ class DatabaseHandler
         }
     }
 
-    private static function queryStmt($sql, $types, ...$params){
+    private static function queryStmt($sql, $types, $params)
+    {
         $conn = self::connect();
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param($types, $params);
+        $stmt->bind_param($types, ...$params);
         $stmt->execute();
 
         $data = null;
-        if (explode(" ", $sql)[0] == "SELECT") {
-            $data = $stmt->fetchAll();
-            $stmt->close();
+        if ($stmt->num_rows > 0) {
+            if (explode(" ", $sql)[0] == "SELECT") {
+                $data = $stmt->fetchAll();
+                $stmt->close();
+            }
         }
         $conn->close();
         return $data;
     }
 
-    private static function queryNoStmt($sql){
+    private static function queryNoStmt($sql)
+    {
         $conn = self::connect();
         $dataTable = $conn->query($sql);
-       
+
         $data = "";
-        if($dataTable->num_rows > 0){
+        if ($dataTable->num_rows > 0) {
             if (explode(" ", $sql)[0] == "SELECT") {
                 $data = $dataTable->fetch_all();
             }

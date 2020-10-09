@@ -3,6 +3,8 @@
 
 <div class="wrapper">
     <div class="left">
+        <p class="date lato light">2020-10-10</p>
+
         <?php
 echo static::GetTextHtml();
 echo static::GetResultTable();

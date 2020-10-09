@@ -35,6 +35,10 @@ main .wrapper .right {
   justify-self: flex-end;
 }
 
+main .wrapper .date {
+  font-size: 14px;
+}
+
 main img {
   display: block;
   margin: 0 auto;

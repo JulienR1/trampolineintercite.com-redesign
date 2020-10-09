@@ -33,16 +33,17 @@ BEGIN
 	where eventresultsid = targetEventResultId;
 
 	set @q = concat(
-		"SELECT athleteid, categoryid, ", @pivotedFields,
+		"SELECT firstname, lastname, pageUrl, categoryid, ", @pivotedFields,
 		" FROM (SELECT Q.*,",
 		@cases,
 			" FROM (SELECT athleteid, categoryid, disciplineid, result
 				FROM athletetoeventresults, discipline, category
 				WHERE eventresultsid = ", targetEventResultId, " AND disciplineid = discipline.id AND categoryid = category.id)
 			AS Q)
-		AS H
+		AS H, athlete, category
+		WHERE athlete.id = athleteid AND category.id = categoryid
 		GROUP BY athleteid, categoryid
-		ORDER BY categoryid"
+		ORDER BY priority DESC"
 	);
 
 	prepare stmt from @q;

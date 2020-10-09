@@ -6,6 +6,11 @@ class SingleNews extends Controller
 
     public static function CreateView($subpage)
     {
+        $model = new mSingleNews($subpage);
+        $newsData = $model->GetNewsData();
+
+        print_r($newsData);
+
         self::$img = "2020/doje.jpg";
 
         self::CreateInfo();
