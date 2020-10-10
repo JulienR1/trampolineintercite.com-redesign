@@ -65,8 +65,8 @@ class News extends Controller
     private static function GetNewsHtml($singleNews)
     {
         $html = "<article>";
-        $html .= '<a href="/news/' . $singleNews[3] . '" class="bg-shadow">';
-        $html .= '<img src="/assets/news/' . $singleNews[4] . '" alt="">';
+        $html .= '<a href="/news/' . $singleNews[4] . '" class="bg-shadow">';
+        $html .= '<img src="/assets/news/' . $singleNews[3] . '" alt="">';
         $html .= '<div class="infos">';
         $html .= '<p class="date lato light">' . $singleNews[5] . '</p>';
         $html .= '<p class="lato medium">' . $singleNews[1] . '</p>';
