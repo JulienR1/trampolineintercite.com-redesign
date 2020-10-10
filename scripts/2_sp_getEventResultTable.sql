@@ -2,7 +2,8 @@ DELIMITER
 //
 
 CREATE PROCEDURE GetEventResultsTable(
-	IN targetEventResultId INT
+	IN targetEventResultId INT,
+	OUT preparedQuery LONGTEXT
 )
 BEGIN
 	set @cases = null;
@@ -32,7 +33,7 @@ BEGIN
 	from athletetoeventresults
 	where eventresultsid = targetEventResultId;
 
-	set @q = concat(
+	set preparedQuery = concat(
 		"SELECT firstname, lastname, pageUrl, categoryid, ", @pivotedFields,
 		" FROM (SELECT Q.*,",
 		@cases,
@@ -45,10 +46,6 @@ BEGIN
 		GROUP BY athleteid, categoryid
 		ORDER BY priority DESC"
 	);
-
-	prepare stmt from @q;
-	execute stmt;
-	deallocate prepare stmt;
 END
 //
 

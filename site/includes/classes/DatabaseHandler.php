@@ -23,6 +23,14 @@ class DatabaseHandler
         }
     }
 
+    public static function querySP($sql, $returnValue, ...$params){
+        $conn = self::connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($params);
+        $output = $conn->query("SELECT " . $returnValue);
+        return $output->fetch();
+    }
+
     private static function queryStmt($sql, $params)
     {
         $conn = self::connect();
@@ -46,7 +54,7 @@ class DatabaseHandler
         if ($dataTable->rowCount() > 0) {
             if (explode(" ", $sql)[0] == "SELECT") {
                 return $dataTable->fetchAll(PDO::FETCH_ASSOC);
-            }
+            } 
         }
         return null;
     }

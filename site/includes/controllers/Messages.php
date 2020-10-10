@@ -40,35 +40,10 @@ class Messages extends Controller{
         $out .= '<div><h3 class="lato normal">'.$message["title"].'</h3><span class="lato light">'.$message["startdate"].'</span></div>';
         
         $out .= "<div>";
-        $out .= self::ReadMessageAsParagraphs($message["text"]);
+        $out .= FileHelper::ReadFileAsParagraphs("files/messages/" . $message["text"]);
         $out .= "</div>";
         
         $out .= "</section>";
-        return $out;
-    }
-
-    private static function ReadMessageAsParagraphs($filename){
-        $out = ""; 
-        $file = fopen("files/messages/".$filename, "r") or die("Error opening " . $filename);
-
-        while(true){
-            if(feof($file)){
-            break;
-            }
-
-            if(substr($out, -4) == "</p>" || $out == ""){
-                $out .= "<p>";
-            }
-
-            $line = fgets($file);
-            $out .= $line;
-
-            if(strlen(trim($line))){
-                $out .= "</p>";
-            }
-        }
-
-        fclose($file);
         return $out;
     }
 }

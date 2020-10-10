@@ -1,1 +1,3 @@
 Texte pour actualite de test
+
+On peut se permettre d'avoir un message un tit peu plus long que ce qui est present maintenant...
