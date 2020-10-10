@@ -20,7 +20,7 @@ class Controller
         if(self::$partners != null){
             $html .= "<ul>";
             foreach(self::$partners as $partner){
-                $html .= '<li><a href="'.$partner[3].'" target="_blank"><img src="/assets/partners/'.$partner[2].'" alt="'.$partner[1].'"></a></li>';
+                $html .= '<li><a href="'.$partner["websiteLink"].'" target="_blank"><img src="/assets/partners/'.$partner["img"].'" alt="'.$partner["partnerName"].'"></a></li>';
             }
             $html .= "</ul>";
         }

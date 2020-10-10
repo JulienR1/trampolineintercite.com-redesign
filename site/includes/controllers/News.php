@@ -30,8 +30,8 @@ class News extends Controller
     private static function GetSeasonDates($model)
     {
         $dates = $model->GetSeasonBoundaries()[0];
-        self::$seasonStart = $dates[0];
-        self::$seasonEnd = $dates[1];
+        self::$seasonStart = $dates["startDate"];
+        self::$seasonEnd = $dates["endDate"];
     }
 
     public static function GetMonthNews()
@@ -65,11 +65,11 @@ class News extends Controller
     private static function GetNewsHtml($singleNews)
     {
         $html = "<article>";
-        $html .= '<a href="/news/' . $singleNews[4] . '" class="bg-shadow">';
-        $html .= '<img src="/assets/news/' . $singleNews[3] . '" alt="">';
+        $html .= '<a href="/news/' . $singleNews["pageLink"] . '" class="bg-shadow">';
+        $html .= '<img src="/assets/news/' . $singleNews["photo"] . '" alt="">';
         $html .= '<div class="infos">';
-        $html .= '<p class="date lato light">' . $singleNews[5] . '</p>';
-        $html .= '<p class="lato medium">' . $singleNews[1] . '</p>';
+        $html .= '<p class="date lato light">' . $singleNews["date"] . '</p>';
+        $html .= '<p class="lato medium">' . $singleNews["title"] . '</p>';
         $html .= "</div></a></article>";
         return $html;
     }

@@ -14,7 +14,7 @@ class mSingleNews extends DatabaseHandler
         $sql = "SELECT title, text, photo, date, resultId
                 FROM news
                 WHERE pageLink = ?";
-        return parent::query($sql, "s", $this->subpage);
+        return parent::query($sql, $this->subpage);
     }
 
     public function GetDisciplines($eventId)

@@ -37,10 +37,10 @@ class Messages extends Controller{
 
     private static function GetSingleMessageHtml($message){
         $out = '<section class="bg-shadow">';
-        $out .= '<div><h3 class="lato normal">'.$message[1].'</h3><span class="lato light">'.$message[2].'</span></div>';
+        $out .= '<div><h3 class="lato normal">'.$message["title"].'</h3><span class="lato light">'.$message["startdate"].'</span></div>';
         
         $out .= "<div>";
-        $out .= self::ReadMessageAsParagraphs($message[4]);
+        $out .= self::ReadMessageAsParagraphs($message["text"]);
         $out .= "</div>";
         
         $out .= "</section>";

@@ -9,38 +9,32 @@ class DatabaseHandler
 
     private static function connect()
     {
-        $conn = new mysqli(self::$server, self::$user, self::$password, self::$dbName);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        $conn = new PDO("mysql:host=".self::$server.";dbname=".self::$dbName, self::$user, self::$password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     }
 
-    public static function query($sql, $types = "", ...$params)
+    public static function query($sql, ...$params)
     {
         if ($params != null) {
-            return self::queryStmt($sql, $types, $params);
+            return self::queryStmt($sql, $params);
         } else {
             return self::queryNoStmt($sql);
         }
     }
 
-    private static function queryStmt($sql, $types, $params)
+    private static function queryStmt($sql, $params)
     {
         $conn = self::connect();
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param($types, ...$params);
-        $stmt->execute();
+        $stmt->execute($params);
 
-        $data = null;
-        if ($stmt->num_rows > 0) {
+        if ($stmt->rowCount() > 0) {
             if (explode(" ", $sql)[0] == "SELECT") {
-                $data = $stmt->fetchAll();
-                $stmt->close();
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
         }
-        $conn->close();
-        return $data;
+        return null;
     }
 
     private static function queryNoStmt($sql)
@@ -49,12 +43,11 @@ class DatabaseHandler
         $dataTable = $conn->query($sql);
 
         $data = "";
-        if ($dataTable->num_rows > 0) {
+        if ($dataTable->rowCount() > 0) {
             if (explode(" ", $sql)[0] == "SELECT") {
-                $data = $dataTable->fetch_all();
+                return $dataTable->fetchAll(PDO::FETCH_ASSOC);
             }
         }
-        $conn->close();
-        return $data;
+        return null;
     }
 }
