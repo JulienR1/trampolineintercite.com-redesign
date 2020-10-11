@@ -7,6 +7,7 @@ class SingleNews extends Controller
     public static $date;
     private static $textFile;
 
+    public static $hasTable;
     public static $disciplines;
     public static $categories;
     public static $tableName;
@@ -15,14 +16,22 @@ class SingleNews extends Controller
     public static function CreateView($subpage)
     {
         $model = new mSingleNews();
-        $newsData = $model->GetNewsData($subpage)[0];
+        $newsData = $model->GetNewsData($subpage);
 
+        // Provided page does not exist in the database
+        // Give control back to route manager to load appropriate page
+        if($newsData == NULL){
+            return false;
+        }
+
+        $newsData = $newsData[0];
         self::$title = $newsData["title"];
         self::$img = $newsData["photo"];
         self::$date = $newsData["date"];
         self::$textFile = $newsData["text"];
 
-        if($newsData["resultId"] != NULL){
+        self::$hasTable = $newsData["resultId"] != NULL; 
+        if(self::$hasTable){
             self::$disciplines = $model->GetDisciplines($newsData["resultId"]);
             self::$categories = $model->GetCategories($newsData["resultId"]);
             self::$tableName = $model->GetTableName($newsData["resultId"]);
@@ -31,6 +40,7 @@ class SingleNews extends Controller
 
         self::CreateInfo();
         parent::CreateView("singlenews");
+        return true;
     }
 
     private static function CreateInfo()

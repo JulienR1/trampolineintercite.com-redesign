@@ -13,11 +13,13 @@
     </div>
 </div>
 
-<h4 class="lato bold"><?php echo static::$tableName; ?></h4>
-<div class="table-wrapper">
-    <table>
-        <tbody>
-            <?php echo static::GetResultTable(); ?>          
-        </tbody>
-    </table>
-</div>
+<?php if(static::$hasTable){ ?>
+    <h4 class="lato bold"><?php echo static::$tableName; ?></h4>
+    <div class="table-wrapper">
+        <table>
+            <tbody>
+                <?php echo static::GetResultTable(); ?>          
+            </tbody>
+        </table>
+    </div>
+<?php } ?>

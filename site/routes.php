@@ -6,7 +6,10 @@ Route::set("index.php", function () {
 
 Route::set("news", function () {
     if ($_GET["subpage"]) {
-        SingleNews::CreateView($_GET["subpage"]);
+        $subpageExisted = SingleNews::CreateView($_GET["subpage"]);
+        if(!$subpageExisted){
+            NewsNotFound::CreateView("newsNotFound");
+        }
     } else {
         News::CreateView("news");
     }
