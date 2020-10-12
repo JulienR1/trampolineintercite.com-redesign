@@ -1,7 +1,9 @@
 <?php
 
-class Contact extends Controller
-{
+class Activity extends Controller{
+
+    public static $affiliationCost = 29;
+
     public static function CreateView($viewName)
     {
         self::CreateInfo();
@@ -11,7 +13,8 @@ class Contact extends Controller
     private static function CreateInfo()
     {
         parent::$info = new PageInfo();
-        parent::$info->setTitle("Trampoline Intercité | Contact");
-        parent::$info->setCss("contact/contact.css?v=1");
+        parent::$info->setTitle("Trampoline Intercité | Activité");
+        parent::$info->setCss("activities/activities.css");
     }
+
 }

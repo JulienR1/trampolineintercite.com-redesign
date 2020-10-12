@@ -1,4 +1,4 @@
-<form action="scripts/exe_sendmail.php" method="POST" autocomplete="off">
+<form action="/scripts/exe_sendmail.php" method="POST" autocomplete="off">
     <?php 
         if(isset($_GET["mailing"])){
             if($_GET["mailing"] == "error"){
@@ -23,5 +23,5 @@
         <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Message" class="lato thin"
         <?php echo(isset($_GET["msg"]) && empty($_GET["msg"]) ? " invalid" : ""); ?>><?php echo(isset($_GET["msg"]) && !empty($_GET["msg"]) ? $_GET["msg"] : ""); ?></textarea>
     </div>
-    <button type="submit" name="sendmail-btn" class="lato bold">Envoyer</button>
+    <button type="submit" name="sendmail-btn" class="lato bold bg-shadow">Envoyer</button>
 </form>

@@ -19,6 +19,14 @@ Route::set("messages", function () {
     Messages::CreateView("messages");
 });
 
+Route::set("activities", function(){
+    if($_GET["subpage"] == "details"){
+        Activity::CreateView("activity");
+    }else{
+        Activities::CreateView("activities");
+    }
+});
+
 Route::set("registration-help", function () {
     RegisterHelp::CreateView("registerHelp");
 });

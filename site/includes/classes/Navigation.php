@@ -11,10 +11,10 @@ class Navigation
                 new PageNav("Règlements", "#"),
                 new PageNav("Annonces", "/messages"),
             )),
-            new PageNav("Activités", "#", null, array(
-                new PageNav("Récréatif", "#"),
-                new PageNav("Fête d'enfants", "#"),
-                new PageNav("Compétitif", "#"),
+            new PageNav("Activités", "/activities", null, array(
+                new PageNav("Récréatif", "/activities/details#recreative"),
+                new PageNav("Fête d'enfants", "/activities/details#parties"),
+                new PageNav("Compétitif", "/activities/details#competitive"),
                 new PageNav("Comment s'inscrire", "/registration-help"),
             )),
             new PageNav(self::logoImage(), "/", "header-only nav-logo"),

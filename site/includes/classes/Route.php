@@ -9,7 +9,7 @@ class Route
 
         if ($_GET["url"] == $route) {
             session_start();
-            $_SESSION["currentPage"] = $route;
+            $_SESSION["currentPage"] = $route . "/" . $_GET["subpage"];
             $callback->__invoke();
         }
     }

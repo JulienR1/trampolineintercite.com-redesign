@@ -1,0 +1,222 @@
+main section {
+  padding: 20px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+main section h2 {
+  text-align: center;
+  padding: 10px;
+  font-size: 22px;
+}
+
+main section hr {
+  width: 50%;
+  background: #000;
+  border: 1px solid #000;
+  margin: 0 auto;
+}
+
+main section > p {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+main section .activities {
+  padding: 0 30px;
+}
+
+main section .activities .activity {
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+main section .activities .activity .img-container {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+main section .activities .activity .img-container img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+main section .activities .activity .data-container {
+  padding: 20px;
+}
+
+main section .activities .activity .data-container h4 {
+  text-transform: uppercase;
+  font-size: 21px;
+}
+
+main section .activities .activity .data-container .desc p {
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+main section .activities .activity .data-container .stats {
+  padding: 15px 0;
+  text-align: center;
+}
+
+main section .activities .activity .data-container .stats div {
+  padding: 2px 0;
+}
+
+main section .activities .activity .data-container .stats div span {
+  font-size: 14px;
+}
+
+main section .activities .activity .data-container #day-affiliation {
+  text-align: center;
+  margin-bottom: 7px;
+}
+
+main section .activities .activity .data-container #day-affiliation span {
+  font-size: 14px;
+}
+
+main section .activities .activity .data-container #affiliation-document {
+  width: 75%;
+  margin: 15px auto 5px auto;
+  padding: 10px;
+}
+
+main section .activities .activity .data-container a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  background: #f71f44;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 0;
+  font-size: 12px;
+  overflow-x: hidden;
+  cursor: pointer;
+}
+
+main section .activities .activity .data-container #contact-form span {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+}
+
+main section .activities .activity .data-container #contact-form form {
+  width: 100%;
+}
+
+main section .activities .activity .data-container #contact-form form p {
+  text-align: center;
+  color: #ca1735;
+  font-size: 12px;
+}
+
+main section .activities .activity .data-container #contact-form form p[valid] {
+  color: #03ad48;
+}
+
+main section .activities .activity .data-container #contact-form form input,
+main section .activities .activity .data-container #contact-form form textarea {
+  display: block;
+  width: 80%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.075);
+  padding: 6px 12px;
+  margin: 3px auto;
+  border: none;
+}
+
+main section .activities .activity .data-container #contact-form form textarea {
+  max-height: 100px;
+  margin: 8px auto;
+}
+
+main section .activities .activity .data-container #contact-form form input[invalid],
+main section .activities .activity .data-container #contact-form form textarea[invalid] {
+  border: 3px solid #ca1735;
+}
+
+main section .activities .activity .data-container #contact-form form button {
+  display: block;
+  margin: 0 auto;
+  outline: none;
+  background: #f71f44 !important;
+  padding: 6px 25px;
+  border: none;
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  main section {
+    width: 70%;
+    max-width: none;
+  }
+  main section hr {
+    width: 30%;
+  }
+  main section > p {
+    font-size: 15px;
+  }
+  main section .activities .activity .img-container {
+    height: 250px;
+  }
+  main section .activities .activity .data-container .stats {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  main section {
+    width: 80%;
+  }
+  main section .activities {
+    padding: 0;
+  }
+  main section .activities .activity {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 35% 65%;
+        grid-template-columns: 35% 65%;
+  }
+  main section .activities .activity .img-container {
+    height: 100%;
+    max-height: none;
+  }
+  main section .activities .activity .img-container img {
+    height: 100%;
+    width: auto;
+  }
+  main section .activities .activity .data-container a {
+    width: 40%;
+  }
+  main section .activities .activity .data-container #contact-form form input {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  main section {
+    width: 65%;
+  }
+}
+/*# sourceMappingURL=activities.css.map */
