@@ -13,7 +13,7 @@ class Activity extends Controller{
     private static function CreateInfo()
     {
         parent::$info = new PageInfo();
-        parent::$info->setTitle("Trampoline Intercité | Activité");
+        parent::$info->setTitle("Trampoline Intercité | Toutes les activités");
         parent::$info->setCss("activities/activities.css");
     }
 

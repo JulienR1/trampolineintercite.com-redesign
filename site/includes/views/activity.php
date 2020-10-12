@@ -1,4 +1,4 @@
-<section id="recreative">
+<section id="recreative_hash">
     <h2 class="lato medium">Secteur récréatif</h2>
     <hr>
     <p class="lato thin">Noter qu'une affiliation de <?php echo number_format((float)static::$affiliationCost, 2, '.', ''); ?>$ est obligatoire pour tous</p>
@@ -33,7 +33,7 @@
     </div>
 </section>
 
-<section id="parties">
+<section id="parties_hash">
     <h2 class="lato medium">Fête d'enfants</h2>
     <hr>
     <div class="activities">
@@ -75,7 +75,9 @@
     </div>
 </section>
 
-<section id="competitive">
+<section id="competitive_hash">
     <h2 class="lato medium">Secteur compétitif</h2>
     <hr>
 </section>
+
+<script src="/js/smoothHash.js"></script>

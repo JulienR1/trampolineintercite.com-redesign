@@ -11,6 +11,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/df8eedba6f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="/css/general/general.css?v=1">
     <link rel="stylesheet" href="/css/general/fonts.css?v=1">
