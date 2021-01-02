@@ -9,7 +9,7 @@ class DatabaseHandler
 
     private static function connect()
     {
-        $conn = new PDO("mysql:host=".self::$server.";dbname=".self::$dbName, self::$user, self::$password);
+        $conn = new PDO("mysql:host=" . self::$server . ";dbname=" . self::$dbName, self::$user, self::$password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     }
@@ -23,7 +23,8 @@ class DatabaseHandler
         }
     }
 
-    public static function querySP($sql, $returnValue, ...$params){
+    public static function querySP($sql, $returnValue, ...$params)
+    {
         $conn = self::connect();
         $stmt = $conn->prepare($sql);
         $stmt->execute($params);
@@ -54,7 +55,7 @@ class DatabaseHandler
         if ($dataTable->rowCount() > 0) {
             if (explode(" ", $sql)[0] == "SELECT") {
                 return $dataTable->fetchAll(PDO::FETCH_ASSOC);
-            } 
+            }
         }
         return null;
     }

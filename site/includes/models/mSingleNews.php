@@ -29,15 +29,16 @@ class mSingleNews extends DatabaseHandler
         return parent::query($sql, $eventId);
     }
 
-    public function GetTableName($eventId){
+    public function GetTableName($eventId)
+    {
         $sql = "SELECT tableName FROM eventResults WHERE id = ?";
         return parent::query($sql, $eventId)[0]["tableName"];
     }
 
     public function GetTableData($eventId)
     {
-       $query = parent::querySP("CALL GetEventResultsTable(?, @query)", "@query", $eventId)["@query"];
-       return parent::query($query);
+        $query = parent::querySP("CALL GetEventResultsTable(?, @query)", "@query", $eventId)["@query"];
+        return parent::query($query);
     }
 
 }

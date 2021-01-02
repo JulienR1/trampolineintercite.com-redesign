@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.body.addEventListener("click", closeHeader);
   window.addEventListener("scroll", updateSticky);
+
+  registerCloseMenuBeforeLoadingPageEvents();
 });
 
 function toggleMenu() {
@@ -56,4 +58,21 @@ function updateSticky(e) {
   } else {
     header.removeAttribute("sticky");
   }
+}
+
+function registerCloseMenuBeforeLoadingPageEvents(){
+  document.querySelectorAll("a").forEach(link=>{
+    link.addEventListener("click", function(e){
+      const nav = document.querySelector("header nav");
+      if(nav.hasAttribute("open")){
+        e.preventDefault();
+        const transitionTimeStr = getComputedStyle(nav).transitionDuration;
+        const transitionTime = parseFloat(transitionTimeStr);        
+        closeHeader();
+        setTimeout(() => {
+          window.location = link.href;
+        }, transitionTime * 1000);
+      }
+    });
+  });
 }
