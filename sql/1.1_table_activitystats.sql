@@ -4,7 +4,7 @@ CREATE TABLE `activitystats`(
 `weekday` TINYINT NOT NULL,
 `startTime` TIME NOT NULL,
 `endTime` TIME NOT NULL,
-`seasonId` INT NOT NULL,
+`sessionId` INT NOT NULL,
 PRIMARY KEY(`id`),
-FOREIGN KEY(`seasonId`) REFERENCES season(`id`)
+FOREIGN KEY(`sessionId`) REFERENCES sessions(`id`)
 );

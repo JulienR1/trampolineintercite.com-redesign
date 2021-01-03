@@ -19,6 +19,10 @@ body {
   background: #fff;
 }
 
+main {
+  position: relative;
+}
+
 main .footer-only,
 header .footer-only {
   display: none;
