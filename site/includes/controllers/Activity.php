@@ -87,7 +87,7 @@ class Activity extends Controller
         $html .= self::GetDates($activity);
         $html .= "</div>";
         $html .= '<a href="https://app.sportnroll.com/#/registration/21ef84af-f7c1-4f3e-a182-729a8ca963f8" class="lato bold bg-shadow">S\'inscrire</a>';
-        $html .= '<a href="horaire?a=' . $activity['id'] . '" class="lato bold bg-shadow to-schedule">Voir dans l\'horaire</a>';
+        $html .= '<a href="/schedule?a=' . $activity['id'] . '" class="lato bold bg-shadow to-schedule">Voir dans l\'horaire</a>';
         return $html;
     }
 

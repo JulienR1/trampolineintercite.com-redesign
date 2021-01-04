@@ -7,7 +7,7 @@ Route::set("index.php", function () {
 Route::set("news", function () {
     if ($_GET["subpage"]) {
         $subpageExisted = SingleNews::CreateView($_GET["subpage"]);
-        if(!$subpageExisted){
+        if (!$subpageExisted) {
             NewsNotFound::CreateView("newsNotFound");
         }
     } else {
@@ -19,16 +19,20 @@ Route::set("messages", function () {
     Messages::CreateView("messages");
 });
 
-Route::set("activities", function(){
-    if($_GET["subpage"] == "details"){
+Route::set("activities", function () {
+    if ($_GET["subpage"] == "details") {
         Activity::CreateView("activity");
-    }else{
+    } else {
         Activities::CreateView("activities");
     }
 });
 
 Route::set("registration-help", function () {
     RegisterHelp::CreateView("registerHelp");
+});
+
+Route::set("schedule", function () {
+    echo "schedule";
 });
 
 Route::set("contact", function () {

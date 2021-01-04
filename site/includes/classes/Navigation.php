@@ -18,7 +18,7 @@ class Navigation
                 new PageNav("Comment s'inscrire", "/registration-help"),
             )),
             new PageNav(self::logoImage(), "/", "header-only nav-logo"),
-            new PageNav("Horaire", "#"),
+            new PageNav("Horaire", "/schedule"),
             new PageNav("Contact", "/contact"),
         );
     }

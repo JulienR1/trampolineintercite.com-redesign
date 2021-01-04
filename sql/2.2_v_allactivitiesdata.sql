@@ -8,8 +8,8 @@ AS
         img,
         MIN(cost) AS minCost,
         MAX(cost) AS maxCost,
-        CAST(MIN(endTime - startTime) AS TIME) AS minDuration,
-        CAST(MAX(endTime - startTime) AS TIME) AS maxDuration,
+        MIN(TIMEDIFF(endTime, startTime)) AS minDuration,
+        MAX(TIMEDIFF(endTime, startTime)) AS maxDuration,
         MIN(weekCount) AS minWeekCount,
         MAX(weekCount) AS maxWeekCount
     FROM (
