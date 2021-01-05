@@ -3,13 +3,14 @@
 class Activity extends Controller
 {
 
-    public static $affiliationCost = 29;
+    public static $affiliationCost;
     private static $activityData = array();
 
     public static function CreateView($viewName)
     {
         $model = new mActivity();
         self::$activityData = $model->GetActivities();
+        self::$affiliationCost = $model->GetAffiliationForSession()[0]["affiliationCost"];
 
         self::CreateInfo();
         parent::CreateView($viewName);
@@ -19,7 +20,8 @@ class Activity extends Controller
     {
         parent::$info = new PageInfo();
         parent::$info->setTitle("Trampoline Intercité | Toutes les activités");
-        parent::$info->setCss("activities/activities.css");
+        parent::$info->setCss("activities/activity.css");
+        parent::$info->setJs("activities/calendarIcons.js");
     }
 
     public static function GetActivitiesHtml()
@@ -86,8 +88,11 @@ class Activity extends Controller
         $html .= self::GetHours($activity);
         $html .= self::GetDates($activity);
         $html .= "</div>";
+        $html .= '<div class="links">';
         $html .= '<a href="https://app.sportnroll.com/#/registration/21ef84af-f7c1-4f3e-a182-729a8ca963f8" class="lato bold bg-shadow">S\'inscrire</a>';
-        $html .= '<a href="/schedule?a=' . $activity['id'] . '" class="lato bold bg-shadow to-schedule">Voir dans l\'horaire</a>';
+        $html .= '<a href="/schedule?a=' . $activity['id'] . '" class="bg-shadow to-schedule-cell"><i class="far fa-calendar"></i></a>';
+        $html .= '<a href="/schedule?a=' . $activity['id'] . '" class="bg-shadow to-schedule-desktop"><i class="far fa-calendar"></i></a>';
+        $html .= "</div>";
         return $html;
     }
 
@@ -101,7 +106,7 @@ class Activity extends Controller
         if (intval($minCost) === intval($maxCost)) {
             $html .= '<span class="lato thin">' . $minCost . '$</span>';
         } else {
-            $html .= '<span class="lato thin">' . $minCost . ' - ' . $maxCost . '$</span>';
+            $html .= '<span class="lato thin">' . $minCost . '$ à ' . $maxCost . '$</span>';
         }
         $html .= '</div>';
         return $html;

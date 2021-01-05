@@ -5,6 +5,7 @@ CREATE TABLE `sessions`
 (60) NOT NULL,
     `startDate` DATE NOT NULL,
     `endDate` DATE NOT NULL,
+    `affiliationCost` FLOAT NOT NULL DEFAULT 29,
     PRIMARY KEY
 (`id`)
 );

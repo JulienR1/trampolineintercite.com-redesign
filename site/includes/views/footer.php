@@ -22,6 +22,12 @@
 <script src="/js/body/bodyResize.js"></script>
 <script src="/js/header/header.js"></script>
 
+<?php
+foreach (static::$info->jsFiles as $file) {
+    echo '<script src="/js/' . $file . '"></script>';
+}
+?>
+
 </body>
 
 </html>

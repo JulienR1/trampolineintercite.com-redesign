@@ -22,7 +22,7 @@
                     <p class="lato thin">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt quos, cum incidunt ea enim provident ab soluta consequatur exercitationem mollitia impedit fuga?
                         Sint consequatur vel velit quas sapiente asperiores ut maiores perspiciatis sequi iusto repellendus enim mollitia magni, expedita quidem!</p>
                 </div>
-                <a id="affiliation-document" class="lato medium bg-shadow" href="">Veuillez compléter préalablement</a>
+                <a id="affiliation-document" class="lato medium bg-shadow" href="">Compléter à l'avance</a>
                 <div id="day-affiliation">
                     <i class="fas fa-exclamation"></i>
                     <span class="lato thin">Affiliation journalière: 4.00$ par personne</span>

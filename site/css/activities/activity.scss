@@ -1,0 +1,307 @@
+@import "../colors";
+@import "../variables";
+
+main {
+  section {
+    padding: 20px;
+    max-width: 450px;
+    margin: 0 auto;
+
+    h2 {
+      text-align: center;
+      padding: 10px;
+      font-size: 22px;
+    }
+
+    hr {
+      width: 50%;
+      background: #000;
+      border: 1px solid #000;
+      margin: 0 auto;
+    }
+
+    > p {
+      font-size: 13px;
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .activities {
+      padding: 0 30px;
+
+      .activity {
+        border-radius: 20px;
+        position: relative;
+        padding-bottom: 20px;
+        margin: 30px 0;
+
+        .img-container {
+          width: 100%;
+          height: 200px;
+          position: relative;
+          overflow: hidden;
+
+          img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+          }
+        }
+
+        .data-container {
+          padding: 10px 20px;
+
+          h4 {
+            display: block;
+            text-transform: uppercase;
+            font-size: 19px;
+          }
+
+          h5 {
+            display: block;
+            text-transform: uppercase;
+            font-size: 14px;
+          }
+
+          .desc {
+            padding: 7px 0;
+          }
+
+          .desc p {
+            font-size: 15px;
+            padding: 4px 0;
+            width: 90%;
+            text-align: justify;
+          }
+
+          .stats {
+            padding: 15px 0;
+            width: fit-content;
+            margin: 0 auto;
+
+            div {
+              padding: 3px 0;
+              display: block;
+              width: fit-content;
+
+              i {
+                min-width: 16px;
+                text-align: center;
+              }
+
+              span {
+                font-size: 14px;
+                padding-left: 5px;
+                word-spacing: 1.5px;
+              }
+            }
+          }
+
+          .links {
+            padding: 7px 0;
+
+            .to-schedule-desktop,
+            .to-schedule-cell {
+              position: absolute;
+              top: -17.5px;
+              right: -17.5px;
+              width: 45px;
+              height: 45px;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 20px;
+              color: $black;
+            }
+
+            .to-schedule-desktop {
+              display: none;
+            }
+          }
+
+          #day-affiliation {
+            text-align: center;
+            margin-top: 21px;
+
+            span {
+              font-size: 14px;
+            }
+          }
+
+          #affiliation-document {
+            width: 75%;
+            margin: 15px auto 5px auto;
+            padding: 10px;
+          }
+
+          a {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            width: 45%;
+            display: block;
+            margin: 0 auto;
+            text-transform: uppercase;
+            background: $hotRed;
+            outline: none;
+            border: none;
+            border-radius: 20px;
+            padding: 6px 0;
+            font-size: 12px;
+            overflow-x: hidden;
+            cursor: pointer;
+          }
+
+          #contact-form {
+            span {
+              display: block;
+              text-align: center;
+              font-size: 15px;
+            }
+
+            form {
+              width: 100%;
+              p {
+                text-align: center;
+                color: $darkRed;
+                font-size: 12px;
+              }
+
+              p[valid] {
+                color: $successGreen;
+              }
+
+              input,
+              textarea {
+                display: block;
+                width: 90%;
+                border-radius: 10px;
+                background-color: rgba(0, 0, 0, 0.075);
+                padding: 6px 12px;
+                margin: 3px auto;
+                border: none;
+              }
+
+              textarea {
+                max-height: 100px;
+                margin: 8px auto;
+              }
+
+              input[invalid],
+              textarea[invalid] {
+                border: 3px solid $darkRed;
+              }
+
+              button {
+                display: block;
+                margin: 0 auto;
+                outline: none;
+                background: $hotRed !important;
+                padding: 6px 25px;
+                border: none;
+                border-radius: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $mediumScreen) {
+  main {
+    section {
+      width: 70%;
+      max-width: none;
+
+      hr {
+        width: 30%;
+      }
+
+      > p {
+        font-size: 15px;
+      }
+
+      .activities .activity {
+        .img-container {
+          height: 250px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $largeScreen) {
+  main section {
+    width: 80%;
+
+    .activities {
+      padding: 0;
+
+      .activity {
+        display: grid;
+        grid-template-columns: 35% 65%;
+
+        .img-container {
+          height: 100%;
+          max-height: none;
+
+          img {
+            height: 100%;
+            width: auto;
+          }
+        }
+
+        .data-container {
+          .stats {
+            display: flex;
+            margin: 0;
+            width: 100%;
+            justify-content: space-evenly;
+          }
+
+          a {
+            width: 40%;
+          }
+
+          .links {
+            display: flex;
+
+            .to-schedule-cell {
+              display: none;
+            }
+
+            .to-schedule-desktop {
+              display: flex;
+              bottom: 12.5px;
+              right: 12.5px;
+              top: unset;
+              font-size: 16px;
+            }
+          }
+
+          #contact-form form {
+            > div {
+              display: flex;
+              align-items: center;
+
+              textarea {
+                width: 70%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $largerScreen) {
+  main section {
+    width: 65%;
+  }
+}

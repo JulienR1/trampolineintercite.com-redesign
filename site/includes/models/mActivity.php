@@ -3,9 +3,10 @@
 class mActivity extends DatabaseHandler
 {
 
-    public function GetAffiliationForSeason()
+    public function GetAffiliationForSession()
     {
-        // check pour la session en cours (1), la prochaine saison (2) ou la derniere saison (3)
+        $sql = "SELECT affiliationCost FROM sessions WHERE id = GetCurrentSession()";
+        return parent::query($sql);
     }
 
     public function GetActivities()

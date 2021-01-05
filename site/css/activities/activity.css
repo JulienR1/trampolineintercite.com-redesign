@@ -1,1 +1,305 @@
-/* No CSS *//*# sourceMappingURL=activity.css.map */
+main section {
+  padding: 20px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+main section h2 {
+  text-align: center;
+  padding: 10px;
+  font-size: 22px;
+}
+
+main section hr {
+  width: 50%;
+  background: #000;
+  border: 1px solid #000;
+  margin: 0 auto;
+}
+
+main section > p {
+  font-size: 13px;
+  text-align: center;
+  margin: 25px 0;
+}
+
+main section .activities {
+  padding: 0 30px;
+}
+
+main section .activities .activity {
+  border-radius: 20px;
+  position: relative;
+  padding-bottom: 20px;
+  margin: 30px 0;
+}
+
+main section .activities .activity .img-container {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+main section .activities .activity .img-container img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+main section .activities .activity .data-container {
+  padding: 10px 20px;
+}
+
+main section .activities .activity .data-container h4 {
+  display: block;
+  text-transform: uppercase;
+  font-size: 19px;
+}
+
+main section .activities .activity .data-container h5 {
+  display: block;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+main section .activities .activity .data-container .desc {
+  padding: 7px 0;
+}
+
+main section .activities .activity .data-container .desc p {
+  font-size: 15px;
+  padding: 4px 0;
+  width: 90%;
+  text-align: justify;
+}
+
+main section .activities .activity .data-container .stats {
+  padding: 15px 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+main section .activities .activity .data-container .stats div {
+  padding: 3px 0;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+main section .activities .activity .data-container .stats div i {
+  min-width: 16px;
+  text-align: center;
+}
+
+main section .activities .activity .data-container .stats div span {
+  font-size: 14px;
+  padding-left: 5px;
+  word-spacing: 1.5px;
+}
+
+main section .activities .activity .data-container .links {
+  padding: 7px 0;
+}
+
+main section .activities .activity .data-container .links .to-schedule-desktop,
+main section .activities .activity .data-container .links .to-schedule-cell {
+  position: absolute;
+  top: -17.5px;
+  right: -17.5px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  color: #303030;
+}
+
+main section .activities .activity .data-container .links .to-schedule-desktop {
+  display: none;
+}
+
+main section .activities .activity .data-container #day-affiliation {
+  text-align: center;
+  margin-top: 21px;
+}
+
+main section .activities .activity .data-container #day-affiliation span {
+  font-size: 14px;
+}
+
+main section .activities .activity .data-container #affiliation-document {
+  width: 75%;
+  margin: 15px auto 5px auto;
+  padding: 10px;
+}
+
+main section .activities .activity .data-container a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: 45%;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  background: #f71f44;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 0;
+  font-size: 12px;
+  overflow-x: hidden;
+  cursor: pointer;
+}
+
+main section .activities .activity .data-container #contact-form span {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+}
+
+main section .activities .activity .data-container #contact-form form {
+  width: 100%;
+}
+
+main section .activities .activity .data-container #contact-form form p {
+  text-align: center;
+  color: #ca1735;
+  font-size: 12px;
+}
+
+main section .activities .activity .data-container #contact-form form p[valid] {
+  color: #03ad48;
+}
+
+main section .activities .activity .data-container #contact-form form input,
+main section .activities .activity .data-container #contact-form form textarea {
+  display: block;
+  width: 90%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.075);
+  padding: 6px 12px;
+  margin: 3px auto;
+  border: none;
+}
+
+main section .activities .activity .data-container #contact-form form textarea {
+  max-height: 100px;
+  margin: 8px auto;
+}
+
+main section .activities .activity .data-container #contact-form form input[invalid],
+main section .activities .activity .data-container #contact-form form textarea[invalid] {
+  border: 3px solid #ca1735;
+}
+
+main section .activities .activity .data-container #contact-form form button {
+  display: block;
+  margin: 0 auto;
+  outline: none;
+  background: #f71f44 !important;
+  padding: 6px 25px;
+  border: none;
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  main section {
+    width: 70%;
+    max-width: none;
+  }
+  main section hr {
+    width: 30%;
+  }
+  main section > p {
+    font-size: 15px;
+  }
+  main section .activities .activity .img-container {
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  main section {
+    width: 80%;
+  }
+  main section .activities {
+    padding: 0;
+  }
+  main section .activities .activity {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 35% 65%;
+        grid-template-columns: 35% 65%;
+  }
+  main section .activities .activity .img-container {
+    height: 100%;
+    max-height: none;
+  }
+  main section .activities .activity .img-container img {
+    height: 100%;
+    width: auto;
+  }
+  main section .activities .activity .data-container .stats {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    width: 100%;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  main section .activities .activity .data-container a {
+    width: 40%;
+  }
+  main section .activities .activity .data-container .links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  main section .activities .activity .data-container .links .to-schedule-cell {
+    display: none;
+  }
+  main section .activities .activity .data-container .links .to-schedule-desktop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    bottom: 12.5px;
+    right: 12.5px;
+    top: unset;
+    font-size: 16px;
+  }
+  main section .activities .activity .data-container #contact-form form > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main section .activities .activity .data-container #contact-form form > div textarea {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  main section {
+    width: 65%;
+  }
+}
+/*# sourceMappingURL=activity.css.map */
