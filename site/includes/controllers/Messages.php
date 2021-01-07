@@ -1,6 +1,7 @@
 <?php
 
-class Messages extends Controller{
+class Messages extends Controller
+{
 
     private static $messages = array();
 
@@ -20,29 +21,31 @@ class Messages extends Controller{
         parent::$info->setCss("messages/messages.css?v=1");
     }
 
-    public static function GetMessagesHtml(){
+    public static function GetMessagesHtml()
+    {
         $html = "";
-        if(!empty(self::$messages)){
-            foreach(self::$messages as $message){
+        if (!empty(self::$messages)) {
+            foreach (self::$messages as $message) {
                 $html .= self::GetSingleMessageHtml($message);
             }
-        }else{
+        } else {
             $html = '<p class="no-msg lato normal">
-                        Aucun message a afficher pour le moment
+                        Aucun message à afficher pour le moment
                     </p>';
         }
 
         return $html;
     }
 
-    private static function GetSingleMessageHtml($message){
+    private static function GetSingleMessageHtml($message)
+    {
         $out = '<section class="bg-shadow">';
-        $out .= '<div><h3 class="lato normal">'.$message["title"].'</h3><span class="lato light">'.$message["startdate"].'</span></div>';
-        
+        $out .= '<div><h3 class="lato normal">' . $message["title"] . '</h3><span class="lato light">' . $message["startdate"] . '</span></div>';
+
         $out .= "<div>";
         $out .= FileHelper::ReadFileAsParagraphs("files/messages/" . $message["text"]);
         $out .= "</div>";
-        
+
         $out .= "</section>";
         return $out;
     }

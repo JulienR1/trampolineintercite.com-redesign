@@ -23,10 +23,6 @@ main section > p {
   margin: 25px 0;
 }
 
-main section .activities {
-  padding: 0 30px;
-}
-
 main section .activities .activity {
   border-radius: 20px;
   position: relative;
@@ -144,6 +140,7 @@ main section .activities .activity .data-container #day-affiliation span {
 
 main section .activities .activity .data-container #affiliation-document {
   width: 75%;
+  max-width: 250px;
   margin: 15px auto 5px auto;
   padding: 10px;
 }
@@ -153,6 +150,7 @@ main section .activities .activity .data-container a {
   text-decoration: none;
   text-align: center;
   width: 45%;
+  max-width: 175px;
   display: block;
   margin: 0 auto;
   text-transform: uppercase;

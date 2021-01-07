@@ -17,9 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.stopPropagation();
     });
   });
-  document
-    .querySelector("header nav")
-    .addEventListener("click", closeToggleMenus);
+  document.querySelector("header nav").addEventListener("click", closeToggleMenus);
   document.querySelector("header").addEventListener("click", (e) => {
     e.stopPropagation();
   });
@@ -60,14 +58,14 @@ function updateSticky(e) {
   }
 }
 
-function registerCloseMenuBeforeLoadingPageEvents(){
-  document.querySelectorAll("a").forEach(link=>{
-    link.addEventListener("click", function(e){
+function registerCloseMenuBeforeLoadingPageEvents() {
+  document.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", function (e) {
       const nav = document.querySelector("header nav");
-      if(nav.hasAttribute("open")){
+      if (nav.hasAttribute("open")) {
         e.preventDefault();
         const transitionTimeStr = getComputedStyle(nav).transitionDuration;
-        const transitionTime = parseFloat(transitionTimeStr);        
+        const transitionTime = parseFloat(transitionTimeStr);
         closeHeader();
         setTimeout(() => {
           window.location = link.href;

@@ -27,8 +27,6 @@ main {
     }
 
     .activities {
-      padding: 0 30px;
-
       .activity {
         border-radius: 20px;
         position: relative;
@@ -133,6 +131,7 @@ main {
 
           #affiliation-document {
             width: 75%;
+            max-width: 250px;
             margin: 15px auto 5px auto;
             padding: 10px;
           }
@@ -142,6 +141,7 @@ main {
             text-decoration: none;
             text-align: center;
             width: 45%;
+            max-width: 175px;
             display: block;
             margin: 0 auto;
             text-transform: uppercase;
