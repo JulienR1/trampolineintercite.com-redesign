@@ -282,6 +282,48 @@ main section .activities .activity .data-container #contact-form form button {
     top: unset;
     font-size: 16px;
   }
+  main section .activities .activity .data-container .links .to-schedule-desktop i {
+    -webkit-transition: -webkit-transform 0.5s ease;
+    transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  }
+  main section .activities .activity .data-container .links .to-schedule-desktop:hover {
+    -webkit-animation: calendarHover 1s infinite;
+            animation: calendarHover 1s infinite;
+  }
+  main section .activities .activity .data-container .links .to-schedule-desktop:hover i {
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%);
+  }
+  @-webkit-keyframes calendarHover {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    50% {
+      -webkit-transform: translateY(-10%);
+              transform: translateY(-10%);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  @keyframes calendarHover {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    50% {
+      -webkit-transform: translateY(-10%);
+              transform: translateY(-10%);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
   main section .activities .activity .data-container #contact-form form > div {
     display: -webkit-box;
     display: -ms-flexbox;
