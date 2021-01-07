@@ -4,5 +4,7 @@ CREATE TABLE `activities`(
     `subtitle` VARCHAR(100),
     `desc` VARCHAR(40),
     `img` VARCHAR(40),
+    `isCompetitive` BOOLEAN NOT NULL DEFAULT FALSE,
+    `priority` INT NOT NULL DEFAULT -1,
     PRIMARY KEY(`id`)
 );

@@ -3,7 +3,7 @@
     <hr>
     <p class="lato thin">Noter qu'une affiliation de <?php echo number_format((float) static::$affiliationCost, 2, '.', ''); ?>$ est obligatoire pour tous</p>
     <div class="activities">
-        <?php echo static::GetActivitiesHtml(); ?>
+        <?php echo static::GetRecreativeActivitiesHtml(); ?>
     </div>
 </section>
 
@@ -53,6 +53,10 @@
 <section id="competitive_hash">
     <h2 class="lato medium">Secteur compétitif</h2>
     <hr>
+    <div class="activities">
+        <?php echo static::GetCompetitiveActivitiesHtml(); ?>
+    </div>
+
 </section>
 
 <script src="/js/smoothHash.js"></script>

@@ -4,8 +4,9 @@ AS
     SELECT A.id,
         title,
         subtitle,
-        A.DESC,
+        A.desc,
         img,
+        isCompetitive,
         MIN(cost) AS minCost,
         MAX(cost) AS maxCost,
         MIN(TIMEDIFF(endTime, startTime)) AS minDuration,
@@ -16,6 +17,7 @@ AS
 	SELECT activities.*, cost, startTime, endTime, GetWeekCount(weekday, sessionId) AS weekCount
         FROM activityStats
             JOIN activitytostats ON statsId = activityStats.id AND sessionId = GetCurrentSession()
-            JOIN activities ON activities.id = activityId
+            JOIN activities ON activities.id = activityId AND isCompetitive = FALSE
 ) AS A
-    GROUP BY A.id;
+    GROUP BY A.id
+    ORDER BY A.priority;

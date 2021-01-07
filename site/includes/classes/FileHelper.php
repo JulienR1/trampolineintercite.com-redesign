@@ -5,8 +5,16 @@ class FileHelper
 
     public static function ReadFileAsParagraphs($filepath, $pClasses = null)
     {
+        if (!file_exists($filepath)) {
+            return "<p>Erreur au chargement de l'information. Contacter l'organisation</p>";
+        }
+
         $out = "";
-        $file = fopen($filepath, "r") or die("Error opening " . $filepath);
+        $file = fopen($filepath, "r");
+
+        if (!$file) {
+            return "<p>Erreur à la lecture de l'information. Contacter l'organisation</p>";
+        }
 
         while (true) {
             if (feof($file)) {

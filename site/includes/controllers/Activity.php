@@ -5,11 +5,13 @@ class Activity extends Controller
 
     public static $affiliationCost;
     private static $activityData = array();
+    private static $competitiveActivityData = array();
 
     public static function CreateView($viewName)
     {
         $model = new mActivity();
         self::$activityData = $model->GetActivities();
+        self::$competitiveActivityData = $model->GetCompetitiveActivities();
         self::$affiliationCost = $model->GetAffiliationForSession()[0]["affiliationCost"];
 
         self::CreateInfo();
@@ -24,20 +26,31 @@ class Activity extends Controller
         parent::$info->setJs("activities/calendarIcons.js");
     }
 
-    public static function GetActivitiesHtml()
+    public static function GetRecreativeActivitiesHtml()
+    {
+        return self::GetActivitiesHtml(false);
+    }
+
+    public static function GetCompetitiveActivitiesHtml()
+    {
+        return self::GetActivitiesHtml(true);
+    }
+
+    public static function GetActivitiesHtml($isCompetitive)
     {
         $html = "";
-        foreach (self::$activityData as $activity) {
-            $html .= self::GetSingleActivityHtml($activity);
+        $activityArray = $isCompetitive ? self::$competitiveActivityData : self::$activityData;
+        foreach ($activityArray as $activity) {
+            $html .= self::GetSingleActivityHtml($activity, $isCompetitive);
         }
         return $html;
     }
 
-    private static function GetSingleActivityHtml($activity)
+    private static function GetSingleActivityHtml($activity, $isCompetitive)
     {
         $html = '<div class="activity bg-shadow">';
         $html .= self::GetImgHtml($activity);
-        $html .= self::GetDataHtml($activity);
+        $html .= self::GetDataHtml($activity, $isCompetitive);
         $html .= '</div>';
         return $html;
     }
@@ -54,12 +67,16 @@ class Activity extends Controller
         }
     }
 
-    private static function GetDataHtml($activity)
+    private static function GetDataHtml($activity, $isCompetitive)
     {
         $html = '<div class="data-container">';
         $html .= self::GetTitles($activity);
         $html .= self::GetDescription($activity);
-        $html .= self::GetStats($activity);
+        if ($isCompetitive) {
+            $html .= self::GetCompetitiveButtons($activity);
+        } else {
+            $html .= self::GetStats($activity);
+        }
         $html .= '</div>';
         return $html;
     }
@@ -90,8 +107,18 @@ class Activity extends Controller
         $html .= "</div>";
         $html .= '<div class="links">';
         $html .= '<a href="https://app.sportnroll.com/#/registration/21ef84af-f7c1-4f3e-a182-729a8ca963f8" class="lato bold bg-shadow">S\'inscrire</a>';
-        $html .= '<a href="/schedule?a=' . $activity['id'] . '" class="bg-shadow to-schedule-cell"><i class="far fa-calendar"></i></a>';
-        $html .= '<a href="/schedule?a=' . $activity['id'] . '" class="bg-shadow to-schedule-desktop"><i class="far fa-calendar"></i></a>';
+        $html .= '<a href="/schedule?activity=' . $activity['id'] . '" class="bg-shadow to-schedule-cell"><i class="far fa-calendar"></i></a>';
+        $html .= '<a href="/schedule?activity=' . $activity['id'] . '" class="bg-shadow to-schedule-desktop"><i class="far fa-calendar"></i></a>';
+        $html .= "</div>";
+        return $html;
+    }
+
+    private static function GetCompetitiveButtons($activity)
+    {
+        $html = '<div class="links">';
+        $html .= '<a href="/news?filter=' . $activity['id'] . '" class="lato bold bg-shadow">Nos réalisations</a>';
+        $html .= '<a href="/schedule?activity=' . $activity['id'] . '" class="bg-shadow to-schedule-cell"><i class="far fa-calendar"></i></a>';
+        $html .= '<a href="/schedule?activity=' . $activity['id'] . '" class="bg-shadow to-schedule-desktop"><i class="far fa-calendar"></i></a>';
         $html .= "</div>";
         return $html;
     }
