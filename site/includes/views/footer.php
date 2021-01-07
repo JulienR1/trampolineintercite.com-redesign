@@ -1,5 +1,9 @@
 </main>
 
+<div id="topArrow">
+    <i class=" fas fa-angle-up"></i>
+</div>
+
 <footer>
     <section id="quick-links">
         <a href='href="https://app.sportnroll.com/#/registration/21ef84af-f7c1-4f3e-a182-729a8ca963f8"'>S'inscrire en ligne</a>
@@ -21,6 +25,7 @@
 
 <script src="/js/body/bodyResize.js"></script>
 <script src="/js/header/header.js"></script>
+<script src="/js/smoothScroll.js"></script>
 
 <?php
 foreach (static::$info->jsFiles as $file) {

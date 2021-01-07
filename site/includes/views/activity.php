@@ -58,5 +58,3 @@
     </div>
 
 </section>
-
-<script src="/js/smoothHash.js"></script>
