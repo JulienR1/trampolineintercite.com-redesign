@@ -17,7 +17,7 @@ class mActivity extends DatabaseHandler
 
     public function GetCompetitiveActivities()
     {
-        $sql = "SELECT * FROM activities WHERE isCompetitive = TRUE ORDER BY priority";
+        $sql = "SELECT * FROM activities, activitiestoteams WHERE isCompetitive = TRUE AND activities.id = activityId ORDER BY priority";
         return parent::query($sql);
     }
 }

@@ -18,7 +18,7 @@ class Messages extends Controller
     {
         parent::$info = new PageInfo();
         parent::$info->setTitle("Trampoline Intercité | Messages");
-        parent::$info->setCss("messages/messages.css?v=1");
+        parent::$info->setCss("messages/messages.css");
     }
 
     public static function GetMessagesHtml()

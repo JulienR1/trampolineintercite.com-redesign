@@ -12,6 +12,6 @@ class Contact extends Controller
     {
         parent::$info = new PageInfo();
         parent::$info->setTitle("Trampoline Intercité | Contact");
-        parent::$info->setCss("contact/contact.css?v=1");
+        parent::$info->setCss("contact/contact.css");
     }
 }

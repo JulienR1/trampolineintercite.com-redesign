@@ -24,7 +24,8 @@ class News extends Controller
     {
         parent::$info = new PageInfo();
         parent::$info->setTitle("Trampoline Intercité | Actualités");
-        parent::$info->setCss("news/news.css?v=1");
+        parent::$info->setCss("news/news.css");
+        parent::$info->setJs("news/newsFilter.js");
     }
 
     private static function GetSeasonDates($model)
@@ -51,7 +52,7 @@ class News extends Controller
 
     private static function GetNews($news)
     {
-        if ($news != null) {
+        if (!(sizeof($news) === 1 && $news[0]["id"] === null)) {
             $html = "";
             foreach ($news as $singleNews) {
                 $html .= self::GetNewsHtml($singleNews);
@@ -64,7 +65,7 @@ class News extends Controller
 
     private static function GetNewsHtml($singleNews)
     {
-        $html = "<article>";
+        $html = '<article teams="' . $singleNews["teams"] . '">';
         $html .= '<a href="/news/' . $singleNews["pageLink"] . '" class="bg-shadow">';
         $html .= '<img src="/assets/news/' . $singleNews["photo"] . '" alt="">';
         $html .= '<div class="infos">';

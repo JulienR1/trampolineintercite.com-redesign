@@ -116,7 +116,7 @@ class Activity extends Controller
     private static function GetCompetitiveButtons($activity)
     {
         $html = '<div class="links">';
-        $html .= '<a href="/news?filter=' . $activity['id'] . '" class="lato bold bg-shadow">Nos réalisations</a>';
+        $html .= '<a href="/news?filter=' . $activity['teamId'] . '" class="lato bold bg-shadow">Nos réalisations</a>';
         $html .= '<a href="/schedule?activity=' . $activity['id'] . '" class="bg-shadow to-schedule-cell"><i class="far fa-calendar"></i></a>';
         $html .= '<a href="/schedule?activity=' . $activity['id'] . '" class="bg-shadow to-schedule-desktop"><i class="far fa-calendar"></i></a>';
         $html .= "</div>";

@@ -13,6 +13,6 @@ class RegisterHelp extends Controller
     {
         parent::$info = new PageInfo();
         parent::$info->setTitle("Trampoline Intercité | Comment s'inscrire");
-        parent::$info->setCss("registerHelp/registerHelp.css?v=1");
+        parent::$info->setCss("registerHelp/registerHelp.css");
     }
 }

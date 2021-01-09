@@ -23,13 +23,13 @@
     </p>
 </footer>
 
-<script src="/js/body/bodyResize.js"></script>
-<script src="/js/header/header.js"></script>
-<script src="/js/smoothScroll.js"></script>
+<script src="/js/body/bodyResize.js?v=<?php echo static::$fileVersion; ?>"></script>
+<script src="/js/header/header.js?v=<?php echo static::$fileVersion; ?>"></script>
+<script src="/js/smoothScroll.js?v=<?php echo static::$fileVersion; ?>"></script>
 
 <?php
 foreach (static::$info->jsFiles as $file) {
-    echo '<script src="/js/' . $file . '"></script>';
+    echo '<script src="/js/' . $file . "?v=" . static::$fileVersion . '"></script>';
 }
 ?>
 
