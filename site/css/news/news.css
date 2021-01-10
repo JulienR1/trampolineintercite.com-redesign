@@ -54,6 +54,8 @@ main section > div article {
   transition: -webkit-transform 0.15s ease-in-out;
   transition: transform 0.15s ease-in-out;
   transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+  position: relative;
+  cursor: pointer;
 }
 
 main section > div article a {
@@ -89,8 +91,161 @@ main section > div article:hover {
           transform: scale(1.02);
 }
 
+main section > div article .curtain {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+main section > div article[filtered-out] .curtain {
+  opacity: 0.25;
+  visibility: visible;
+}
+
 main section:last-of-type {
   padding-bottom: 20px;
+}
+
+main #filter {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #filter #toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+main #filter #toggle i {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+main #filter #menu {
+  visibility: hidden;
+  max-width: 0;
+  overflow-x: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border-radius: 8px;
+  padding: 8px 0;
+  opacity: 0;
+}
+
+main #filter #menu h4 {
+  font-size: 15px;
+  white-space: nowrap;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+main #filter #menu h4::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 2px;
+  background-color: #303030;
+  bottom: -6px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+main #filter #menu ul {
+  list-style-type: none;
+  padding: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+}
+
+main #filter #menu ul li {
+  margin: 1px 0;
+}
+
+main #filter #menu ul li input {
+  display: none;
+}
+
+main #filter #menu ul li input:checked + label .radio .outer .inner {
+  visibility: visible;
+  opacity: 1;
+}
+
+main #filter #menu ul li label {
+  display: block;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+main #filter #menu ul li label .radio {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+}
+
+main #filter #menu ul li label .radio .outer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid #303030;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #filter #menu ul li label .radio .outer .inner {
+  background-color: #303030;
+  width: 65%;
+  height: 65%;
+  border-radius: 50%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+}
+
+main #filter #menu ul li:last-of-type {
+  margin: 3px 0;
+  text-align: center;
+}
+
+main #filter[open] #menu {
+  visibility: visible;
+  max-width: 175px;
+  opacity: 1;
+  padding: 8px 16px;
+  margin-left: 4px;
 }
 
 @media screen and (min-width: 800px) {
@@ -119,6 +274,31 @@ main section:last-of-type {
   main section div > p {
     font-size: 16px;
   }
+  main #filter {
+    -webkit-transition: right 1s ease;
+    transition: right 1s ease;
+  }
+  main #filter #toggle {
+    width: 47px;
+    height: 47px;
+  }
+  main #filter #toggle i {
+    font-size: 20px;
+  }
+  main #filter #menu h4 {
+    font-size: 17px;
+  }
+  main #filter #menu ul li label {
+    font-size: 15px;
+  }
+  main #filter #menu ul li label span {
+    margin: 0 1px;
+    text-align: center;
+  }
+  main #filter #menu ul li label:hover span {
+    font-weight: 600;
+    margin: 0;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -133,6 +313,9 @@ main section:last-of-type {
   }
   main section div > article {
     width: 200px;
+  }
+  main #filter {
+    right: 115px;
   }
 }
 /*# sourceMappingURL=news.css.map */

@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../colors";
 
 main {
   h1 {
@@ -46,6 +47,8 @@ main {
         width: 150px;
         margin: 20px 10px;
         transition: transform $shortDelay ease-in-out;
+        position: relative;
+        cursor: pointer;
 
         a {
           display: block;
@@ -78,11 +81,148 @@ main {
         &:hover {
           transform: scale(1.02);
         }
+
+        .curtain {
+          width: 100%;
+          height: 100%;
+          background-color: #000;
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          visibility: hidden;
+          transition: all $mediumDelay ease;
+          pointer-events: none;
+        }
+
+        &[filtered-out] .curtain {
+          opacity: 0.25;
+          visibility: visible;
+        }
       }
     }
 
     &:last-of-type {
       padding-bottom: 20px;
+    }
+  }
+
+  #filter {
+    position: fixed;
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    align-items: center;
+
+    #toggle {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+
+      i {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
+    }
+
+    #menu {
+      visibility: hidden;
+      max-width: 0;
+      overflow-x: hidden;
+      transition: all $mediumDelay ease;
+      border-radius: 8px;
+      padding: 8px 0;
+      opacity: 0;
+
+      h4 {
+        font-size: 15px;
+        white-space: nowrap;
+        margin-bottom: 12px;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 40%;
+          height: 2px;
+          background-color: $black;
+          bottom: -6px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        width: max-content;
+        margin: 0 auto;
+
+        li {
+          margin: 1px 0;
+
+          input {
+            display: none;
+
+            &:checked + label .radio .outer .inner {
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+
+          label {
+            display: block;
+            font-size: 14px;
+            cursor: pointer;
+
+            .radio {
+              width: 14px;
+              height: 14px;
+              display: inline-block;
+
+              .outer {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border: 1px solid $black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .inner {
+                  background-color: $black;
+                  width: 65%;
+                  height: 65%;
+                  border-radius: 50%;
+                  visibility: hidden;
+                  opacity: 0;
+                  transition: all $shortDelay ease;
+                }
+              }
+            }
+          }
+
+          &:last-of-type {
+            margin: 3px 0;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    &[open] {
+      #menu {
+        visibility: visible;
+        max-width: 175px;
+        opacity: 1;
+        padding: 8px 16px;
+        margin-left: 4px;
+      }
     }
   }
 }
@@ -123,6 +263,39 @@ main {
         font-size: 16px;
       }
     }
+
+    #filter {
+      transition: right $longDelay ease;
+
+      #toggle {
+        width: 47px;
+        height: 47px;
+
+        i {
+          font-size: 20px;
+        }
+      }
+
+      #menu {
+        h4 {
+          font-size: 17px;
+        }
+
+        ul li label {
+          font-size: 15px;
+
+          span {
+            margin: 0 1px;
+            text-align: center;
+          }
+
+          &:hover span {
+            font-weight: 600;
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -141,6 +314,10 @@ main {
       div > article {
         width: 200px;
       }
+    }
+
+    #filter {
+      right: 115px;
     }
   }
 }

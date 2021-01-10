@@ -71,7 +71,7 @@ class News extends Controller
         $html .= '<div class="infos">';
         $html .= '<p class="date lato light">' . $singleNews["date"] . '</p>';
         $html .= '<p class="lato medium">' . $singleNews["title"] . '</p>';
-        $html .= "</div></a></article>";
+        $html .= '</div></a><div class="curtain"></div></article>';
         return $html;
     }
 

@@ -14,8 +14,8 @@ body {
 
 .bg-shadow-cell,
 .bg-shadow {
-  -webkit-box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.26);
-          box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.26);
+          box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.26);
   background: #fff;
 }
 
@@ -41,8 +41,8 @@ footer .header-only {
     display: none;
   }
   .bg-shadow-desktop {
-    -webkit-box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.26);
-            box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.26);
+            box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.26);
     background: #fff;
   }
 }
