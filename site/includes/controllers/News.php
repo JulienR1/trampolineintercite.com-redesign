@@ -5,6 +5,7 @@ class News extends Controller
     public static $monthNews = array();
     private static $seasonNews = array();
     private static $allNews = array();
+    private static $activityFilters = array();
 
     public static $seasonStart, $seasonEnd;
 
@@ -15,6 +16,8 @@ class News extends Controller
         self::$monthNews = $model->GetMonthNews();
         self::$seasonNews = $model->GetSeasonNews();
         self::$allNews = $model->GetAllNews();
+
+        self::$activityFilters = $model->GetActivities();
 
         self::CreateInfo();
         parent::CreateView($viewName);
@@ -78,6 +81,26 @@ class News extends Controller
     private static function GetNoNewsHtml()
     {
         return '<p class="lato thin">Aucune nouvelle à afficher pour l\'instant</p>';
+    }
+
+    public static function GetFiltersHtml()
+    {
+        $html = "";
+        foreach (self::$activityFilters as $activity) {
+            $html .= self::GetSingleFilterHtml($activity);
+        }
+        return $html;
+    }
+
+    public static function GetSingleFilterHtml($filter)
+    {
+        $html = "<li>";
+        $html .= '<input type="radio" id="' . $filter["teamId"] . '" name="filter" onclick="applyFilter(\'' . $filter["teamId"] . '\')"></input>';
+        $html .= '<label for="' . $filter["teamId"] . '">';
+        $html .= '<div class="radio"><div class="outer"><div class="inner"></div></div></div>';
+        $html .= '<span class="lato thin">' . $filter["title"] . '</span>';
+        $html .= "</label></li>";
+        return $html;
     }
 
 }

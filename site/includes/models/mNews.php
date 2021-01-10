@@ -27,4 +27,10 @@ class mNews extends DatabaseHandler
         return parent::query($sql);
     }
 
+    public function GetActivities()
+    {
+        $sql = "SELECT title, teamId FROM activities, activitiesToTeams WHERE isCompetitive = TRUE AND activityId = id ORDER BY priority";
+        return parent::query($sql);
+    }
+
 }
