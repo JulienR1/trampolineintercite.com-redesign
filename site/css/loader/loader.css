@@ -1,0 +1,97 @@
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+}
+
+.loader[visible] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loader[visible] div {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.loader div {
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-animation: spin 2s ease infinite;
+          animation: spin 2s ease infinite;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.loader div:first-of-type {
+  background-color: #f71f44;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+
+.loader div:nth-child(3) {
+  background-color: #f71f44;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+
+.loader div:nth-child(2) {
+  background-color: #303030;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+.loader div:last-child {
+  background-color: #303030;
+}
+
+@-webkit-keyframes spin {
+  0%,
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  25% {
+    -webkit-transform: translate(160%, 0);
+            transform: translate(160%, 0);
+  }
+  50% {
+    -webkit-transform: translate(160%, 160%);
+            transform: translate(160%, 160%);
+  }
+  75% {
+    -webkit-transform: translate(0, 160%);
+            transform: translate(0, 160%);
+  }
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  25% {
+    -webkit-transform: translate(160%, 0);
+            transform: translate(160%, 0);
+  }
+  50% {
+    -webkit-transform: translate(160%, 160%);
+            transform: translate(160%, 160%);
+  }
+  75% {
+    -webkit-transform: translate(0, 160%);
+            transform: translate(0, 160%);
+  }
+}
+/*# sourceMappingURL=loader.css.map */

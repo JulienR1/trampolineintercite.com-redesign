@@ -1,0 +1,67 @@
+@import "../colors";
+@import "../variables";
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $shortDelay ease;
+
+  &[visible] {
+    opacity: 1;
+    visibility: visible;
+
+    div {
+      animation-play-state: running;
+    }
+  }
+
+  div {
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    position: absolute;
+    animation: spin 2s ease infinite;
+    animation-play-state: paused;
+
+    &:first-of-type {
+      background-color: $hotRed;
+      animation-delay: -1.5s;
+    }
+
+    &:nth-child(3) {
+      background-color: $hotRed;
+      animation-delay: -0.5s;
+    }
+
+    &:nth-child(2) {
+      background-color: $black;
+      animation-delay: -1s;
+    }
+
+    &:last-child {
+      background-color: $black;
+    }
+
+    @keyframes spin {
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(160%, 0);
+      }
+      50% {
+        transform: translate(160%, 160%);
+      }
+      75% {
+        transform: translate(0, 160%);
+      }
+    }
+  }
+}

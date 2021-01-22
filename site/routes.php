@@ -32,7 +32,7 @@ Route::set("registration-help", function () {
 });
 
 Route::set("schedule", function () {
-    echo "schedule";
+    Schedule::CreateView("schedule");
 });
 
 Route::set("contact", function () {

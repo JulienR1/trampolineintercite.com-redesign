@@ -5,6 +5,9 @@ const MIN_SCREEN_WIDTH = 800;
 var scroller = null;
 var footer = null;
 
+var imgCount = 0;
+var imgLoadedCount = 0;
+
 var scrollerWidth = null;
 var footerHeight = null;
 var scrollerMarginTotal = null;
@@ -16,14 +19,29 @@ var currentVerticalScroll = 0,
 var easeFactor = 0.15;
 
 function initScroller() {
-  setMargins();
   window.addEventListener("resize", () => {
     setMargins;
     initScollerConstants();
   });
-
-  initScollerConstants();
   VirtualScroll.on(calculateTargetScroll);
+
+  // Update the layout only when all images have been affected by css
+  let imgs = document.querySelectorAll("main ul img");
+  imgCount = imgs.length;
+  console.log(imgLoadedCount);
+  imgs.forEach((img) => img.addEventListener("load", onImageLoad));
+  initScrollerContent();
+}
+
+function onImageLoad() {
+  if (++imgLoadedCount === imgCount) {
+    initScrollerContent();
+  }
+}
+
+function initScrollerContent() {
+  setMargins();
+  initScollerConstants();
   runScroller();
 }
 
@@ -38,6 +56,7 @@ function setMargins() {
   var windowSize = window.innerWidth;
   var leftMargin = (windowSize - leftmostElement.offsetWidth) * 0.5 - listElementMargin;
   var rightMargin = (windowSize - rightmostElement.offsetWidth) * 0.5 - listElementMargin;
+
   scrollerMarginTotal = leftMargin + rightMargin;
 
   if (window.innerWidth < MIN_SCREEN_WIDTH) {
