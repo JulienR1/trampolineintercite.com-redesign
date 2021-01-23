@@ -23,6 +23,11 @@ main section > p {
   margin: 25px 0;
 }
 
+main section .activities .error-msg {
+  text-align: center;
+  margin: 25px 0;
+}
+
 main section .activities .activity {
   border-radius: 20px;
   position: relative;

@@ -27,6 +27,11 @@ main {
     }
 
     .activities {
+      .error-msg {
+        text-align: center;
+        margin: 25px 0;
+      }
+
       .activity {
         border-radius: 20px;
         position: relative;

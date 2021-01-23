@@ -40,9 +40,13 @@ class Activity extends Controller
     {
         $html = "";
         $activityArray = $isCompetitive ? self::$competitiveActivityData : self::$activityData;
+        if($activityArray !== null && sizeof($activityArray) > 0){
         foreach ($activityArray as $activity) {
             $html .= self::GetSingleActivityHtml($activity, $isCompetitive);
         }
+    }else{
+        $html = "<p class='error-msg lato light'>Aucune activité enregistrée pour la session en cours</p>";
+    }
         return $html;
     }
 

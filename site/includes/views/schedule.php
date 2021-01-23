@@ -1,4 +1,6 @@
 <div id="activity-filter">
+
+<?php if(static::$activities !== null && sizeof(static::$activities) > 0){ ?>
     <ul>
         <?php
 foreach (static::$activities as $activity) {
@@ -7,6 +9,8 @@ foreach (static::$activities as $activity) {
 ?>
         <li><button onclick="filterSchedule(-1)">Aucun filtre</button></li>
     </ul>
+<?php }?>
+
 </div>
 
 <div id="schedule"></div>
