@@ -7,7 +7,7 @@ function __autoload($class_name)
         require_once "includes/classes/" . $class_name . ".php";
     } else if (file_exists("includes/controllers/" . $class_name . ".php")) {
         require_once "includes/controllers/" . $class_name . ".php";
-    }else if(file_exists("includes/models/" . $class_name . ".php")){
+    } else if (file_exists("includes/models/" . $class_name . ".php")) {
         require_once "includes/models/" . $class_name . ".php";
     }
 }

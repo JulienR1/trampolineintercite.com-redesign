@@ -24,8 +24,8 @@ class Schedule extends Controller
     {
         parent::$info = new PageInfo();
         parent::$info->setTitle("Trampoline Intercité | Horaire");
-        parent::$info->setCss("loader/loader.css");
-        parent::$info->setJs("schedule/scheduleBuilder.js");
+        parent::$info->setCss("loader/loader.css", "schedule/schedule.css", "schedule/calendar.css");
+        parent::$info->setJs("schedule/scheduleBuilder.js", "schedule/scheduleFitter.js");
     }
 
     private static function GetScheduleForActivity($activityId)

@@ -1,0 +1,143 @@
+@import "../colors";
+@import "../variables";
+
+$cellHeight: 50px;
+$gridLineWeight: 1px;
+$timestampSpacing: 16px;
+$overlapReduction: 6%;
+
+tr,
+td {
+  border-spacing: 0;
+  padding: 0;
+}
+
+#schedule {
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+
+  table {
+    width: 100%;
+
+    thead {
+      display: flex;
+
+      &::before {
+        content: "12:00";
+        font-family: "Lato", Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        padding: 0 $timestampSpacing;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      tr {
+        display: flex;
+        width: 100%;
+
+        th {
+          flex: 1;
+          display: block;
+        }
+      }
+    }
+
+    tbody {
+      display: flex;
+      overflow-x: hidden;
+      padding-top: 0.6em;
+
+      #timestamps {
+        td {
+          display: block;
+          height: $cellHeight;
+          position: relative;
+          margin-right: calc(#{$timestampSpacing} / 2);
+
+          span {
+            display: block;
+            font-size: 13px;
+            transform: translateY(-0.6em);
+            background-color: #fff;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding-left: $timestampSpacing;
+            padding-right: calc(#{$timestampSpacing} / 2);
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            background-color: $lightGray;
+            height: $gridLineWeight;
+          }
+        }
+      }
+
+      tr:not(#timestamps) {
+        flex: 1;
+        border-left: $gridLineWeight solid $lightGray;
+        position: relative;
+        display: block;
+
+        td {
+          display: flex;
+          width: 100%;
+          height: 100%;
+
+          .activity {
+            position: absolute;
+            width: 100%;
+            top: calc((var(--startTime) - var(--calStart)) * #{$cellHeight});
+            height: calc((var(--endTime) - var(--startTime)) * #{$cellHeight});
+            padding: 4px 2%;
+            overflow-wrap: break-word;
+            overflow: hidden;
+            border: 2px solid rebeccapurple;
+
+            h4 {
+              font-size: 15px;
+              line-height: 0.85em;
+            }
+
+            span {
+              font-size: 12px;
+            }
+          }
+
+          .adjacent,
+          .overlap-1,
+          .overlap-2,
+          .overlap-3 {
+            display: block;
+          }
+
+          .adjacent {
+            position: relative;
+            flex: 1;
+          }
+
+          .overlap-1 {
+            width: calc(100% - #{$overlapReduction});
+            margin-left: $overlapReduction;
+          }
+
+          .overlap-2 {
+            width: calc(100% - 2 * #{$overlapReduction});
+            margin-left: 2 * $overlapReduction;
+          }
+
+          .overlap-3 {
+            width: calc(100% - 3 * #{$overlapReduction});
+            margin-left: 3 * $overlapReduction;
+          }
+        }
+      }
+    }
+  }
+}
