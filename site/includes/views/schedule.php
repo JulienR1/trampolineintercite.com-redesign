@@ -27,108 +27,30 @@ foreach (static::$activities as $activity) {
             </tr>
         </thead>
         <tbody>
-            <tr id="timestamps">
-                <!-- TODO: Generate timestmaps automagically according to min max activities -->
-                <?php
-for ($i = 0; $i < 12; $i++) {
-    echo '<td class="lato light"><span>' . ($i + 8) . ':00</span></td>';
-}
-?>
-            </tr>
-            <tr weekday="0">
-                <td>
-                    <div class="activity" style="--calStart:8;--startTime:8;--endTime:10.5;--color:#3e61a0;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre</h4>
-                        <span class="lato thin">8:00 à 10:30</span>
-                    </div>
-                    <div class="activity" style="--calStart:8;--startTime:19;--endTime:20;--color:#b54331;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre de lactivite</h4>
-                        <span class="lato thin">19:00 à 20:00</span>
-                    </div>
-                </td>
-            </tr>
-            <tr weekday="1">
-                <td>
-                    <div class="activity" style="--calStart:8;--startTime:12;--endTime:14;--color:#f00;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre</h4>
-                        <span class="lato thin">12:00 à 14:00</sp>
-                    </div>
-                    <div class="activity overlap-1" style="--calStart:8;--startTime:13;--endTime:15;--color:#f5a1c4;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre de lactivite</h4>
-                        <span class="lato thin">13:00 à 15:00</span>
-                    </div>
-                    <div class="activity overlap-2" style="--calStart:8;--startTime:14;--endTime:16;--color:#af2290;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre de lactivite</h4>
-                        <span class="lato thin">14:00 à 16:00</span>
-                    </div>
-                    <div class="activity overlap-3" style="--calStart:8;--startTime:15;--endTime:17;--color:#35b070;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre de lactivite</h4>
-                        <span class="lato thin">15:00 à 17:00</span>
-                    </div>
-                </td>
-            </tr>
-            <tr weekday="2">
-                <td>
-                    <div class="activity adjacent" style="--calStart:8;--startTime:8;--endTime:9.5;--color:#e0585f;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre</h4>
-                        <span class="lato thin">8:00 à 9:30</span>
-                    </div>
-                    <div class="activity adjacent" style="--calStart:8;--startTime:8;--endTime:9.5;--color:#770e2a;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre 2</h4>
-                        <span class="lato thin">8:00 à 9:30</span>
-                    </div>
-                </td>
-            </tr>
-            <tr weekday="3"></tr>
-            <tr weekday="4">
-                <td>
-                    <div class="activity adjacent" style="--calStart:8;--startTime:8;--endTime:9.5;--color:#915c3e">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre</h4>
-                        <span class="lato thin">8:00 à 9:30</span>
-                    </div>
-                    <div class="activity adjacent" style="--calStart:8;--startTime:8;--endTime:9.5;--color:#610540;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre beaucoup trop long</h4>
-                        <span class="lato thin">8:00 à 9:30</span>
-                    </div>
-                    <div class="activity" style="--calStart:8;--startTime:13;--endTime:15;--color:#56c0e6;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre plus bas</h4>
-                        <span class="lato thin">13:00 à 15:00</span>
-                    </div>
-                </td>
-            </tr>
-            <tr weekday="5">
-                <td>
-                    <div class="activity adjacent" style="--calStart:8;--startTime:10;--endTime:12;--color:#915c3e">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre</h4>
-                        <span class="lato thin">10:00 à 12:00</span>
-                    </div>
-                    <div class="activity adjacent" style="--calStart:8;--startTime:10;--endTime:12;--color:#610540;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre beaucoup trop long</h4>
-                        <span class="lato thin">10:00 à 12:00</span>
-                    </div>
-                    <div class="activity overlap-1" style="--calStart:8;--startTime:11;--endTime:12;--color:#56c0e6;">
-                        <div class="overlay"></div>
-                        <h4 class="lato medium">Titre plus bas</h4>
-                        <span class="lato thin">11:00 à 12:00</span>
-                    </div>
-                </td>
-            </tr>
-            <tr weekday="6"></tr>
+            <tr id="timestamps"></tr>
+            <tr weekday="0"><td></td></tr>
+            <tr weekday="1"><td></td></tr>
+            <tr weekday="2"><td></td></tr>
+            <tr weekday="3"><td></td></tr>
+            <tr weekday="4"><td></td></tr>
+            <tr weekday="5"><td></td></tr>
+            <tr weekday="6"><td></td></tr>
         </tbody>
     </table>
+
+    <div id="infos" class="bg-shadow">
+        <div class="left">
+            <h5 class="lato medium">Titre de l'activite</h5>
+            <p id="cost"><i class="fas fa-dollar-sign"></i><span class="lato thin">150.63$</span></p>
+            <p id="time"><i class="far fa-clock"></i><span class="lato thin">18h30 à 20h00</span></p>
+            <p id="dates"><i class="far fa-calendar-alt"></i><span class="lato thin">32 février au 18 mai</span></p>
+        </div>
+        <div class="right">
+            <p class="lato light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, illo?</p>
+            <p class="lato light">Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+            <p class="lato light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae architecto velit esse odio quos quo?</p>
+        </div>
+    </div>
 </div>
 
 <?php include "loader.php";?>

@@ -21,7 +21,7 @@ class mSchedule extends DatabaseHandler
 
     public function GetUnfilteredActivityData()
     {
-        $sql = "SELECT title, weekday, startTime, endTime, cost
+        $sql = "SELECT title, weekday, startTime, endTime, cost, color
                 FROM activitystats, activitytostats, activities
                 WHERE statsId = activitystats.id AND activities.id = activityId
                 ORDER BY weekday, startTime";
@@ -30,7 +30,7 @@ class mSchedule extends DatabaseHandler
 
     public function GetFilteredActivityData($activityId)
     {
-        $sql = "SELECT title, weekday, startTime, endTime, cost
+        $sql = "SELECT title, weekday, startTime, endTime, cost, color
                 FROM activitytostats, activitystats, activities
                 WHERE statsId = activitystats.id AND sessionId = GetCurrentSession() AND activities.id = activityId AND activityId = ?
                 ORDER BY weekday, startTime";

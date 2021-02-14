@@ -6,5 +6,6 @@ CREATE TABLE `activities`(
     `img` VARCHAR(40),
     `isCompetitive` BOOLEAN NOT NULL DEFAULT FALSE,
     `priority` INT NOT NULL DEFAULT -1,
+    `color` VARCHAR(6),
     PRIMARY KEY(`id`)
 );
