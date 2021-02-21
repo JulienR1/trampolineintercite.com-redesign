@@ -7,7 +7,10 @@ var loaderTimeout = null;
 var responsedReceived = false;
 var isFiltering = false;
 
+var calendartStart = 0,
+  calendarEnd = 0;
 let completeActivityData = [];
+let firstInfoContainerAnimation = true;
 
 document.addEventListener("DOMContentLoaded", filterSchedule(-1));
 
@@ -15,6 +18,7 @@ function filterSchedule(activityId) {
   if (isFiltering === true) return;
 
   isFiltering = true;
+  hideInfos();
   activateLoader();
   // hide current data
 
@@ -54,8 +58,8 @@ function generateHTML() {
   var weekdays = document.querySelectorAll("tr[weekday] td");
   weekdays.forEach((weekday) => (weekday.innerHTML = ""));
 
-  var calendartStart = Math.min(getEarliestActivity(), 24);
-  var calendarEnd = Math.max(getLatestActivity(), 0);
+  calendartStart = Math.min(getEarliestActivity(), 24);
+  calendarEnd = Math.max(getLatestActivity(), 0);
   createTimestamps(calendartStart, calendarEnd);
 
   completeActivityData.forEach((activityData) => {
@@ -79,16 +83,39 @@ function generateHTML() {
 }
 
 function onActivityClick(activityData) {
-  // calculate position
-  // make sure to not stay in frame
-  var x, y;
   infoContainer.setAttribute("visible", "");
   infoContainer.querySelector("h5").innerHTML = activityData.title;
   infoContainer.querySelector("#cost span").innerHTML = activityData.cost + "$";
   infoContainer.querySelector("#time span").innerHTML = trimTime(activityData.startTime) + " à " + trimTime(activityData.endTime);
   infoContainer.querySelector("#dates span").innerHTML = "IL FAUT CALCULER LES DATES A UN MOEMNT DONNE";
   infoContainer.querySelector(".right").innerHTML = "FileHelper::ReadFileAsParagraphs()";
-  infoContainer.style.transform = `translate(${x}% ${y}%)`;
+
+  var yPercent = (parseTime(activityData.startTime) - calendartStart) / (calendarEnd - calendartStart);
+  var containerCoveragePercent = infoContainer.offsetHeight / document.querySelector("tbody").offsetHeight;
+  var y = Math.min(yPercent, 1 - containerCoveragePercent);
+
+  var offsetPercent = document.getElementById("timestamps").clientWidth / document.querySelector("tbody").clientWidth;
+  var cellPercent = document.querySelector("tr[weekday]").clientWidth / document.querySelector("tbody").clientWidth;
+  var xPercent = offsetPercent + (parseInt(activityData.weekday) + 1) * cellPercent;
+  var containerCoveragePercent = infoContainer.clientWidth / document.querySelector("tbody").clientWidth;
+  var x = xPercent < 1 - containerCoveragePercent ? xPercent : xPercent - containerCoveragePercent - cellPercent;
+
+  if (!firstInfoContainerAnimation) {
+    infoContainer.style.transition = "all 0.275s ease-in-out";
+  }
+
+  infoContainer.style.top = `${y * 100}%`;
+  infoContainer.style.left = `${x * 100}%`;
+  infoContainer.style.display = "";
+  firstInfoContainerAnimation = false;
+}
+
+function hideInfos() {
+  infoContainer.removeAttribute("visible");
+  firstInfoContainerAnimation = true;
+  setTimeout(() => {
+    infoContainer.style = "";
+  }, 275);
 }
 
 function createTimestamps(earliest, latest) {
