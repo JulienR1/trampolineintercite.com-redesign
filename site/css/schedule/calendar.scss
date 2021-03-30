@@ -102,6 +102,7 @@ td {
             overflow: hidden;
             background-color: var(--color);
             border-radius: 4px;
+            user-select: none;
             cursor: pointer;
 
             &::after {

@@ -1,5 +1,7 @@
 const VISIBLE_ATTR = "visible";
-const MIN_DELAY_MS = 25;
+const MIN_DELAY_MS = 100;
+
+let filterButtons = document.querySelectorAll("#activity-filter button, #activity-filter input");
 
 let infoContainer = document.getElementById("infos");
 let loader = document.querySelector(".loader");
@@ -12,13 +14,27 @@ var calendartStart = 0,
 let completeActivityData = [];
 let firstInfoContainerAnimation = true;
 
-document.addEventListener("DOMContentLoaded", filterSchedule(-1));
+document.addEventListener("DOMContentLoaded", () => {
+  let params = new URLSearchParams(window.location.search);
+  var filterId = parseInt(params.get("activity"));
+
+  filterButtons.forEach((button) => {
+    if (button.hasAttribute("activityid") && button.getAttribute("activityid") == filterId) {
+      button.checked = true;
+      button.setAttribute("selected", "");
+    }
+  });
+
+  filterSchedule(filterId ? filterId : -1);
+});
 
 function filterSchedule(activityId) {
   if (isFiltering === true) return;
+  if (validateFilterSelection(activityId)) return;
 
   isFiltering = true;
-  hideInfos();
+  updateFilterButtons(activityId);
+  hideInfos(); // TODO: Ajouter delai pour laisser le temps aux animations de fermeture de seffectuer avant de charger les nouvelles donnees
   activateLoader();
   // hide current data
 
@@ -29,8 +45,60 @@ function filterSchedule(activityId) {
       onScheduleLoad(JSON.parse(xhttp.responseText));
     }
   };
-  xhttp.open("GET", "schedule?filterActivity=" + activityId);
+
+  xhttp.open("GET", "schedule?" + formatArrayToPhpString(getActivatedIds(), "activityIds"));
   xhttp.send();
+}
+
+function getActivatedIds() {
+  var ids = [];
+  filterButtons.forEach((button) => {
+    if (button.checked) {
+      ids.push(button.getAttribute("activityid"));
+    }
+  });
+  if (ids.length === 0) {
+    ids.push("-1");
+  }
+  return ids;
+}
+
+function formatArrayToPhpString(arr, arrName) {
+  var str = "";
+  for (var i = 0; i < arr.length; i++) {
+    str += arrName + "[]=" + arr[i];
+    if (i < arr.length - 1) str += "&";
+  }
+  return str;
+}
+
+function validateFilterSelection(activityId) {
+  if (activityId !== -1) {
+    var checkedCount = 0;
+    filterButtons.forEach((button) => {
+      if (button.checked) checkedCount++;
+    });
+    if (checkedCount === 0) {
+      filterSchedule(-1);
+      return true;
+    }
+  }
+  return false;
+}
+
+function updateFilterButtons(activityId) {
+  filterButtons.forEach((button) => {
+    if (button.hasAttribute("activityid")) {
+      if ((button.checked && activityId != -1) || (button.getAttribute("activityid") == -1 && activityId == -1)) {
+        button.setAttribute("selected", "");
+      } else {
+        button.removeAttribute("selected");
+        button.checked = false;
+      }
+    } else {
+      console.log("Bouton dans filtre qui ne contient pas dactivite.");
+    }
+  });
 }
 
 function onScheduleLoad(scheduleJSON) {
@@ -77,45 +145,9 @@ function generateHTML() {
     activityHTML += `<span class="lato thin">${trimTime(activityData.startTime)} à ${trimTime(activityData.endTime)}</span>`;
     activityElement.innerHTML = activityHTML;
 
-    activityElement.addEventListener("click", () => onActivityClick(activityData));
+    activityElement.addEventListener("click", (e) => onActivityClick(e, activityData));
     currentWeekday.appendChild(activityElement);
   });
-}
-
-function onActivityClick(activityData) {
-  infoContainer.setAttribute("visible", "");
-  infoContainer.querySelector("h5").innerHTML = activityData.title;
-  infoContainer.querySelector("#cost span").innerHTML = activityData.cost + "$";
-  infoContainer.querySelector("#time span").innerHTML = trimTime(activityData.startTime) + " à " + trimTime(activityData.endTime);
-  infoContainer.querySelector("#dates span").innerHTML = "IL FAUT CALCULER LES DATES A UN MOEMNT DONNE";
-  infoContainer.querySelector(".right").innerHTML = "FileHelper::ReadFileAsParagraphs()";
-
-  var yPercent = (parseTime(activityData.startTime) - calendartStart) / (calendarEnd - calendartStart);
-  var containerCoveragePercent = infoContainer.offsetHeight / document.querySelector("tbody").offsetHeight;
-  var y = Math.min(yPercent, 1 - containerCoveragePercent);
-
-  var offsetPercent = document.getElementById("timestamps").clientWidth / document.querySelector("tbody").clientWidth;
-  var cellPercent = document.querySelector("tr[weekday]").clientWidth / document.querySelector("tbody").clientWidth;
-  var xPercent = offsetPercent + (parseInt(activityData.weekday) + 1) * cellPercent;
-  var containerCoveragePercent = infoContainer.clientWidth / document.querySelector("tbody").clientWidth;
-  var x = xPercent < 1 - containerCoveragePercent ? xPercent : xPercent - containerCoveragePercent - cellPercent;
-
-  if (!firstInfoContainerAnimation) {
-    infoContainer.style.transition = "all 0.275s ease-in-out";
-  }
-
-  infoContainer.style.top = `${y * 100}%`;
-  infoContainer.style.left = `${x * 100}%`;
-  infoContainer.style.display = "";
-  firstInfoContainerAnimation = false;
-}
-
-function hideInfos() {
-  infoContainer.removeAttribute("visible");
-  firstInfoContainerAnimation = true;
-  setTimeout(() => {
-    infoContainer.style = "";
-  }, 275);
 }
 
 function createTimestamps(earliest, latest) {
@@ -133,7 +165,7 @@ function createTimestamps(earliest, latest) {
 }
 
 function getEarliestActivity() {
-  var earliest = 24;
+  var earliest = 8;
   completeActivityData.forEach((data) => {
     var startTime = parseTime(data.startTime);
     if (startTime < earliest) {
@@ -144,7 +176,7 @@ function getEarliestActivity() {
 }
 
 function getLatestActivity() {
-  var latest = 0;
+  var latest = 20;
   completeActivityData.forEach((data) => {
     var endTime = parseTime(data.endTime);
     if (endTime > latest) {

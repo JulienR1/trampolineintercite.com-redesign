@@ -1,14 +1,21 @@
 <div id="activity-filter">
 
     <?php if (static::$activities !== null && sizeof(static::$activities) > 0) {?>
-    <ul>
-        <?php
+    <form autocomplete="off">
+        <ul>
+            <?php
 foreach (static::$activities as $activity) {
-    echo '<li><button onclick="filterSchedule(' . $activity["id"] . ')">' . $activity["title"] . "</button></li>";
+    echo '<li><input type="checkbox" id="activityFilter' . $activity["id"] . '" activityid="' . $activity["id"] . '" onclick="filterSchedule(' . $activity["id"] . ')"></input><label for="activityFilter' . $activity['id'] . '"><span></span><p class="lato medium">' . $activity["title"] . "</p></label></li>";
 }
     ?>
-        <li><button onclick="filterSchedule(-1)">Aucun filtre</button></li>
-    </ul>
+            <li>
+                <button type="button" id="activityFilter-1" activityid="-1" onclick="filterSchedule(-1)">
+                    <span></span>
+                    <p class="lato medium">Aucun filtre</p>
+                </button>
+            </li>
+        </ul>
+    </form>
     <?php }?>
 
 </div>
@@ -28,13 +35,27 @@ foreach (static::$activities as $activity) {
         </thead>
         <tbody>
             <tr id="timestamps"></tr>
-            <tr weekday="0"><td></td></tr>
-            <tr weekday="1"><td></td></tr>
-            <tr weekday="2"><td></td></tr>
-            <tr weekday="3"><td></td></tr>
-            <tr weekday="4"><td></td></tr>
-            <tr weekday="5"><td></td></tr>
-            <tr weekday="6"><td></td></tr>
+            <tr weekday="0">
+                <td></td>
+            </tr>
+            <tr weekday="1">
+                <td></td>
+            </tr>
+            <tr weekday="2">
+                <td></td>
+            </tr>
+            <tr weekday="3">
+                <td></td>
+            </tr>
+            <tr weekday="4">
+                <td></td>
+            </tr>
+            <tr weekday="5">
+                <td></td>
+            </tr>
+            <tr weekday="6">
+                <td></td>
+            </tr>
         </tbody>
     </table>
 

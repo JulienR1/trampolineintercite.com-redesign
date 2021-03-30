@@ -11,12 +11,14 @@ class mSchedule extends DatabaseHandler
         return parent::query($sql);
     }
 
-    public function IsActivityValid($activityId)
+    public function IsActivityValid($activityIds)
     {
+        $strTemplates = str_repeat("?, ", sizeof($activityIds) - 1) . "?";
         $sql = "SELECT COUNT(activityId) > 0 AS isValid
                 FROM activitytostats, activitystats
-                WHERE statsId = activitystats.id AND sessionId = GetCurrentSession() AND activityId = ?";
-        return parent::query($sql, $activityId);
+                WHERE statsId = activitystats.id AND sessionId = GetCurrentSession() AND activityId IN (" . $strTemplates . ")";
+
+        return parent::query($sql, ...$activityIds);
     }
 
     public function GetUnfilteredActivityData()
@@ -28,13 +30,15 @@ class mSchedule extends DatabaseHandler
         return parent::query($sql);
     }
 
-    public function GetFilteredActivityData($activityId)
+    public function GetFilteredActivityData($activityIds)
     {
+        $strTemplates = str_repeat("?, ", sizeof($activityIds) - 1) . "?";
         $sql = "SELECT title, weekday, startTime, endTime, cost, color
                 FROM activitytostats, activitystats, activities
-                WHERE statsId = activitystats.id AND sessionId = GetCurrentSession() AND activities.id = activityId AND activityId = ?
+                WHERE statsId = activitystats.id AND sessionId = GetCurrentSession() AND activities.id = activityId AND activityId IN (" . $strTemplates . ")
                 ORDER BY weekday, startTime";
-        return parent::query($sql, $activityId);
+
+        return parent::query($sql, ...$activityIds);
     }
 
 }
