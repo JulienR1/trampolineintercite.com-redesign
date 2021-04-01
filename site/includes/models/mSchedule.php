@@ -23,7 +23,7 @@ class mSchedule extends DatabaseHandler
 
     public function GetUnfilteredActivityData()
     {
-        $sql = "SELECT title, weekday, startTime, endTime, cost, color
+        $sql = "SELECT title, weekday, startTime, endTime, cost, color, activities.desc, GetWeekCount(weekday, sessionId) AS lessonCount
                 FROM activitystats, activitytostats, activities
                 WHERE statsId = activitystats.id AND activities.id = activityId
                 ORDER BY weekday, startTime";
@@ -33,7 +33,7 @@ class mSchedule extends DatabaseHandler
     public function GetFilteredActivityData($activityIds)
     {
         $strTemplates = str_repeat("?, ", sizeof($activityIds) - 1) . "?";
-        $sql = "SELECT title, weekday, startTime, endTime, cost, color
+        $sql = "SELECT title, weekday, startTime, endTime, cost, color, activities.desc, GetWeekCount(weekday, sessionId) AS lessonCount
                 FROM activitytostats, activitystats, activities
                 WHERE statsId = activitystats.id AND sessionId = GetCurrentSession() AND activities.id = activityId AND activityId IN (" . $strTemplates . ")
                 ORDER BY weekday, startTime";

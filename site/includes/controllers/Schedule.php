@@ -48,6 +48,7 @@ class Schedule extends Controller
     {
         $activityData = self::$model->GetUnfilteredActivityData();
         $activityData = self::ApplyRenderingFilters($activityData);
+        $activityData = self::InsertActivityDescription($activityData);
         return json_encode($activityData);
     }
 
@@ -55,6 +56,7 @@ class Schedule extends Controller
     {
         $activityData = self::$model->GetFilteredActivityData($activityIds);
         $activityData = self::ApplyRenderingFilters($activityData);
+        $activityData = self::InsertActivityDescription($activityData);
         return json_encode($activityData);
     }
 
@@ -96,6 +98,14 @@ class Schedule extends Controller
             $weekdayTimePairs["end"][] = strtotime($activities[$i]["endTime"]);
         }
         return $activities;
+    }
+
+    private static function InsertActivityDescription($activityData)
+    {
+        for ($i = 0; $i < sizeof($activityData); $i++) {
+            $activityData[$i]["desc"] = FileHelper::ReadFileAsParagraphs("files/activities/" . $activityData[$i]["desc"], "lato thin");
+        }
+        return $activityData;
     }
 
 }

@@ -6,8 +6,8 @@ function onActivityClick(e, activityData) {
   infoContainer.querySelector("h5").innerHTML = activityData.title;
   infoContainer.querySelector("#cost span").innerHTML = activityData.cost + "$";
   infoContainer.querySelector("#time span").innerHTML = trimTime(activityData.startTime) + " à " + trimTime(activityData.endTime);
-  infoContainer.querySelector("#dates span").innerHTML = "IL FAUT CALCULER LES DATES A UN MOEMNT DONNE";
-  infoContainer.querySelector(".right").innerHTML = "FileHelper::ReadFileAsParagraphs()";
+  infoContainer.querySelector("#dates span").innerHTML = activityData.lessonCount + " cours";
+  infoContainer.querySelector(".right").innerHTML = activityData.desc;
 
   var yPercent = (parseTime(activityData.startTime) - calendartStart) / (calendarEnd - calendartStart);
   var containerCoveragePercent = infoContainer.offsetHeight / document.querySelector("tbody").offsetHeight;
