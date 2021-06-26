@@ -1,5 +1,6 @@
 const VISIBLE_ATTR = "visible";
 const MIN_DELAY_MS = 100;
+const WEEKDAYS = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 
 let filterButtons = document.querySelectorAll("#activity-filter button, #activity-filter input");
 
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function filterSchedule(activityId) {
   if (isFiltering === true) return;
   if (validateFilterSelection(activityId)) return;
+  // if (infoContainer === null) return;
 
   isFiltering = true;
   updateFilterButtons(activityId);
@@ -41,7 +43,6 @@ function filterSchedule(activityId) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(xhttp.responseText);
       onScheduleLoad(JSON.parse(xhttp.responseText));
     }
   };
@@ -102,6 +103,7 @@ function updateFilterButtons(activityId) {
 }
 
 function onScheduleLoad(scheduleJSON) {
+  console.log(scheduleJSON);
   completeActivityData = scheduleJSON;
   generateHTML();
   responsedReceived = true;
@@ -142,10 +144,18 @@ function generateHTML() {
 
     activityHTML = `<div class="overlay"></div>`;
     activityHTML += `<h4 class="lato medium">${activityData.title}</h4>`;
+    activityHTML += `<span class="lato thin partial_render"></i>${WEEKDAYS[activityData.weekday]}</span>`;
     activityHTML += `<span class="lato thin">${trimTime(activityData.startTime)} à ${trimTime(activityData.endTime)}</span>`;
+    activityHTML += `<span class="lato thin partial_render"></i>${activityData.cost}$</span>`;
+    activityHTML += `<span class="lato thin partial_render">${activityData.lessonCount} cours</span>`;
     activityElement.innerHTML = activityHTML;
 
-    activityElement.addEventListener("click", (e) => onActivityClick(e, activityData));
+    // activityElement.addEventListener("click", (e) => onActivityClick(e, activityData));
+    // activityElement.addEventListener("click", (e) => {
+    //   console.log(e.target.parentNode);
+    //   if (e.target.parentNode.classList.contains("selected")) e.target.parentNode.classList.remove("selected");
+    //   else e.target.parentNode.classList += " selected ";
+    // });
     currentWeekday.appendChild(activityElement);
   });
 }

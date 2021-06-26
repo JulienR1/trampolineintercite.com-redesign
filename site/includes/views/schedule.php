@@ -59,7 +59,7 @@ foreach (static::$activities as $activity) {
         </tbody>
     </table>
 
-    <div id="infos" class="bg-shadow">
+    <!-- <div id="infos" class="bg-shadow">
         <div class="left">
             <h5 class="lato medium">Titre de l'activite</h5>
             <p id="cost"><i class="fas fa-dollar-sign"></i><span class="lato thin">150.63$</span></p>
@@ -71,7 +71,7 @@ foreach (static::$activities as $activity) {
             <p class="lato light">Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
             <p class="lato light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae architecto velit esse odio quos quo?</p>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <?php include "loader.php";?>

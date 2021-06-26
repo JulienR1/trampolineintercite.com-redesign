@@ -21,6 +21,10 @@ class Schedule extends Controller
         self::$activities = self::$model->GetAllActivities();
 
         self::CreateInfo();
+        if (self::$activities == null) {
+            $viewName = "scheduleEmpty";
+        }
+
         parent::CreateView($viewName);
     }
 

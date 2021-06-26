@@ -1,6 +1,14 @@
 @import "../colors";
 $buttonBulletSize: 9px;
 
+.empty-schedule {
+  display: block;
+  width: 80%;
+  text-align: center;
+  margin: 0 10%;
+  margin-top: 20%;
+}
+
 #activity-filter {
   display: block;
   position: relative;

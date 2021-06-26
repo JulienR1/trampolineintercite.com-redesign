@@ -10,6 +10,69 @@ td {
   margin: 0 2.5%;
   overflow-y: auto;
   position: relative;
+  /*
+
+  #infos {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: #fff;
+    width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility $shortMediumDelay ease-in-out, opacity $shortMediumDelay ease-in-out;
+    user-select: none;
+
+    .left {
+      flex: 2;
+      margin-bottom: 15px;
+
+      h5 {
+        background-color: $hotRed;
+        padding: 8px 20px;
+        padding-right: 25px;
+        font-size: 15px;
+        border-bottom-right-radius: 10px;
+        width: fit-content;
+      }
+
+      p {
+        padding: 10px;
+        padding-left: 15px;
+        padding-bottom: 0;
+
+        i {
+          font-size: 14px;
+          width: 25px;
+          text-align: center;
+        }
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .right {
+      flex: 3;
+      padding: 15px;
+      padding-left: 0;
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    &[visible] {
+      opacity: 1;
+      visibility: visible;
+      user-select: initial;
+    }
+  }*/
 }
 
 #schedule table {
@@ -98,6 +161,7 @@ td {
   display: flex;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 #schedule table tbody tr:not(#timestamps) td .activity {
@@ -115,6 +179,11 @@ td {
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
+  min-height: 0;
+  -webkit-transition: min-height 0.35s ease, -webkit-flex-shrink 0.35s ease;
+  transition: min-height 0.35s ease, -webkit-flex-shrink 0.35s ease;
+  transition: min-height 0.35s ease, flex-shrink 0.35s ease;
+  transition: min-height 0.35s ease, flex-shrink 0.35s ease, -webkit-flex-shrink 0.35s ease, -ms-flex-negative 0.35s ease;
 }
 
 #schedule table tbody tr:not(#timestamps) td .activity::after {
@@ -147,6 +216,12 @@ td {
   transition: opacity 0.15s ease;
 }
 
+#schedule table tbody tr:not(#timestamps) td .activity h4,
+#schedule table tbody tr:not(#timestamps) td .activity span {
+  -webkit-transition: font-size 0.35s ease;
+  transition: font-size 0.35s ease;
+}
+
 #schedule table tbody tr:not(#timestamps) td .activity h4 {
   font-size: 15px;
   line-height: 0.85em;
@@ -154,15 +229,49 @@ td {
   position: relative;
 }
 
+#schedule table tbody tr:not(#timestamps) td .activity .partial_render {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  max-height: 0;
+}
+
 #schedule table tbody tr:not(#timestamps) td .activity span {
   font-size: 12px;
   z-index: 1;
   position: relative;
+  display: block;
 }
 
 #schedule table tbody tr:not(#timestamps) td .activity:hover .overlay, #schedule table tbody tr:not(#timestamps) td .activity:active .overlay {
   opacity: 0.1;
   visibility: visible;
+}
+
+#schedule table tbody tr:not(#timestamps) td .activity:hover, #schedule table tbody tr:not(#timestamps) td .activity:focus {
+  z-index: 5;
+  min-height: calc(50px * 2);
+}
+
+#schedule table tbody tr:not(#timestamps) td .activity:hover .partial_render, #schedule table tbody tr:not(#timestamps) td .activity:focus .partial_render {
+  visibility: visible;
+  opacity: 1;
+  max-height: 1em;
+}
+
+#schedule table tbody tr:not(#timestamps) td .activity:hover.adjacent, #schedule table tbody tr:not(#timestamps) td .activity:focus.adjacent {
+  -ms-flex-negative: 0.25;
+      flex-shrink: 0.25;
+  left: 0;
+}
+
+#schedule table tbody tr:not(#timestamps) td .activity:hover h4, #schedule table tbody tr:not(#timestamps) td .activity:focus h4 {
+  font-size: 17px;
+}
+
+#schedule table tbody tr:not(#timestamps) td .activity:hover span, #schedule table tbody tr:not(#timestamps) td .activity:focus span {
+  font-size: 14px;
 }
 
 #schedule table tbody tr:not(#timestamps) td .adjacent,
@@ -176,9 +285,11 @@ td {
 
 #schedule table tbody tr:not(#timestamps) td .adjacent {
   position: relative;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
 }
 
 #schedule table tbody tr:not(#timestamps) td .overlap-1 {
@@ -194,82 +305,5 @@ td {
 #schedule table tbody tr:not(#timestamps) td .overlap-3 {
   width: calc(100% - 3 * 6%);
   margin-left: 18%;
-}
-
-#schedule #infos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  background-color: #fff;
-  width: 500px;
-  border-radius: 10px;
-  overflow: hidden;
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: visibility 0.35s ease-in-out, opacity 0.35s ease-in-out;
-  transition: visibility 0.35s ease-in-out, opacity 0.35s ease-in-out;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-#schedule #infos .left {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
-  margin-bottom: 15px;
-}
-
-#schedule #infos .left h5 {
-  background-color: #f71f44;
-  padding: 8px 20px;
-  padding-right: 25px;
-  font-size: 15px;
-  border-bottom-right-radius: 10px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-#schedule #infos .left p {
-  padding: 10px;
-  padding-left: 15px;
-  padding-bottom: 0;
-}
-
-#schedule #infos .left p i {
-  font-size: 14px;
-  width: 25px;
-  text-align: center;
-}
-
-#schedule #infos .left p span {
-  font-size: 14px;
-}
-
-#schedule #infos .right {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
-  padding: 15px;
-  padding-left: 0;
-}
-
-#schedule #infos .right p {
-  font-size: 14px;
-}
-
-#schedule #infos[visible] {
-  opacity: 1;
-  visibility: visible;
-  -webkit-user-select: initial;
-     -moz-user-select: initial;
-      -ms-user-select: initial;
-          user-select: initial;
 }
 /*# sourceMappingURL=calendar.css.map */

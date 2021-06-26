@@ -1,4 +1,4 @@
-document.body.addEventListener("click", hideInfos);
+//document.body.addEventListener("click", hideInfos);
 
 function onActivityClick(e, activityData) {
   e.stopPropagation();
@@ -30,9 +30,9 @@ function onActivityClick(e, activityData) {
 }
 
 function hideInfos() {
-  infoContainer.removeAttribute("visible");
-  firstInfoContainerAnimation = true;
-  setTimeout(() => {
-    infoContainer.style = "";
-  }, 275);
+  // infoContainer.removeAttribute("visible");
+  // firstInfoContainerAnimation = true;
+  // setTimeout(() => {
+  //   infoContainer.style = "";
+  // }, 275);
 }
